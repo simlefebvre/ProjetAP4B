@@ -5,6 +5,10 @@ import java.util.LinkedList;
 
 import Model.Utilisateur.Utilisateur;
 
+/**
+ * Un agenda représente l'ensemble des réservations d'un matériel.
+ * 
+ */
 public class Agenda {
 	//Attributs
 	private LinkedList<Reservation> occupation;
@@ -52,13 +56,16 @@ public class Agenda {
 	/**
 	 * recupere à partir d'une reservation son index dans la liste
 	 * @param r la reservation dont on cherche l'index (ou une reservation possédant les mêmes paramatre
-	 * @return l'index de  la reservation
+	 * @return l'index de la reservation <br> -1 si non trouvé
 	 */
 	public int getIndex(Reservation r){
-		if(r.equals(r)) {
-			
-			//TODO verification
+		int i = 0;
+		for(Reservation ri : occupation) {
+			if(r.equals(occupation.get(i))) {
+				return i;
+			}
 		}
+		return -1;
 	}
 	
 

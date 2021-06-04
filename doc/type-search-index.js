@@ -1,1 +1,1 @@
-typeSearchIndex = [{"l":"All Classes","u":"allclasses-index.html"},{"p":"Model.Agenda","l":"Reservation"}];updateSearchResults();
+typeSearchIndex = [{"p":"Model.Agenda","l":"Agenda"},{"l":"All Classes","u":"allclasses-index.html"}];updateSearchResults();

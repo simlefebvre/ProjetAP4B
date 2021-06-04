@@ -5,18 +5,18 @@ import java.util.Date;
 import Model.Utilisateur.Utilisateur;
 /**
  * Représente un crénaux de reservation.<br>
- * Il est composer de : <ul><li>d'une date de début</li> <li>une date de fin </li><li>d'un utilisateur qui as effectuer la reservation </li>
+ * Il est composer de : 
+ * <ul><li>d'une date de début</li> 
+ * <li>une date de fin </li>
+ * <li>d'un utilisateur qui as effectuer la reservation </li>
  */
 public class Reservation{
-	
-	
-	
+
 	//Attributs
 	private Date debut;
 	private Date fin;
 	private Utilisateur par;
 	
-	//TODO redefinir le equals de reservation
 	//Constructeur
 	public Reservation(Date debut, Date fin, Utilisateur par) {
 		this.debut=debut;
@@ -50,6 +50,19 @@ public class Reservation{
 		this.par=par;
 	}
 	
+	@Override
+	public boolean equals(Object o) {
+		if(o instanceof Reservation) {
+			Reservation b = (Reservation) o;
+			if(b.getDebut() == getDebut() && b.getFin() == getFin() && b.getPar() == getPar()) {
+				return true;
+			}else {
+				return false;
+			}
+		}else {
+			return false;
+		}
+	}
 	
 	//Autres méthodes
 	

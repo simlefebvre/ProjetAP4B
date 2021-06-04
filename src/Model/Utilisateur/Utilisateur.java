@@ -44,4 +44,6 @@ public class Utilisateur {
 		}
 		return false;
 	}
+	
+	//TODO surcharger opérateur d'égalité
 }
