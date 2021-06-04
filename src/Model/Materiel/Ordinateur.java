@@ -2,6 +2,14 @@ package Model.Materiel;
 
 import Model.Agenda.Agenda;
 
+
+/**
+ * Un ordinateur est un matériel. 
+ * <br>Il peut être fixe et est caractérisé par sa capacité.
+ *
+ */
+
+
 public class Ordinateur extends Materiel{
 	//Attributs
 	private boolean fixe;

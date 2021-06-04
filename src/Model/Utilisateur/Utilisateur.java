@@ -1,5 +1,9 @@
 package Model.Utilisateur;
 
+/**
+ * Un utilisateur est une personne qui utilise l'application
+ * 
+ */
 public class Utilisateur {
 	//Attributs
 	private String prenom;
