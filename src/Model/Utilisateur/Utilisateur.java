@@ -44,6 +44,18 @@ public class Utilisateur {
 		}
 		return false;
 	}
-	
-	//TODO surcharger opérateur d'égalité
+
+	@Override
+	public boolean equals(Object o) {
+		if(o instanceof Utilisateur) {
+			Utilisateur b = (Utilisateur) o;
+			if(b.getPrenom() == getPrenom() && b.getNom() == getNom() && b.getMail() == getMail()) {
+				return true;
+			}else {
+				return false;
+			}
+		}else {
+			return false;
+		}
+	}
 }

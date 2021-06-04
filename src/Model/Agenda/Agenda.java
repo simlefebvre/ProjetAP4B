@@ -61,7 +61,7 @@ public class Agenda {
 	public int getIndex(Reservation r){
 		int i = 0;
 		for(Reservation ri : occupation) {
-			if(r.equals(occupation.get(i))) {
+			if(r.equals(ri)){
 				return i;
 			}
 		}

@@ -63,7 +63,6 @@ public class Reservation{
 			return false;
 		}
 	}
-	
 	//Autres méthodes
 	
 }

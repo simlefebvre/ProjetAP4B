@@ -9,7 +9,7 @@ public class Ordinateur extends Materiel{
 	
 	//Constructeur
 	public Ordinateur(int id, String etat, String salle, Agenda reservations, boolean fixe, int capacite) {
-		super(id, etat, salle, reservations);
+		super(id, etat, salle);
 		this.fixe=fixe;
 		this.capacite=capacite;
 	}

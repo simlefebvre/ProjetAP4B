@@ -4,10 +4,10 @@ import Model.Agenda.Agenda;
 
 public class Materiel {
 	//Attributs
-	private int identifiant;
-	private String etat;
-	private String salle;
-	private Agenda reservations;
+	protected int identifiant;
+	protected String etat;
+	protected String salle;
+	protected Agenda reservations;
 	
 	//Constructeur
 	public Materiel(int id, String etat, String salle) {
@@ -43,5 +43,7 @@ public class Materiel {
 	}
 
 	//TODO Est ce qu'il en faut pour l'agenda ??
+	
+	
 }
 
