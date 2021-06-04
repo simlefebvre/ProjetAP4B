@@ -7,7 +7,7 @@ public class Ordinateur extends Materiel{
 	
 	//Constructeur
 	public Ordinateur(boolean fixe, int capacite) {
-		super();//On va dire que j'ai modifie ça
+		super();
 		this.fixe=fixe;
 		this.capacite=capacite;
 		//en fait non
