@@ -1,4 +1,4 @@
-package Utilisateur;
+package Model.Utilisateur;
 
 public class Personnel extends Utilisateur{
 

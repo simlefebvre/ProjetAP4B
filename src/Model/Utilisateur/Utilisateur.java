@@ -1,4 +1,4 @@
-package Utilisateur;
+package Model.Utilisateur;
 
 public class Utilisateur {
 	//Attributs

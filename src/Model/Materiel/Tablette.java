@@ -1,4 +1,4 @@
-package Materiel;
+package Model.Materiel;
 
 public class Tablette {
 

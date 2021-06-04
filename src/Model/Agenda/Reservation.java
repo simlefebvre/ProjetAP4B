@@ -1,7 +1,8 @@
-package Agenda;
+package Model.Agenda;
 
-import Utilisateur.Utilisateur;
 import java.util.Date;
+
+import Model.Utilisateur.Utilisateur;
 
 public class Reservation{
 	//Attributs

@@ -1,6 +1,6 @@
-package Materiel;
+package Model.Materiel;
 
-import Agenda.Agenda;
+import Model.Agenda.Agenda;
 
 public class Materiel {
 	//Attributs

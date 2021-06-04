@@ -1,9 +1,9 @@
-package Agenda;
+package Model.Agenda;
 
 import java.util.Date;
 import java.util.LinkedList;
 
-import Utilisateur.Utilisateur;
+import Model.Utilisateur.Utilisateur;
 
 public class Agenda {
 	//Attributs
