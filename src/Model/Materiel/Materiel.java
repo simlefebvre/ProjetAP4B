@@ -44,6 +44,7 @@ public class Materiel {
 
 	//TODO Est ce qu'il en faut pour l'agenda ??
 	
+	//TODO surcharger le equals
 	
 }
 
