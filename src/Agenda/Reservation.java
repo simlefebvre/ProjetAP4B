@@ -9,7 +9,7 @@ public class Reservation{
 	private Date fin;
 	private Utilisateur par;
 	
-	
+	//TODO redefinir le equals de reservation
 	//Constructeur
 	public Reservation(Date debut, Date fin, Utilisateur par) {
 		this.debut=debut;
