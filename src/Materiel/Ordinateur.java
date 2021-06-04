@@ -10,7 +10,6 @@ public class Ordinateur extends Materiel{
 		super();
 		this.fixe=fixe;
 		this.capacite=capacite;
-		//en fait non
 	}
 	
 	//Méthodes de récupération et de modification des attributs
