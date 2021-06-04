@@ -10,17 +10,16 @@ public class Materiel {
 	private Agenda reservations;
 	
 	//Constructeur
-	public Materiel(int id, String etat, String salle, Agenda reservations) {
+	public Materiel(int id, String etat, String salle) {
 		this.identifiant=id;
 		this.etat=etat;
 		this.salle=salle;
-		//Est ce qu'on crée l'agenda ici et du coup on passe pas reservations en parametre ??
+		this.reservations = new Agenda();
 	}
 	
 	//Méthodes de récupération et de modification des attributs
 	public int getID() {
 		return this.identifiant;
-		//coucou
 	}
 
 	public void setID(int id) {
@@ -43,6 +42,6 @@ public class Materiel {
 		this.salle = salle;
 	}
 
-	//Est ce qu'il en faut pour l'agenda ??
+	//TODO Est ce qu'il en faut pour l'agenda ??
 }
 
