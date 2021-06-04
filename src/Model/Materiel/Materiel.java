@@ -47,7 +47,20 @@ public class Materiel {
 
 	//TODO Est ce qu'il en faut pour l'agenda ??
 	
-	//TODO surcharger le equals
+	@Override
+	public boolean equals(Object o) {
+		if(o instanceof Materiel) {
+			Materiel b = (Materiel) o;
+			if(b.getID() == getID()) {
+				return true;
+			}else {
+				return false;
+			}
+			
+		}else {
+			return false;
+		}
+	}
 	
 }
 
