@@ -5,10 +5,11 @@ import java.util.Date;
 import Model.Utilisateur.Utilisateur;
 /**
  * Représente un crénaux de reservation.<br>
- * Il est composer de : 
- * <ul><li>d'une date de début</li> 
- * <li>une date de fin </li>
- * <li>d'un utilisateur qui as effectuer la reservation </li>
+ * Il est composé : 
+ * <ul><li>d'une date de début,</li> 
+ * <li>d'une date de fin, </li>
+ * <li>d'un utilisateur qui a effectué la reservation. </li>
+ * </ul>
  */
 public class Reservation{
 

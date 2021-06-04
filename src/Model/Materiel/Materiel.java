@@ -2,6 +2,9 @@ package Model.Materiel;
 
 import Model.Agenda.Agenda;
 
+/**
+ * Un matériel représente un objet pouvant être réservé par un utilisateur
+ */
 public class Materiel {
 	//Attributs
 	protected int identifiant;
