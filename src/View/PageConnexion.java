@@ -66,12 +66,12 @@ public class PageConnexion extends Fenetre {
 		pan.setLayout(new BoxLayout(pan, BoxLayout.PAGE_AXIS));
 		
 
-		JPanel marge = new JPanel();
+//		JPanel marge = new JPanel();
 		
 		pan.add(Pid);
-		pan.add(marge);
+		pan.add(new Marge());
 		pan.add(Pmdp);
-		pan.add(marge);
+		pan.add(new Marge());
 		pan.add(Pbt);
 		
 		contenair.add(pan);
