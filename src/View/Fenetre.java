@@ -20,7 +20,7 @@ public class Fenetre extends JFrame{
 	    //Positionner au centre
 	    fenetre.setLocationRelativeTo(null);
 	    //Définir taille minimale
-	    fenetre.setMinimumSize(new Dimension(100, 100));
+	    fenetre.setMinimumSize(new Dimension(500, 500));
 	    
 	    //Termine le processus lorsqu'on clique sur la croix rouge
 	    fenetre.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
