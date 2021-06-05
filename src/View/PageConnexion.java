@@ -2,6 +2,7 @@ package View;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.GridBagLayout;
 
@@ -20,7 +21,13 @@ public class PageConnexion extends Fenetre {
 	
 	public PageConnexion() {
 		
-		fenetre.setLayout(new GridBagLayout());
+		fenetre.setExtendedState(NORMAL);
+		fenetre.setLocationRelativeTo(null);
+		
+		JPanel contenair = new JPanel();
+		contenair.setLayout(new GridBagLayout());
+		
+		
 		JPanel pan = new JPanel();
 		JPanel Pid = new JPanel();
 		JPanel Pmdp = new JPanel();
@@ -38,7 +45,7 @@ public class PageConnexion extends Fenetre {
 		
 		//pan.setLayout(new GridLayout(3, 2, 10, 10));
 		//pan.setLayout(new BoxLayout(pan, BoxLayout.LINE_AXIS));
-		pan.setBackground(Color.GREEN);
+		//pan.setBackground(Color.GREEN);
 		//setLayout(gl);
 		
 		JLabel Lid = new JLabel("Identifiant : ");
@@ -53,7 +60,7 @@ public class PageConnexion extends Fenetre {
 		Pid.setLayout(new BoxLayout(Pid, BoxLayout.LINE_AXIS));
 		Pid.add(Lid);
 		Pid.add(Tid);
-				
+
 		Pmdp.setLayout(new BoxLayout(Pmdp, BoxLayout.LINE_AXIS));
 		Pmdp.add(Lmdp);
 		Pmdp.add(Tmdp);
@@ -65,14 +72,22 @@ public class PageConnexion extends Fenetre {
 		
 		pan.setLayout(new BoxLayout(pan, BoxLayout.PAGE_AXIS));
 		pan.setSize(100,100);
-		pan.add(Pid);
-		pan.add(Pmdp);
-		pan.add(Pbt);
+
 		JPanel marge = new JPanel();
-		marge.setMinimumSize(new Dimension(1000, 1000));
-		fenetre.add(marge,BorderLayout.NORTH);
-		fenetre.add(marge,BorderLayout.SOUTH);
-		fenetre.add(pan,BorderLayout.CENTER);
+		
+		pan.add(Pid);
+		pan.add(marge);
+		pan.add(Pmdp);
+		pan.add(marge);
+		pan.add(Pbt);
+		
+
+		//marge.setMinimumSize(new Dimension(1000, 1000));
+		//fenetre.add(marge,BorderLayout.NORTH);
+		//fenetre.add(marge,BorderLayout.SOUTH);
+		contenair.add(pan);
+		fenetre.setContentPane(contenair);
+		fenetre.validate();
 	}
 	
 	
