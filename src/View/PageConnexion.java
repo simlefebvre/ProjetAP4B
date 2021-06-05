@@ -88,6 +88,8 @@ public class PageConnexion extends Fenetre {
 		contenair.add(pan);
 		fenetre.setContentPane(contenair);
 		fenetre.validate();
+		
+		//TODO Ajouter Label "connexion" ??
 	}
 	
 	
