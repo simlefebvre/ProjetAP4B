@@ -40,9 +40,6 @@ public class PageConnexion extends Fenetre {
 		
 		this.vm = vm;
 		
-		fenetre.setExtendedState(NORMAL);
-		fenetre.setLocationRelativeTo(null);
-		
 		JPanel contenair = new JPanel();
 		contenair.setLayout(new GridBagLayout());
 		
@@ -67,7 +64,7 @@ public class PageConnexion extends Fenetre {
 		
 		
 		pan.setLayout(new BoxLayout(pan, BoxLayout.PAGE_AXIS));
-		pan.setSize(100,100);
+		
 
 		JPanel marge = new JPanel();
 		

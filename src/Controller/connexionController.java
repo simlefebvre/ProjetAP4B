@@ -18,7 +18,9 @@ public class connexionController implements MouseListener {
 	public connexionController(ViewManager vm) {
 		this.vm = vm;
 	}
-
+	
+	//TODO orientation administrateur
+	
 	@Override
 	public void mouseClicked(MouseEvent e) {
 		JButton bouton = (JButton) e.getSource();
