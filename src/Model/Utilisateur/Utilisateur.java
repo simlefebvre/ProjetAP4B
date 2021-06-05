@@ -43,7 +43,7 @@ public class Utilisateur {
 	
 	//Autres méthodes
 	public boolean connexion(String Identifiant, String MDP) {
-		if(mail==Identifiant && motDePasse==MDP) {
+		if(mail.equalsIgnoreCase(Identifiant) && motDePasse.equalsIgnoreCase(MDP)) {
 			return true;
 		}
 		return false;

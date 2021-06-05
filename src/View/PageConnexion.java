@@ -1,8 +1,5 @@
 package View;
 
-import java.awt.BorderLayout;
-import java.awt.Color;
-import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.GridBagLayout;
 
@@ -10,7 +7,11 @@ import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JPasswordField;
 import javax.swing.JTextArea;
+import javax.swing.JTextField;
+
+import Controller.connexionController;
 
 /**
  * Fenetre de connexion, sert de page d'accueil
@@ -19,7 +20,25 @@ import javax.swing.JTextArea;
 
 public class PageConnexion extends Fenetre {
 	
-	public PageConnexion() {
+	JPanel pan = new JPanel();
+	JPanel Pid = new JPanel();
+	JPanel Pmdp = new JPanel();
+	JPanel Pbt = new JPanel();
+	
+	JLabel Lid = new JLabel("Identifiant : ");
+	JLabel Lmdp = new JLabel("Mot de passe : ");
+	JTextField Tid;
+	JPasswordField Tmdp = new JPasswordField();
+	JButton Bcon = new JButton("Connexion");
+	JButton BmdpOublier = new JButton("Mot de Passe Oublié");
+	
+	private ViewManager vm;
+	
+	public PageConnexion(ViewManager vm) {
+		
+		Tid = new JTextField();
+		
+		this.vm = vm;
 		
 		fenetre.setExtendedState(NORMAL);
 		fenetre.setLocationRelativeTo(null);
@@ -27,33 +46,10 @@ public class PageConnexion extends Fenetre {
 		JPanel contenair = new JPanel();
 		contenair.setLayout(new GridBagLayout());
 		
-		
-		JPanel pan = new JPanel();
-		JPanel Pid = new JPanel();
-		JPanel Pmdp = new JPanel();
-		JPanel Pbt = new JPanel();
+		connexionController cc = new connexionController(vm);
 
-		//fenetre.getContentPane().add(pan,BorderLayout.CENTER);
-		//fenetre.setContentPane(pan);
-		
-		/*GridLayout gl = new GridLayout();
-		gl.setColumns(2);
-		gl.setColumns(3);
-		gl.setHgap(5);
-		gl.setVgap(5);
-		*/	
-		
-		//pan.setLayout(new GridLayout(3, 2, 10, 10));
-		//pan.setLayout(new BoxLayout(pan, BoxLayout.LINE_AXIS));
-		//pan.setBackground(Color.GREEN);
-		//setLayout(gl);
-		
-		JLabel Lid = new JLabel("Identifiant : ");
-		JLabel Lmdp = new JLabel("Mot de passe : ");
-		JTextArea Tid = new JTextArea();
-		JTextArea Tmdp = new JTextArea();
-		JButton Bcon = new JButton("Connexion");
-		JButton BmdpOublier = new JButton("Mot de Passe Oublié");
+		Bcon.addMouseListener(cc);
+		BmdpOublier.addMouseListener(cc);
 		
 		Tid.setMaximumSize(new Dimension(100, 20));
 		Tmdp.setMaximumSize(new Dimension(100, 20));
@@ -81,10 +77,6 @@ public class PageConnexion extends Fenetre {
 		pan.add(marge);
 		pan.add(Pbt);
 		
-
-		//marge.setMinimumSize(new Dimension(1000, 1000));
-		//fenetre.add(marge,BorderLayout.NORTH);
-		//fenetre.add(marge,BorderLayout.SOUTH);
 		contenair.add(pan);
 		fenetre.setContentPane(contenair);
 		fenetre.validate();
@@ -92,5 +84,23 @@ public class PageConnexion extends Fenetre {
 		//TODO Ajouter Label "connexion" ??
 	}
 	
+	
+	public String getIdentifiant() {
+		return Tid.getText();
+	}
+
+
+	public String getMdp() {
+		return new String(Tmdp.getPassword());
+	}
+	public void close() {
+		fenetre.dispose();
+	}
+
+
+	public void clearField() {
+		Tid.setText("");
+		Tmdp.setText("");
+	}
 	
 }
