@@ -3,11 +3,13 @@ package Model.Materiel;
 import Model.Agenda.Agenda;
 
 /**
- * Un matériel représente un objet pouvant être réservé par un utilisateur
+ * Un matériel représente un objet pouvant être réservé par un utilisateur.
  */
 public class Materiel {
 	//Attributs
 	protected int identifiant;
+	protected String marque;
+	//TODO faire set et get de marque + re constructeur
 	protected String etat;
 	protected String salle;
 	protected Agenda reservations;

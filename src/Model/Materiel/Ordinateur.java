@@ -1,30 +1,36 @@
 package Model.Materiel;
 
-import Model.Agenda.Agenda;
-
-
 /**
  * Un ordinateur est un matériel. 
- * <br>Il peut être fixe et est caractérisé par sa capacité.
- *
+ * <br>Il peut être fixe, peut posséder une souris et est caractérisé par sa capacité.
  */
 
 
 public class Ordinateur extends Materiel{
 	//Attributs
 	private boolean fixe;
+	private boolean souris;
 	private int capacite;
 	
 	//Constructeur
-	public Ordinateur(int id, String etat, String salle, Agenda reservations, boolean fixe, int capacite) {
+	public Ordinateur(int id, String etat, String salle, boolean fixe, boolean souris, int capacite) {
 		super(id, etat, salle);
 		this.fixe=fixe;
+		this.souris = souris;
 		this.capacite=capacite;
 	}
 	
 	//Méthodes de récupération et de modification des attributs
 	public boolean getFixe() {
 		return this.fixe;
+	}
+	
+	public boolean getSouris() {
+		return this.souris;
+	}
+	
+	public void setSouris(boolean newSouris) {
+		this.souris=newSouris;
 	}
 	
 	public int getCapacite() {
