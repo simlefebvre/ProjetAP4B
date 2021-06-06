@@ -24,6 +24,10 @@ public class AfficherMateriels{
 		this.lmc = new listeMaterielController(vm);
 		page = new Formulaire();
 		
+		
+		//TODO Ouvrir en plein écran
+		
+		
 		//Entete
 		page.addTitle("Liste des matériels");
 
@@ -51,7 +55,7 @@ public class AfficherMateriels{
 		}
 		
 		//Pied de page
-		page.addButtonFoot("Retour", "retour", null);
+		page.addButtonFoot("Retour", "retour", lmc);
 	}
 	
 	
