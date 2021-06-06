@@ -9,7 +9,6 @@ public class Materiel {
 	//Attributs
 	protected int identifiant;
 	protected String marque;
-	//TODO faire set et get de marque + re constructeur
 	protected String etat;
 	protected String salle;
 	protected Agenda reservations;
@@ -28,8 +27,16 @@ public class Materiel {
 	}
 
 	public void setID(int id) {
-		identifiant = id;
+		this.identifiant = id;
 	}
+	
+	public String getMarque() {
+		return this.marque;
+	}
+
+	public void setMarque(String marque) {
+		this.marque = marque;
+	}	
 	
 	public String getEtat() {
 		return this.etat;

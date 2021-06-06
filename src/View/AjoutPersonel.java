@@ -11,10 +11,13 @@ import javax.swing.JCheckBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
-
+/**
+ * Page d'ajout d'un utilisateur
+ */
 public class AjoutPersonel extends Fenetre {
 	
 	//TODO à transformer en template
+	//TODO A refaire + Renommer en AjoutUtilisateur
 	
 	private JPanel pan;
 	private JPanel contenair;
