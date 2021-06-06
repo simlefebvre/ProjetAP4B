@@ -33,7 +33,8 @@ public class AfficherMateriels{
 
 		//Contenu de la page
 		JPanel instance;
-		for(Materiel mat : BaseDeDonee.getInstance().getMateriels()) {		
+		for(Materiel mat : BaseDeDonee.getInstance().getMateriels()) {
+			
 			if(mat instanceof Ordinateur) {
 				instance = page.addLabel("infosMat", "Ordinateur            id : "+mat.getID()+"          Etat : " + mat.getEtat() +"          Salle : " + mat.getSalle() +"          ");
 			}else if(mat instanceof Tablette) {
@@ -41,14 +42,13 @@ public class AfficherMateriels{
 			}else {
 				instance = page.addLabel("infosMat", "Videoprojecteur       id : "+mat.getID()+"          Etat : " + mat.getEtat() +"          Salle : " + mat.getSalle() +"          ");
 			}
+			page.addCheckBox("", "selec_"+mat.getID(), instance);
 			
-			
-			page.addButton("reserver", "Reserver", lmc, instance);
-			page.addButton("infos", "Plus d'informations", lmc, instance);
+			page.addButton("info_"+mat.getID(), "Plus d'informations", lmc, instance);
 			
 			if(MainClass.connecte instanceof Administrateur) {
-				page.addButton("modifier", "Modifier", lmc, instance);
-				page.addButton("supprimer", "Supprimer", lmc, instance);
+				page.addButton("modifier_"+mat.getID(), "Modifier", lmc, instance);
+				page.addButton("suppr_"+mat.getID(), "Supprimer", lmc, instance);
 			}
 			
 			//TODO faire bouton +d'infos sur chaque matériel avec l'agenda...
@@ -56,6 +56,7 @@ public class AfficherMateriels{
 		
 		//Pied de page
 		page.addButtonFoot("Retour", "retour", lmc);
+		page.addButtonFoot("reserver", "Reserver", lmc);
 	}
 	
 	
