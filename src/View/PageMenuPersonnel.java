@@ -13,6 +13,7 @@ import javax.swing.JPanel;
  * Menu principal pour le personnel
  */
 
+//TODO A refaire
 public class PageMenuPersonnel extends Fenetre{	
 	protected JPanel pan = new JPanel();
 	protected JPanel materiel = new JPanel();

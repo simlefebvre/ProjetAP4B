@@ -1,6 +1,8 @@
 package Controller;
 
-import Model.Materiel.AjouterVideoprojecteur;
+import View.AjoutMateriel;
+
+//import View.AjouterVideoprojecteur;
 
 public class MainClass {
 	
@@ -17,13 +19,13 @@ public class MainClass {
 		//BaseDeDonee.getInstance().addMateriel(new Ordinateur(8935, "Très bon", "B401", true, true, 1024));
 		//AfficherMateriels affMat = new AfficherMateriels();
 		
-		//AjoutMateriel pageMat = new AjoutMateriel();
+		AjoutMateriel pageMat = new AjoutMateriel();
 		
 		//AjouterOrdinateur pageOrdi = new AjouterOrdinateur();
 		
 		//AjouterTablette pageTablette = new AjouterTablette();
 		
-		AjouterVideoprojecteur pageVideoproj = new AjouterVideoprojecteur();
+		//AjouterVideoprojecteur pageVideoproj = new AjouterVideoprojecteur();
 	}
 
 }

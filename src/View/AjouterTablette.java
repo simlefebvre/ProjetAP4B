@@ -1,23 +1,20 @@
-package Model.Materiel;
-
-import View.Formulaire;
+package View;
 
 /**
- * Page d'ajout d'un videoprojecteur
- *
+ * Page d'ajout d'une tablette
  */
 
-public class AjouterVideoprojecteur {
+public class AjouterTablette {
 	//Constructeur
-	public AjouterVideoprojecteur() {
+	public AjouterTablette() {
 		Formulaire page = new Formulaire();
 		//Entete
-		page.addTitle("Ajout d'un videoprojecteur");
+		page.addTitle("Ajout d'une tablette");
 		//Contenu de la page
 		page.addTextField("Saisir l'identifiant ");
 		page.addTextField("Saisir l'état ");
 		page.addTextField("Saisir la salle ");
-		page.addCheckBox("Le videoprojecteur possède une télécommande ");
+		page.addCheckBox("La tablette possède un clavier");
 		//Pied de page
 		page.addButtonFoot("Annuler", null);
 		page.addButtonFoot("Valider", null);

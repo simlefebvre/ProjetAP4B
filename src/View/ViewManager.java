@@ -1,5 +1,9 @@
 package View;
 
+//TODO Ajouter doc
+/**
+ *
+ */
 public class ViewManager {
 
 	public PageConnexion page;

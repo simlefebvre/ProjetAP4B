@@ -1,6 +1,4 @@
-package Model.Materiel;
-
-import View.Formulaire;
+package View;
 
 /**
  * Page d'ajout d'un ordinateur
