@@ -18,71 +18,22 @@ import Controller.connexionController;
  *
  */
 
-public class PageConnexion extends Fenetre {
+public class PageConnexion  {
 	//Attributs
-	private Formulaire page;
-	
-	JPanel pan = new JPanel();
-	JPanel Pid = new JPanel();
-	JPanel Pmdp = new JPanel();
-	JPanel Pbt = new JPanel();
-	
-	JLabel Lid = new JLabel("Identifiant : ");
-	JLabel Lmdp = new JLabel("Mot de passe : ");
-	JTextField Tid;
-	JPasswordField Tmdp = new JPasswordField();
-	JButton Bcon = new JButton("Connexion");
-	JButton BmdpOublier = new JButton("Mot de Passe Oublié");
-	
+	private Formulaire page;	
 	private ViewManager vm;
-	
+	private connexionController cc;
 	
 	//Constructeur
 	public PageConnexion(ViewManager vm) {
-		//TODO A refaire
-		Tid = new JTextField();
+		page = new Formulaire();
+		cc = new connexionController(vm);
 		
-		this.vm = vm;
-		
-		JPanel contenair = new JPanel();
-		contenair.setLayout(new GridBagLayout());
-		
-		connexionController cc = new connexionController(vm);
-
-		Bcon.addMouseListener(cc);
-		BmdpOublier.addMouseListener(cc);
-		
-		Tid.setMaximumSize(new Dimension(100, 20));
-		Tmdp.setMaximumSize(new Dimension(100, 20));
-		Pid.setLayout(new BoxLayout(Pid, BoxLayout.LINE_AXIS));
-		Pid.add(Lid);
-		Pid.add(Tid);
-
-		Pmdp.setLayout(new BoxLayout(Pmdp, BoxLayout.LINE_AXIS));
-		Pmdp.add(Lmdp);
-		Pmdp.add(Tmdp);
-		
-		Pbt.setLayout(new BoxLayout(Pbt, BoxLayout.LINE_AXIS));
-		Pbt.add(Bcon);
-		Pbt.add(BmdpOublier);
-		
-		
-		pan.setLayout(new BoxLayout(pan, BoxLayout.PAGE_AXIS));
-		
-
-//		JPanel marge = new JPanel();
-		
-		pan.add(Pid);
-		pan.add(new Marge());
-		pan.add(Pmdp);
-		pan.add(new Marge());
-		pan.add(Pbt);
-		
-		contenair.add(pan);
-		fenetre.setContentPane(contenair);
-		fenetre.validate();
-		
-		//TODO Ajouter Label "connexion" ??
+		page.addTextField("Identifiant / e-mail : ");
+		page.addPasswordField("mot de passe : ");
+		page.addTitle("Connexion");
+		page.addButtonFoot("Connexion", cc);
+		page.addButtonFoot("Mot de passe oublié", cc);
 	}
 	
 	//Méthodes set et get

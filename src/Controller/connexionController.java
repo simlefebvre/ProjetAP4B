@@ -42,7 +42,7 @@ public class connexionController implements MouseListener {
 				JOptionPane.showMessageDialog(null, "Mot de passe incorect");
 				vm.page.clearField();
 			}
-		}else if(bouton.getText().equalsIgnoreCase("mot de passe oublié")) {
+		}else if(bouton.getText().equalsIgnoreCase("Mot de passe oublié")) {
 			JOptionPane.showMessageDialog(null, "Voyez avec votre administrateur réseau");
 		}
 		

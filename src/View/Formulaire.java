@@ -65,10 +65,12 @@ public class Formulaire extends Fenetre {
 	/**
 	 * ajout d'une nouvelle zonne de texte dans le corps du formulaire
 	 * @param nomZone nom de la zone à ajouter
+	 * @param nom identifiant permettant de reconnaitre le composant dans la liste
 	 * @return le panel contenant le label et l'entré
 	 */
-	public JPanel addTextField(String nomZone) {
+	public JPanel addTextField(String nomZone,String nom) {
 		JTextField entre = new JTextField();
+		entre.setName(nom);
 		JLabel label = new JLabel(nomZone);
 		textes.add(entre);
 		
@@ -90,10 +92,12 @@ public class Formulaire extends Fenetre {
 	 * <br>
 	 * permettant de faire des lignes de formulaire
 	 * @param nomZone nom de la zone à ajouter
+	 * @param nom identifiant permettant de reconnaitre le composant dans la liste
 	 * @param pan le panel auxquel on veux ajouter
 	 */
-	public void addTextField(String nomZone, JPanel pan) {
+	public void addTextField(String nomZone,String nom, JPanel pan) {
 		JTextField entre = new JTextField();
+		entre.setName(nom);
 		JLabel label = new JLabel(nomZone);
 		textes.add(entre);
 		
@@ -109,11 +113,13 @@ public class Formulaire extends Fenetre {
 	/**
 	 * ajout d'un boutton dans le pied de page du formulaire
 	 * @param nom nom du boutton
+	 * @param id identifiant permettant de reconnaitre le composant dans la liste
 	 * @param ml listener du boutton
 	 */
-	public void addButtonFoot(String nom, MouseListener ml) {
+	public void addButtonFoot(String nom,String id, MouseListener ml) {
 		JButton bout = new JButton(nom);
 		bout.addMouseListener(ml);
+		bout.setName(id);
 		piedPage.add(bout);
 		fenetre.revalidate();
 	}
@@ -134,10 +140,12 @@ public class Formulaire extends Fenetre {
 	/**
 	 * ajout d'un bouton à cocher dans le corps du formulaire
 	 * @param nom nom de la case à cocher
+	 * @param id identifiant permettant de reconnaitre le composant dans la liste
 	 * @return le panel contenant le label et l'entré
 	 */
-	public JPanel addCheckBox(String nom) {
+	public JPanel addCheckBox(String nom,String id) {
 		JCheckBox entre = new JCheckBox();
+		entre.setName(id);
 		JLabel label = new JLabel(nom);
 		coches.add(entre);
 		
@@ -153,10 +161,12 @@ public class Formulaire extends Fenetre {
 	/**
 	 * ajout d'un bouton à cocher dans le corps du formulaire
 	 * @param nom nom de la case à cocher
+	 * @param id identifiant permettant de reconnaitre le composant dans la liste
 	 * @param pan e panel auxquel on veux ajouter
 	 */
-	public void addCheckBox(String nom, JPanel pan) {
+	public void addCheckBox(String nom,String id, JPanel pan) {
 		JCheckBox entre = new JCheckBox();
+		entre.setName(id);
 		JLabel label = new JLabel(nom);
 		coches.add(entre);
 		
@@ -225,9 +235,11 @@ public class Formulaire extends Fenetre {
 	/**
 	 * ajout d'une section à mot de passe
 	 * @param nom nom de la section
+	 * @param id identifiant permettant de reconnaitre le composant dans la liste
 	 */
-	public void addPasswordField(String nom) {
+	public void addPasswordField(String nom,String id) {
 		JPasswordField entre = new JPasswordField();
+		entre.setName(id);
 		JLabel label = new JLabel(nom);
 		mdps.add(entre);
 		
@@ -268,4 +280,23 @@ public class Formulaire extends Fenetre {
 		pan.add(but);
 	}
 	
+	/**
+	 * ajout d'un bouton sur le formulaire 
+	 * 
+	 * @param nom nom du bouton
+	 * @param affiche texte à afficher sur le boutton
+	 * @param listener Mouse listener du boutton
+	 */
+	public JPanel addButton(String nom, String affiche, MouseListener listener) {
+		JButton but = new JButton();
+		but.setName(nom);
+		but.setText(affiche);
+		but.addMouseListener(listener);
+		
+		JPanel pan = new JPanel();
+		pan.setLayout(new BoxLayout(pan, BoxLayout.LINE_AXIS));
+		pan.add(but);
+		
+		return pan;
+	}
 }
