@@ -72,6 +72,34 @@ public class BaseDeDonee {
 		return -1;
 	}
 	
+	
+	
+	
+	/**
+	 * Retrouve le matériel dont l'identifiant est passé en paramètre
+	 * @param idMat identifiant du matériel recherché
+	 * @return le matériel recherché; null s'il n'est pas trouvé
+	 */
+	public Materiel getMateriel(int idMat) {
+		for(Materiel m : materiels) {
+			if(m.getID() == idMat) {
+				return m;
+			}
+		}
+		return null;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	/**
 	 * Retrouver l'index de l'utilisateur passé en paramettre
 	 * @param usr utilisateur auxquel on veux trouver l'index dans la BDD
