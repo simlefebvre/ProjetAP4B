@@ -3,14 +3,18 @@ package Controller;
 
 import Model.DataBase.BaseDeDonee;
 import Model.Materiel.Ordinateur;
+import Model.Materiel.Tablette;
 import Model.Utilisateur.Administrateur;
 import Model.Utilisateur.Utilisateur;
+import View.AfficherMateriels;
+//import Model.DataBase.BaseDeDonee;
+//import Model.Utilisateur.Administrateur;
+//import Model.Utilisateur.Utilisateur;
 import View.ViewManager;
 
 //import View.ViewManager;
 //import Model.DataBase.BaseDeDonee;
 //import Model.Materiel.Ordinateur;
-//import View.AfficherMateriels;
 //import View.AjoutMateriel;
 //import View.AjoutUtilisateur;
 //import View.AjoutPersonel;
@@ -29,14 +33,13 @@ public class MainClass {
 		//PageMenuPersonnel menuPerso = new PageMenuPersonnel();
 		ViewManager vm = new ViewManager();
 		BaseDeDonee.getInstance().addUtilisateur(new Administrateur("admin", "admin", "admin", "admin"));
-		BaseDeDonee.getInstance().addUtilisateur(new Utilisateur("user", "user", "user", "user"));
 		//AjoutPersonel ap = new AjoutPersonel();
 		//AjoutUtilisateur ajoutUti = new AjoutUtilisateur();
 		//AjoutMateriel mat = new AjoutMateriel();
 		
-		BaseDeDonee.getInstance().addMateriel(new Ordinateur(8934, "Bon état", "B401", true, true, 1024));
-		BaseDeDonee.getInstance().addMateriel(new Ordinateur(8935, "Très bon", "B401", true, true, 1024));
-		//AfficherMateriels affMat = new AfficherMateriels();
+		BaseDeDonee.getInstance().addMateriel(new Ordinateur(8934, "Asus", "Bon état", "B401", true, true, 1024));
+		BaseDeDonee.getInstance().addMateriel(new Tablette(8935, "Asus", "Très bon", "B401", true));
+		//AfficherMateriels affMat = new AfficherMateriels(vm);
 		
 		//AjoutMateriel pageMat = new AjoutMateriel();
 		

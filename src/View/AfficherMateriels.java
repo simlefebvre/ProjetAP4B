@@ -2,9 +2,13 @@ package View;
 
 import javax.swing.JPanel;
 
+import Controller.MainClass;
 import Controller.listeMaterielController;
 import Model.DataBase.BaseDeDonee;
 import Model.Materiel.Materiel;
+import Model.Materiel.Ordinateur;
+import Model.Materiel.Tablette;
+import Model.Utilisateur.Administrateur;
 
 /**
  * Page qui affiche le contenu de la liste de matériels de la base de données
@@ -25,20 +29,23 @@ public class AfficherMateriels{
 
 		//Contenu de la page
 		JPanel instance;
-		for(Materiel mat : BaseDeDonee.getInstance().getMateriels()) {
-			//TODO creer une nouvelle ligne avec infos materiel
-			//Puis ajouter boutons modifier, supprimer et réserver, en fonction de l'utilisateur
+		for(Materiel mat : BaseDeDonee.getInstance().getMateriels()) {		
+			if(mat instanceof Ordinateur) {
+				instance = page.addLabel("infosMat", "Ordinateur            id : "+mat.getID()+"          Etat : " + mat.getEtat() +"          Salle : " + mat.getSalle() +"          ");
+			}else if(mat instanceof Tablette) {
+				instance = page.addLabel("infosMat", "Tablette               id : "+mat.getID()+"          Etat : " + mat.getEtat() +"          Salle : " + mat.getSalle() +"          ");
+			}else {
+				instance = page.addLabel("infosMat", "Videoprojecteur       id : "+mat.getID()+"          Etat : " + mat.getEtat() +"          Salle : " + mat.getSalle() +"          ");
+			}
 			
-
-			instance = page.addLabel("infosMat", "Ordinateur          id : "+mat.getID()+"          Etat : " + mat.getEtat() +"          Salle : " + mat.getSalle() +"          ");
+			
 			page.addButton("reserver", "Reserver", lmc, instance);
+			page.addButton("infos", "Plus d'informations", lmc, instance);
 			
-			/*que pour admin !!!
-			 * instanceof
-			page.addButton("modifier", "Modifier", lmc, instance);
-			page.addButton("supprimer", "Supprimer", lmc, instance);
-			*/
-			//int id, String marque, String etat, String salle
+			if(MainClass.connecte instanceof Administrateur) {
+				page.addButton("modifier", "Modifier", lmc, instance);
+				page.addButton("supprimer", "Supprimer", lmc, instance);
+			}
 			
 			//TODO faire bouton +d'infos sur chaque matériel avec l'agenda...
 		}
