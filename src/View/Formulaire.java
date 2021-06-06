@@ -62,6 +62,8 @@ public class Formulaire extends Fenetre {
 		
 		fenetre.validate();
 	}
+	
+	
 	/**
 	 * ajout d'une nouvelle zonne de texte dans le corps du formulaire
 	 * @param nomZone nom de la zone à ajouter
@@ -87,6 +89,7 @@ public class Formulaire extends Fenetre {
 		return pan;
 	}
 	
+	
 	/**
 	 * ajout d'une nouvelle zonne de texte dans le corps du formulaire à la suite d'une autre entré
 	 * <br>
@@ -110,6 +113,7 @@ public class Formulaire extends Fenetre {
 		fenetre.revalidate();
 	}
 	
+	
 	/**
 	 * ajout d'un boutton dans le pied de page du formulaire
 	 * @param nom nom du boutton
@@ -123,6 +127,8 @@ public class Formulaire extends Fenetre {
 		piedPage.add(bout);
 		fenetre.revalidate();
 	}
+	
+	
 	/**
 	 * ajout d'un titre
 	 * @param titre titre de la page
@@ -137,6 +143,8 @@ public class Formulaire extends Fenetre {
 	    
 	    fenetre.revalidate();
 	}
+	
+	
 	/**
 	 * ajout d'un bouton à cocher dans le corps du formulaire
 	 * @param nom nom de la case à cocher
@@ -158,6 +166,8 @@ public class Formulaire extends Fenetre {
 		
 		return pan;
 	}
+	
+	
 	/**
 	 * ajout d'un bouton à cocher dans le corps du formulaire
 	 * @param nom nom de la case à cocher
@@ -177,6 +187,7 @@ public class Formulaire extends Fenetre {
 		fenetre.revalidate();
 	}
 	
+	
 	/**
 	 *@return la liste des TextField du formulaire
 	 */
@@ -184,12 +195,15 @@ public class Formulaire extends Fenetre {
 		return textes;
 	}
 	
+	
 	/**
 	 * @return la liste des case à cocher du formulaire
 	 */
 	public LinkedList<JCheckBox> getChoches(){
 		return coches;
 	}
+	
+	
 	/**
 	 * 
 	 * @return la liste des groupes de radioButton
@@ -197,6 +211,16 @@ public class Formulaire extends Fenetre {
 	public LinkedList<ButtonGroup> getGroupes(){
 		return groupes;
 	}
+	
+	
+	/**
+	 * @return la liste des case à cocher du formulaire
+	 */
+	public LinkedList<JPasswordField> getmdp(){
+		return mdps;
+	}
+	
+	
 	/**
 	 * ajout d'un groupe de radioButton dans le corps de la page
 	 * @param nombre nombre de boutton qu'il faut dans le groupe
@@ -232,6 +256,7 @@ public class Formulaire extends Fenetre {
 		
 	}
 	
+	
 	/**
 	 * ajout d'une section à mot de passe
 	 * @param nom nom de la section
@@ -253,6 +278,8 @@ public class Formulaire extends Fenetre {
 		contenu.add(new Marge());
 		fenetre.revalidate();
 	}
+	
+	
 	/**
 	 * Ajout d'un simple label
 	 * @param s texte du label
@@ -262,6 +289,7 @@ public class Formulaire extends Fenetre {
 		JLabel lab = new JLabel(s);
 		pan.add(lab);
 	}
+	
 	
 	/**
 	 * ajout d'un bouton à un pannel sur le formulaire 
@@ -278,7 +306,12 @@ public class Formulaire extends Fenetre {
 		but.addMouseListener(listener);
 		
 		pan.add(but);
+		
+		contenu.add(pan);
+		contenu.add(new Marge());
+		fenetre.revalidate();
 	}
+	
 	
 	/**
 	 * ajout d'un bouton sur le formulaire 
@@ -297,6 +330,23 @@ public class Formulaire extends Fenetre {
 		pan.setLayout(new BoxLayout(pan, BoxLayout.LINE_AXIS));
 		pan.add(but);
 		
+		contenu.add(pan);
+		contenu.add(new Marge());
+		fenetre.revalidate();
+		
 		return pan;
+	}
+	
+	/**
+	 * efface tous les champs de texte du formulaire
+	 */
+	public void clearField() {
+		for(JTextField tf : textes) {
+			tf.setText("");
+		}
+		
+		for(JPasswordField pf : mdps) {
+			pf.setText("");
+		}
 	}
 }
