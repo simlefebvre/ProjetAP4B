@@ -1,12 +1,10 @@
 package Controller;
 
 
+import Model.Utilisateur.Utilisateur;
+import View.PageMenuAdministrateur;
+
 //import View.ViewManager;
-
-import View.PageMenuPersonnel;
-
-//import View.ViewManager;
-
 //import Model.DataBase.BaseDeDonee;
 //import Model.Materiel.Ordinateur;
 //import View.AfficherMateriels;
@@ -20,6 +18,7 @@ import View.PageMenuPersonnel;
  * Classe main du projet
  */
 public class MainClass {
+	public Utilisateur connecte;
 	
 	public static void main(String[] args) {
 		//PageConnexion con = new PageConnexion();
@@ -42,7 +41,8 @@ public class MainClass {
 		
 		//AjouterVideoprojecteur pageVideoproj = new AjouterVideoprojecteur();
 		
-		PageMenuPersonnel mp = new PageMenuPersonnel();
+		//PageMenuPersonnel mp = new PageMenuPersonnel();
+		
+		PageMenuAdministrateur ma = new PageMenuAdministrateur();
 	}
-
 }
