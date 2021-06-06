@@ -4,9 +4,10 @@ package View;
  * Classe d'ajout d'utilisateurs
  */
 public class AjoutUtilisateur {
+	private Formulaire page;
 	//Constructeur
 	public AjoutUtilisateur() {
-		Formulaire page = new Formulaire();
+		page = new Formulaire();
 		//Entete
 		page.addTitle("Ajout d'un utilisateur");
 		//Contenu de la page
@@ -19,6 +20,10 @@ public class AjoutUtilisateur {
 		//Pied de page
 		page.addButtonFoot("Annuler", null);
 		page.addButtonFoot("Valider", null);
+	}
+	
+	public void close() {
+		page.close();
 	}
 
 }

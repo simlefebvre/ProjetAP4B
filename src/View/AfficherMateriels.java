@@ -8,10 +8,10 @@ import Model.Materiel.Materiel;
  */
 public class AfficherMateriels{
 	//Attribut
-	
+	Formulaire page;
 	//Constructeur
 	public AfficherMateriels(){
-		Formulaire page = new Formulaire();
+		page = new Formulaire();
 		
 		for(Materiel mat : BaseDeDonee.getInstance().getMateriels()) {
 			//TODO creer une nouvelle ligne avec infos materiel
@@ -23,6 +23,9 @@ public class AfficherMateriels{
 		
 		page.addTitle("Liste des matériels");
 
+		public void close() {
+			page.close();
+		}
 		
 		//TODO Pied de page : Ajouter boutons ajouter + retour
 	}

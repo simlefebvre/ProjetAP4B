@@ -13,6 +13,6 @@ public class ViewManager {
 		page = new PageConnexion(this);
 	}
 	public void showMenuProf() {
-		pMenu = new PageMenuPersonnel();		
+		pMenu = new PageMenuPersonnel();
 	}
 }

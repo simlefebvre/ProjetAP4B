@@ -6,9 +6,10 @@ import java.util.LinkedList;
  * Page permettant l'ajout d'un matériel
  */
 public class AjoutMateriel {
+	private Formulaire page;
 	//Constructeur
 	public AjoutMateriel() {
-		Formulaire page = new Formulaire();
+		page = new Formulaire();
 		//Entete
 		page.addTitle("Ajouter un matériel");
 		//Contenu de la page
@@ -20,6 +21,10 @@ public class AjoutMateriel {
 		//Pied de page
 		page.addButtonFoot("Annuler", null);
 		page.addButtonFoot("Valider", null);
+	}
+	
+	public void close() {
+		page.close();
 	}
 
 }

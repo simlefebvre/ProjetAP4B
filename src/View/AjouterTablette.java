@@ -5,9 +5,10 @@ package View;
  */
 
 public class AjouterTablette {
+	private Formulaire page;
 	//Constructeur
 	public AjouterTablette() {
-		Formulaire page = new Formulaire();
+		page = new Formulaire();
 		//Entete
 		page.addTitle("Ajout d'une tablette");
 		//Contenu de la page
@@ -18,5 +19,9 @@ public class AjouterTablette {
 		//Pied de page
 		page.addButtonFoot("Annuler", null);
 		page.addButtonFoot("Valider", null);
+	}
+	
+	public void close() {
+		page.close();
 	}
 }

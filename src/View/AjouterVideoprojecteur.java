@@ -6,9 +6,10 @@ package View;
  */
 
 public class AjouterVideoprojecteur {
+	private Formulaire page;
 	//Constructeur
 	public AjouterVideoprojecteur() {
-		Formulaire page = new Formulaire();
+		page = new Formulaire();
 		//Entete
 		page.addTitle("Ajout d'un videoprojecteur");
 		//Contenu de la page
@@ -19,5 +20,9 @@ public class AjouterVideoprojecteur {
 		//Pied de page
 		page.addButtonFoot("Annuler", null);
 		page.addButtonFoot("Valider", null);
+	}
+	
+	public void close() {
+		page.close();
 	}
 }

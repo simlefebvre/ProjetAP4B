@@ -6,8 +6,9 @@ package View;
  */
 public class AjouterOrdinateur {
 	//Constructeur
+	private Formulaire page;
 	public AjouterOrdinateur() {
-		Formulaire page = new Formulaire();
+		page = new Formulaire();
 		//Entete
 		page.addTitle("Ajout d'un ordinateur");
 		//Contenu de la page
@@ -20,5 +21,9 @@ public class AjouterOrdinateur {
 		//Pied de page
 		page.addButtonFoot("Annuler", null);
 		page.addButtonFoot("Valider", null);
+	}
+	
+	public void close() {
+		page.close();
 	}
 }
