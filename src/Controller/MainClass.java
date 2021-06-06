@@ -2,7 +2,7 @@ package Controller;
 
 import Model.DataBase.BaseDeDonee;
 import Model.Materiel.Ordinateur;
-import View.AfficherMateriels;
+import View.AjoutMateriel;
 
 public class MainClass {
 	
@@ -17,7 +17,9 @@ public class MainClass {
 		
 		//BaseDeDonee.getInstance().addMateriel(new Ordinateur(8934, "Bon état", "B401", true, true, 1024));
 		BaseDeDonee.getInstance().addMateriel(new Ordinateur(8935, "Très bon", "B401", true, true, 1024));
-		AfficherMateriels affMat = new AfficherMateriels();
+		//AfficherMateriels affMat = new AfficherMateriels();
+		
+		AjoutMateriel pageMat = new AjoutMateriel();
 	}
 
 }
