@@ -13,6 +13,8 @@ public class PageMenuAdministrateur extends PageMenuPersonnel{
 	
 	public PageMenuAdministrateur() {
 		
+		//TODO A refaire quand PageMenuPersonnel refaite
+		
 		//Creation boutons
 		JButton BmatIndispo = new JButton("Afficher le matériel indisponible");
 		JButton Butilisateurs = new JButton("Afficher la liste des utilisateurs");
