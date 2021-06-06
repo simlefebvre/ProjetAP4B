@@ -11,14 +11,14 @@ public class AjoutUtilisateur {
 		//Entete
 		page.addTitle("Ajout d'un utilisateur");
 		//Contenu de la page
-		page.addTextField("Saisir le nom ");
-		page.addTextField("Saisir le prenom ");
-		page.addPasswordField("Saisir le mot de passe ");
-		page.addTextField("Saisir l'adresse mail ");
-		page.addCheckBox("L'utilisateur est un administrateur");
+		page.addTextField("Saisir le nom ","nom");
+		page.addTextField("Saisir le prenom ", "prenom");
+		page.addPasswordField("Saisir le mot de passe ", "mdp");
+		page.addTextField("Saisir l'adresse mail ", "mail");
+		page.addCheckBox("L'utilisateur est un administrateur","admin");
 		//Pied de page
-		page.addButtonFoot("Annuler", null);
-		page.addButtonFoot("Valider", null);
+		page.addButtonFoot("Annuler", "annuler", null);
+		page.addButtonFoot("Valider", "valider", null);
 	}
 	
 	public void close() {

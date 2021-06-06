@@ -12,15 +12,15 @@ public class AjouterOrdinateur {
 		//Entete
 		page.addTitle("Ajout d'un ordinateur");
 		//Contenu de la page
-		page.addTextField("Saisir l'identifiant ");
-		page.addTextField("Saisir l'état ");
-		page.addTextField("Saisir la salle ");
-		page.addCheckBox("L'ordinateur est fixe ");
-		page.addCheckBox("L'ordinateur possède une souris");
-		page.addTextField("Saisir la capacité ");
+		page.addTextField("Saisir l'identifiant ", "id");
+		page.addTextField("Saisir l'état ", "etat");
+		page.addTextField("Saisir la salle ", "salle");
+		page.addCheckBox("L'ordinateur est fixe ", "fixe");
+		page.addCheckBox("L'ordinateur possède une souris", "souris");
+		page.addTextField("Saisir la capacité ", "capacite");
 		//Pied de page
-		page.addButtonFoot("Annuler", null);
-		page.addButtonFoot("Valider", null);
+		page.addButtonFoot("Annuler", "valider", null);
+		page.addButtonFoot("Valider", "annuler", null);
 	}
 	
 	public void close() {

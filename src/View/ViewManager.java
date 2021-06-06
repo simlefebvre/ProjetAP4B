@@ -15,4 +15,7 @@ public class ViewManager {
 	public void showMenuProf() {
 		pMenu = new PageMenuPersonnel();
 	}
+	
+	
+	//TODO Faire page AfficherUtilisateurs
 }

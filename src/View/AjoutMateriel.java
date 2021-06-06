@@ -19,8 +19,8 @@ public class AjoutMateriel {
 		choix.add("Une tablette");
 		page.addRadioButtonGroup(3,"Quel matériel voulez-vous ajouter ?",choix);
 		//Pied de page
-		page.addButtonFoot("Annuler", null);
-		page.addButtonFoot("Valider", null);
+		page.addButtonFoot("Annuler", "annuler", null);
+		page.addButtonFoot("Valider", "valider", null);
 	}
 	
 	public void close() {
