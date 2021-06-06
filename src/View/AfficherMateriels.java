@@ -2,6 +2,7 @@ package View;
 
 import javax.swing.JPanel;
 
+import Controller.listeMaterielController;
 import Model.DataBase.BaseDeDonee;
 import Model.Materiel.Materiel;
 
@@ -12,11 +13,11 @@ public class AfficherMateriels{
 	//Attribut
 	private Formulaire page;
 	private ViewManager vm;
-	private listeMaterielleController lmc;
+	private listeMaterielController lmc;
 	//Constructeur
 	public AfficherMateriels(ViewManager vm){
 		this.vm = vm;
-		this.lmc = new listeMaterielleController(vm);
+		this.lmc = new listeMaterielController(vm);
 		page = new Formulaire();
 		
 		//Entete
