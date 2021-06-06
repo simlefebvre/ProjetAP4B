@@ -64,6 +64,7 @@ public class Formulaire extends Fenetre {
 		entre.setMinimumSize(new Dimension(100,20));
 		
 		JPanel pan = new JPanel();
+		pan.setLayout(new BoxLayout(pan, BoxLayout.LINE_AXIS));
 		pan.add(label);
 		pan.add(entre);
 		contenu.add(pan);
