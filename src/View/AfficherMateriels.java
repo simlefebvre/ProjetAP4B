@@ -21,6 +21,8 @@ public class AfficherMateriels{
 			page.addTextField("ici c'est pas trop petit ??");
 		}
 		
+		page.addTitle("Ceci est un titre");
+		
 		//TODO Pied de page : Ajouter boutons ajouter + retour
 	}
 }

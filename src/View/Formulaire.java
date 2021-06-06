@@ -35,6 +35,7 @@ public class Formulaire extends Fenetre {
 		conteneur = new JPanel();
 		
 		textes = new LinkedList<>();
+		coches = new LinkedList<>();
 		
 		conteneur.setLayout(new GridBagLayout());
 		fenetre.setContentPane(conteneur);
@@ -45,6 +46,7 @@ public class Formulaire extends Fenetre {
 		enTete.setLayout(new BoxLayout(enTete, BoxLayout.LINE_AXIS));
 	
 		page.add(enTete);
+		page.add(new Marge(10));
 		page.add(contenu);
 		page.add(piedPage);
 		
@@ -93,6 +95,8 @@ public class Formulaire extends Fenetre {
 	    Ltitre.setFont(font);
 	    
 	    enTete.add(Ltitre);
+	    
+	    fenetre.revalidate();
 	}
 	/**
 	 * ajout d'un bouton à cocher dans le corps du formulaire
