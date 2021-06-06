@@ -10,8 +10,8 @@ public class Tablette extends Materiel{
 	private boolean clavier;
 	
 	//Constructeur
-	public Tablette(int id, String etat, String salle, boolean clavier) {
-		super(id, etat, salle);
+	public Tablette(int id, String marque, String etat, String salle, boolean clavier) {
+		super(id, marque, etat, salle);
 		this.clavier=clavier;
 	}
 	

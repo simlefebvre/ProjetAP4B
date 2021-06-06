@@ -14,8 +14,9 @@ public class Materiel {
 	protected Agenda reservations;
 	
 	//Constructeur
-	public Materiel(int id, String etat, String salle) {
+	public Materiel(int id, String marque, String etat, String salle) {
 		this.identifiant=id;
+		this.marque=marque;
 		this.etat=etat;
 		this.salle=salle;
 		this.reservations = new Agenda();

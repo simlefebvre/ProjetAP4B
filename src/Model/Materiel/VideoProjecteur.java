@@ -10,8 +10,8 @@ public class VideoProjecteur extends Materiel{
 	private boolean telecommande;
 
 	//Constructeur
-	public VideoProjecteur(int id, String etat, String salle, boolean telecommande) {
-		super(id, etat, salle);
+	public VideoProjecteur(int id, String marque, String etat, String salle, boolean telecommande) {
+		super(id, marque, etat, salle);
 		this.telecommande=telecommande;
 	}
 	

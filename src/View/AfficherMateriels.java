@@ -12,9 +12,11 @@ public class AfficherMateriels{
 	//Attribut
 	private Formulaire page;
 	private ViewManager vm;
+	private listeMaterielleController lmc;
 	//Constructeur
 	public AfficherMateriels(ViewManager vm){
 		this.vm = vm;
+		this.lmc = new listeMaterielleController(vm);
 		page = new Formulaire();
 		
 		//Entete
@@ -26,10 +28,18 @@ public class AfficherMateriels{
 			//TODO creer une nouvelle ligne avec infos materiel
 			//Puis ajouter boutons modifier, supprimer et réserver, en fonction de l'utilisateur
 			
-			instance = page.addTextField("id : "+mat.getID(), "nom");
-			page.addButton("reserver", "Reserver", null, instance);
-			page.addButton("modifier", "Modifier", null, instance);
-			page.addButton("supprimer", "Supprimer", null, instance);
+
+			instance = page.addLabel("infosMat", "Ordinateur          id : "+mat.getID()+"          Etat : " + mat.getEtat() +"          Salle : " + mat.getSalle() +"          ");
+			page.addButton("reserver", "Reserver", lmc, instance);
+			
+			/*que pour admin !!!
+			 * instanceof
+			page.addButton("modifier", "Modifier", lmc, instance);
+			page.addButton("supprimer", "Supprimer", lmc, instance);
+			*/
+			//int id, String marque, String etat, String salle
+			
+			//TODO faire bouton +d'infos sur chaque matériel avec l'agenda...
 		}
 		
 		//Pied de page
