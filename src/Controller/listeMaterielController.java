@@ -3,6 +3,8 @@ package Controller;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
+import javax.swing.JButton;
+
 import View.ViewManager;
 
 public class listeMaterielController implements MouseListener {
@@ -15,31 +17,33 @@ public class listeMaterielController implements MouseListener {
 
 	@Override
 	public void mouseClicked(MouseEvent e) {
-		// TODO Auto-generated method stub
-		
+		if(e.getSource() instanceof JButton) {
+			JButton but = (JButton) e.getSource();
+			
+			if(but.getName().equalsIgnoreCase("retour")) {
+				this.vm.pAffMat.close();
+				this.vm.showMenuProf();
+			}
+		}
 	}
 
 	@Override
 	public void mousePressed(MouseEvent e) {
-		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
 	public void mouseReleased(MouseEvent e) {
-		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
 	public void mouseEntered(MouseEvent e) {
-		// TODO Auto-generated method stub
-		
+			
 	}
 
 	@Override
 	public void mouseExited(MouseEvent e) {
-		// TODO Auto-generated method stub
 		
 	}
 

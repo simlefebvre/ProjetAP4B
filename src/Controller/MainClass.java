@@ -33,6 +33,7 @@ public class MainClass {
 		//PageMenuPersonnel menuPerso = new PageMenuPersonnel();
 		ViewManager vm = new ViewManager();
 		BaseDeDonee.getInstance().addUtilisateur(new Administrateur("admin", "admin", "admin", "admin"));
+		BaseDeDonee.getInstance().addUtilisateur(new Utilisateur("user", "user", "user", "user"));
 		//AjoutPersonel ap = new AjoutPersonel();
 		//AjoutUtilisateur ajoutUti = new AjoutUtilisateur();
 		//AjoutMateriel mat = new AjoutMateriel();
