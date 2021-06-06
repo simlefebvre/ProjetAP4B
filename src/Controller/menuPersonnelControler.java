@@ -27,6 +27,10 @@ public class menuPersonnelControler implements MouseListener {
 			}else if(b.getName().equalsIgnoreCase("profil")) {
 				vm.pMenu.close();
 				vm.showProfil();
+			}else if(b.getName().equalsIgnoreCase("deconnexion")) {
+				MainClass.connecte = null;
+				vm.pMenu.close();
+				vm.showConnexion();
 			}
 		}
 	}

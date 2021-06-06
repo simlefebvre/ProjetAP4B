@@ -32,6 +32,7 @@ public class connexionController implements MouseListener {
 			boolean test = false;
 			for(Utilisateur usr : BaseDeDonee.getInstance().getUtilisateurs()) {
 				if(usr.connexion(identifiant, mdp)) {
+					MainClass.connecte = usr;
 					vm.page.close();
 					vm.showMenuProf();
 					test = true;

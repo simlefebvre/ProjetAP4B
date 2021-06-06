@@ -60,6 +60,8 @@ public class Formulaire extends Fenetre {
 		
 		conteneur.add(page);
 		
+		fenetre.setLocationRelativeTo(null);
+		
 		fenetre.validate();
 	}
 	

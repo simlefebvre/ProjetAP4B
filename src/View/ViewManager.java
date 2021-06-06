@@ -13,6 +13,10 @@ public class ViewManager {
 	public AfficherProfil pProfil;
 	
 	public ViewManager() {
+		showConnexion();
+	}
+	
+	public void showConnexion() {
 		page = new PageConnexion(this);
 	}
 	public void showMenuProf() {
@@ -20,15 +24,15 @@ public class ViewManager {
 	}
 	
 	public void showMaterielDispo() {
-		pAffMat = new AfficherMateriels();
+		pAffMat = new AfficherMateriels(this);
 	}
 	
 	public void showProfil() {
-		pProfil = new AfficherProfil();
+		pProfil = new AfficherProfil(this);
 	}
 	
 	public void showAfficherReservation() {
-		pAffReserv = new AfficherReservations();
+		pAffReserv = new AfficherReservations(this);
 	}
 	//TODO Faire page AfficherUtilisateurs
 }

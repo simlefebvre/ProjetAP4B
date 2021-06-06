@@ -2,7 +2,9 @@ package View;
 
 import javax.swing.JPanel;
 
+import Controller.MainClass;
 import Controller.menuPersonnelControler;
+import Model.Utilisateur.Administrateur;
 
 /**
  * Menu principal pour le personnel
@@ -28,6 +30,10 @@ public class PageMenuPersonnel{
 		//TODO Ajouter page profil
 		//Pied de page
 		page.addButtonFoot("Déconnexion", "deconnexion", mpc);
+		if(MainClass.connecte instanceof Administrateur) {
+			page.addButton("utilisateurs", "Afficher la liste des utilisateurs", mpc);
+		}
+		
 	}
 	
 	public void close() {
