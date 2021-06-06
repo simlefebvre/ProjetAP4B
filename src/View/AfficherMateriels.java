@@ -10,10 +10,13 @@ import Model.Materiel.Materiel;
  */
 public class AfficherMateriels{
 	//Attribut
-	Formulaire page;
+	private Formulaire page;
+	private ViewManager vm;
 	//Constructeur
-	public AfficherMateriels(){
+	public AfficherMateriels(ViewManager vm){
+		this.vm = vm;
 		page = new Formulaire();
+		
 		//Entete
 		page.addTitle("Liste des matériels");
 
@@ -23,12 +26,14 @@ public class AfficherMateriels{
 			//TODO creer une nouvelle ligne avec infos materiel
 			//Puis ajouter boutons modifier, supprimer et réserver, en fonction de l'utilisateur
 			
-			instance = page.addTextField("Hello");
-			page.addTextField("ici c'est pas trop petit ??", instance);
+			instance = page.addTextField("id : "+mat.getID(), "nom");
+			page.addButton("reserver", "Reserver", null, instance);
+			page.addButton("modifier", "Modifier", null, instance);
+			page.addButton("supprimer", "Supprimer", null, instance);
 		}
 		
 		//Pied de page
-		page.addButtonFoot("Retour", null);
+		page.addButtonFoot("Retour", "retour", null);
 	}
 	
 	
