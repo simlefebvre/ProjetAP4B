@@ -21,11 +21,8 @@ public class AfficherMateriels{
 			page.addTextField("ici c'est pas trop petit ??");
 		}
 		
-<<<<<<< Updated upstream
-		page.addTitle("Ceci est un titre");
-=======
 		page.addTitle("Liste des matériels");
->>>>>>> Stashed changes
+
 		
 		//TODO Pied de page : Ajouter boutons ajouter + retour
 	}
