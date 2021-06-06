@@ -50,7 +50,7 @@ public class BaseDeDonee {
 	
 	/**
 	 * permet d'avoir accès à la base unique
-	 * @return la base de donnée
+	 * @return la base de données
 	 */
 	public final static BaseDeDonee getInstance() {
 		return unique;

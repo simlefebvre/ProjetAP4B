@@ -43,7 +43,7 @@ public class connexionController implements MouseListener {
 				vm.page.clearField();
 			}
 		}else if(bouton.getText().equalsIgnoreCase("mot de passe oublié")) {
-			JOptionPane.showMessageDialog(null, "Voyez avec votre administrateur résau");
+			JOptionPane.showMessageDialog(null, "Voyez avec votre administrateur réseau");
 		}
 		
 	}
