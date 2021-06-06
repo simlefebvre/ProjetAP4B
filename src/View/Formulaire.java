@@ -29,6 +29,7 @@ public class Formulaire extends Fenetre {
 	private LinkedList<JTextField> textes;
 	private LinkedList<JCheckBox> coches;
 	private LinkedList<ButtonGroup> groupes;
+	private LinkedList<JPasswordField> mdps;
 	//TODO faire du multi ligne
 	public Formulaire() {
 		
@@ -41,6 +42,7 @@ public class Formulaire extends Fenetre {
 		textes = new LinkedList<>();
 		coches = new LinkedList<>();
 		groupes = new LinkedList<>();
+		mdps = new LinkedList<>();
 		
 		conteneur.setLayout(new GridBagLayout());
 		fenetre.setContentPane(conteneur);
@@ -220,10 +222,14 @@ public class Formulaire extends Fenetre {
 		
 	}
 	
-	public void addPaswordField(String nom) {
+	/**
+	 * ajout d'une section à mot de passe
+	 * @param nom nom de la section
+	 */
+	public void addPasswordField(String nom) {
 		JPasswordField entre = new JPasswordField();
 		JLabel label = new JLabel(nom);
-		textes.add(entre);
+		mdps.add(entre);
 		
 		entre.setMinimumSize(new Dimension(100,20));
 		
@@ -235,4 +241,31 @@ public class Formulaire extends Fenetre {
 		contenu.add(new Marge());
 		fenetre.revalidate();
 	}
+	/**
+	 * Ajout d'un simple label
+	 * @param s texte du label
+	 * @param pan panel auxquel l'ajouter
+	 */
+	public void addLabel(String s, JPanel pan) {
+		JLabel lab = new JLabel(s);
+		pan.add(lab);
+	}
+	
+	/**
+	 * ajout d'un bouton à un pannel sur le formulaire 
+	 * 
+	 * @param nom nom du bouton
+	 * @param affiche texte à afficher sur le boutton
+	 * @param listener Mouse listener du boutton
+	 * @param pan Pannel auquel l'ajouter
+	 */
+	public void addButton(String nom, String affiche, MouseListener listener, JPanel pan) {
+		JButton but = new JButton();
+		but.setName(nom);
+		but.setText(affiche);
+		but.addMouseListener(listener);
+		
+		pan.add(but);
+	}
+	
 }
