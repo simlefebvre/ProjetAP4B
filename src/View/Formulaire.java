@@ -337,6 +337,22 @@ public class Formulaire extends Fenetre {
 		return pan;
 	}
 	
+	public JPanel addLabel(String nom, String affiche) {
+		JLabel lab = new JLabel();
+		lab.setName(nom);
+		lab.setText(affiche);
+		
+		JPanel pan = new JPanel();
+		pan.setLayout(new BoxLayout(pan, BoxLayout.LINE_AXIS));
+		pan.add(lab);
+		
+		contenu.add(pan);
+		contenu.add(new Marge());
+		fenetre.revalidate();
+		
+		return pan;
+	}
+	
 	/**
 	 * efface tous les champs de texte du formulaire
 	 */
