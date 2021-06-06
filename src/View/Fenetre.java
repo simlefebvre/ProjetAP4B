@@ -9,25 +9,25 @@ import javax.swing.JFrame;
  *
  */
 
-public class Fenetre extends JFrame{
+public class Fenetre extends JFrame {
 	protected JFrame fenetre;
-	
+
 	public Fenetre() {
 		fenetre = new JFrame();
-		
-	    fenetre.setTitle("Gestion du parc informatique");
-	    
-	    //Positionner au centre
-	    fenetre.setLocationRelativeTo(null);
-	    //Définir taille minimale
-	    fenetre.setMinimumSize(new Dimension(500, 500));
-	    
-	    //Termine le processus lorsqu'on clique sur la croix rouge
-	    fenetre.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-	    
-	    fenetre.setVisible(true);
+
+		fenetre.setTitle("Gestion du parc informatique");
+
+		// Positionner au centre
+		fenetre.setLocationRelativeTo(null);
+		// Définir taille minimale
+		fenetre.setMinimumSize(new Dimension(500, 500));
+
+		// Termine le processus lorsqu'on clique sur la croix rouge
+		fenetre.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+		fenetre.setVisible(true);
 	}
-	
+
 	public void close() {
 		fenetre.dispose();
 	}

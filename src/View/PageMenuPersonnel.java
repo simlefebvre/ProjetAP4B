@@ -9,33 +9,33 @@ import Model.Utilisateur.Administrateur;
 /**
  * Menu principal pour le personnel
  */
-public class PageMenuPersonnel{	
-	//Attributs	
+public class PageMenuPersonnel {
+	// Attributs
 	protected Formulaire page;
 	private menuPersonnelControler mpc;
 	private ViewManager vm;
 
-	//Constructeur
+	// Constructeur
 	public PageMenuPersonnel(ViewManager vm) {
 		this.vm = vm;
 		mpc = new menuPersonnelControler(vm);
 		page = new Formulaire();
-		//Entete
+		// Entete
 		page.addTitle("Menu principal");
-		//Contenu de la page
-		page.addButton("mat","Afficher le matériel",mpc);
+		// Contenu de la page
+		page.addButton("mat", "Afficher le matériel", mpc);
 		page.addButton("reservation", "Afficher les réservations", mpc);
-		//TODO Ajouter page materiel reservé
+		// TODO Ajouter page materiel reservé
 		page.addButton("profil", "Afficher mon profil", mpc);
-		//TODO Ajouter page profil
-		//Pied de page
+		// TODO Ajouter page profil
+		// Pied de page
 		page.addButtonFoot("Déconnexion", "deconnexion", mpc);
-		if(MainClass.connecte instanceof Administrateur) {
+		if (MainClass.connecte instanceof Administrateur) {
 			page.addButton("utilisateurs", "Afficher la liste des utilisateurs", mpc);
 		}
-		
+
 	}
-	
+
 	public void close() {
 		page.close();
 	}

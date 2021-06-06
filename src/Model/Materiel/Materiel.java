@@ -6,23 +6,23 @@ import Model.Agenda.Agenda;
  * Un matériel représente un objet pouvant être réservé par un utilisateur.
  */
 public class Materiel {
-	//Attributs
+	// Attributs
 	protected int identifiant;
 	protected String marque;
 	protected String etat;
 	protected String salle;
 	protected Agenda reservations;
-	
-	//Constructeur
+
+	// Constructeur
 	public Materiel(int id, String marque, String etat, String salle) {
-		this.identifiant=id;
-		this.marque=marque;
-		this.etat=etat;
-		this.salle=salle;
+		this.identifiant = id;
+		this.marque = marque;
+		this.etat = etat;
+		this.salle = salle;
 		this.reservations = new Agenda();
 	}
-	
-	//Méthodes de récupération et de modification des attributs
+
+	// Méthodes de récupération et de modification des attributs
 	public int getID() {
 		return this.identifiant;
 	}
@@ -30,15 +30,15 @@ public class Materiel {
 	public void setID(int id) {
 		this.identifiant = id;
 	}
-	
+
 	public String getMarque() {
 		return this.marque;
 	}
 
 	public void setMarque(String marque) {
 		this.marque = marque;
-	}	
-	
+	}
+
 	public String getEtat() {
 		return this.etat;
 	}
@@ -46,7 +46,7 @@ public class Materiel {
 	public void setEtat(String etat) {
 		this.etat = etat;
 	}
-	
+
 	public String getSalle() {
 		return this.salle;
 	}
@@ -55,22 +55,21 @@ public class Materiel {
 		this.salle = salle;
 	}
 
-	//TODO Est ce qu'il en faut pour l'agenda ??
-	
+	// TODO Est ce qu'il en faut pour l'agenda ??
+
 	@Override
 	public boolean equals(Object o) {
-		if(o instanceof Materiel) {
+		if (o instanceof Materiel) {
 			Materiel b = (Materiel) o;
-			if(b.getID() == getID()) {
+			if (b.getID() == getID()) {
 				return true;
-			}else {
+			} else {
 				return false;
 			}
-			
-		}else {
+
+		} else {
 			return false;
 		}
 	}
-	
-}
 
+}

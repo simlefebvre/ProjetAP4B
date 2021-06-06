@@ -1,18 +1,18 @@
 package View;
 
 public class AfficherProfil {
-	//Attributs	
+	// Attributs
 	protected Formulaire page;
 	private ViewManager vm;
 
-	//Constructeur
+	// Constructeur
 	public AfficherProfil(ViewManager vm) {
 		this.vm = vm;
 		page = new Formulaire();
-		//Entete
+		// Entete
 		page.addTitle("Mon profil");
 	}
-		
+
 	public void close() {
 		page.close();
 	}

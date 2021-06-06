@@ -9,9 +9,9 @@ import javax.swing.JOptionPane;
 import View.ViewManager;
 
 public class listeMaterielController implements MouseListener {
-	
+
 	private ViewManager vm;
-	
+
 	public listeMaterielController(ViewManager vm) {
 		this.vm = vm;
 	}
@@ -42,22 +42,22 @@ public class listeMaterielController implements MouseListener {
 
 	@Override
 	public void mousePressed(MouseEvent e) {
-		
+
 	}
 
 	@Override
 	public void mouseReleased(MouseEvent e) {
-		
+
 	}
 
 	@Override
 	public void mouseEntered(MouseEvent e) {
-			
+
 	}
 
 	@Override
 	public void mouseExited(MouseEvent e) {
-		
+
 	}
 
 }
