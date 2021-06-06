@@ -160,6 +160,7 @@ public class Formulaire extends Fenetre {
 		JLabel label = new JLabel(nom);
 		
 		JPanel pan = new JPanel();
+		pan.setLayout(new BoxLayout(pan, BoxLayout.PAGE_AXIS));
 		
 		pan.add(label);
 		pan.add(Pgroupe);
