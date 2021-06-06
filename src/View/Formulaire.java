@@ -7,10 +7,12 @@ import java.awt.event.MouseListener;
 import java.util.LinkedList;
 
 import javax.swing.BoxLayout;
+import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 /**
  * Objet permettant la création automatisé de formulaire
@@ -25,6 +27,7 @@ public class Formulaire extends Fenetre {
 	
 	private LinkedList<JTextField> textes;
 	private LinkedList<JCheckBox> coches;
+	private LinkedList<ButtonGroup> groupes;
 	//TODO faire du multi ligne
 	public Formulaire() {
 		
@@ -36,6 +39,7 @@ public class Formulaire extends Fenetre {
 		
 		textes = new LinkedList<>();
 		coches = new LinkedList<>();
+		groupes = new LinkedList<>();
 		
 		conteneur.setLayout(new GridBagLayout());
 		fenetre.setContentPane(conteneur);
@@ -48,6 +52,7 @@ public class Formulaire extends Fenetre {
 		page.add(enTete);
 		page.add(new Marge(10));
 		page.add(contenu);
+		page.add(new Marge(10));
 		page.add(piedPage);
 		
 		conteneur.add(page);
@@ -113,5 +118,53 @@ public class Formulaire extends Fenetre {
 		contenu.add(pan);
 		contenu.add(new Marge());
 		fenetre.revalidate();
+	}
+	
+	/**
+	 *@return la liste des TextField du formulaire
+	 */
+	public LinkedList<JTextField> getTextes(){
+		return textes;
+	}
+	
+	/**
+	 * @return la liste des case à cocher du formulaire
+	 */
+	public LinkedList<JCheckBox> getChoches(){
+		return coches;
+	}
+	/**
+	 * 
+	 * @return la liste des groupes de radioButton
+	 */
+	public LinkedList<ButtonGroup> getGroupes(){
+		return groupes;
+	}
+	/**
+	 * ajout d'un groupe de radioButton dans le corps de la page
+	 * @param nombre nombre de boutton qu'il faut dans le groupe
+	 * @param nom nom de la question global
+	 * @param boutton liste chainé contenant l'ensemble des noms des bouttons
+	 */
+	public void addRadioButtonGroup(int nombre, String nom, LinkedList<String> boutton) {
+		JPanel Pgroupe = new JPanel();
+		Pgroupe.setLayout(new BoxLayout(Pgroupe, BoxLayout.PAGE_AXIS));
+		
+		ButtonGroup groupes = new ButtonGroup();
+		for(int i = 0;i<nombre;i++) {
+			JRadioButton bouton = new JRadioButton(boutton.get(i));
+			groupes.add(bouton);
+			Pgroupe.add(bouton);
+		}
+
+		JLabel label = new JLabel(nom);
+		
+		JPanel pan = new JPanel();
+		
+		pan.add(label);
+		pan.add(Pgroupe);
+		
+		contenu.add(pan);
+		
 	}
 }
