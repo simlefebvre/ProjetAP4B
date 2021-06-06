@@ -14,6 +14,10 @@ import javax.swing.JPanel;
  */
 
 //TODO A refaire
+
+//TODO ajouter bouton déconnexion
+
+
 public class PageMenuPersonnel extends Fenetre{	
 	protected JPanel pan = new JPanel();
 	protected JPanel materiel = new JPanel();
@@ -22,7 +26,7 @@ public class PageMenuPersonnel extends Fenetre{
 	protected JPanel menu = new JPanel();
 	protected JPanel grosseMarge = new JPanel();
 	
-	
+	protected Formulaire page;
 	public PageMenuPersonnel() {
 		//Modification fenetre
 		fenetre.setExtendedState(NORMAL);
@@ -85,4 +89,10 @@ public class PageMenuPersonnel extends Fenetre{
 		//Mise a jour de la fenetre
 		fenetre.validate();  
 	}
+	
+	
+	public void close() {
+		page.close();
+	}
+	
 }

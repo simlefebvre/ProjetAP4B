@@ -27,4 +27,8 @@ public class Fenetre extends JFrame{
 	    
 	    fenetre.setVisible(true);
 	}
+	
+	public void close() {
+		fenetre.dispose();
+	}
 }

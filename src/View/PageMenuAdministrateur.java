@@ -9,8 +9,11 @@ import javax.swing.JPanel;
  */
 
 public class PageMenuAdministrateur extends PageMenuPersonnel{	
+	//Attributs
 	public JPanel Putilisateurs = new JPanel();
+	private Formulaire page;
 	
+	//Constructeur
 	public PageMenuAdministrateur() {
 		
 		//TODO A refaire quand PageMenuPersonnel refaite
@@ -27,4 +30,10 @@ public class PageMenuAdministrateur extends PageMenuPersonnel{
 		pan.add(new JPanel());
 		pan.add(Putilisateurs);
 	}
+	
+	//Autre méthode
+	public void close() {
+		page.close();
+	}
+	
 }

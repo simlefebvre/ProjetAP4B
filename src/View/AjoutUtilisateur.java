@@ -13,8 +13,7 @@ public class AjoutUtilisateur {
 		//Contenu de la page
 		page.addTextField("Saisir le nom ");
 		page.addTextField("Saisir le prenom ");
-		//TODO transformer en mdp
-		page.addTextField("Saisir le mot de passe ");
+		page.addPasswordField("Saisir le mot de passe ");
 		page.addTextField("Saisir l'adresse mail ");
 		page.addCheckBox("L'utilisateur est un administrateur");
 		//Pied de page

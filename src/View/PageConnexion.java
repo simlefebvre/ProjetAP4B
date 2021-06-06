@@ -19,8 +19,9 @@ import Controller.connexionController;
  */
 
 public class PageConnexion extends Fenetre {
+	//Attributs
+	private Formulaire page;
 	
-	/*
 	JPanel pan = new JPanel();
 	JPanel Pid = new JPanel();
 	JPanel Pmdp = new JPanel();
@@ -35,6 +36,8 @@ public class PageConnexion extends Fenetre {
 	
 	private ViewManager vm;
 	
+	
+	//Constructeur
 	public PageConnexion(ViewManager vm) {
 		//TODO A refaire
 		Tid = new JTextField();
@@ -81,8 +84,8 @@ public class PageConnexion extends Fenetre {
 		
 		//TODO Ajouter Label "connexion" ??
 	}
-	*/
 	
+	//Méthodes set et get
 	public String getIdentifiant() {
 		return Tid.getText();
 	}
@@ -92,10 +95,12 @@ public class PageConnexion extends Fenetre {
 		return new String(Tmdp.getPassword());
 	}
 	
+	
+	//Autres méthodes
 	public void close() {
-		fenetre.dispose();
+		page.close();
 	}
-
+	
 
 	public void clearField() {
 		Tid.setText("");
