@@ -25,9 +25,8 @@ public class PageMenuPersonnel {
 		// Contenu de la page
 		page.addButton("mat", "Afficher le matériel", mpc);
 		page.addButton("reservation", "Afficher les réservations", mpc);
-		// TODO Ajouter page materiel reservé
 		page.addButton("profil", "Afficher mon profil", mpc);
-		// TODO Ajouter page profil
+
 		// Pied de page
 		page.addButtonFoot("Déconnexion", "deconnexion", mpc);
 		if (MainClass.connecte instanceof Administrateur) {

@@ -12,6 +12,9 @@ public class AfficherReservations {
 
 		// Entete
 		page.addTitle("Mes réservations");
+		
+		//TODO Page a faire
+		
 	}
 
 	public void close() {

@@ -52,8 +52,6 @@ public class AfficherMateriels {
 				page.addButton("modifier_" + mat.getID(), "Modifier", lmc, instance);
 				page.addButton("suppr_" + mat.getID(), "Supprimer", lmc, instance);
 			}
-
-			// TODO faire bouton +d'infos sur chaque matériel avec l'agenda...
 		}
 
 		// Pied de page

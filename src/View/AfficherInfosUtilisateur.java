@@ -29,7 +29,7 @@ public class AfficherInfosUtilisateur {
 		
 		//TODO Ajouter champ modif mdp
 		
-		
+		//TODO Afficher les réservations
 		// Pied de page
 		page.addButtonFoot("Retour", "retour", null);
 		if (MainClass.connecte instanceof Administrateur) {

@@ -11,6 +11,11 @@ public class AfficherProfil {
 		page = new Formulaire();
 		// Entete
 		page.addTitle("Mon profil");
+		
+		
+		//TODO Page a faire
+		
+		
 	}
 
 	public void close() {
