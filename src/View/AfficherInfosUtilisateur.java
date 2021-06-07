@@ -17,7 +17,7 @@ public class AfficherInfosUtilisateur {
 		Utilisateur util = BaseDeDonee.getInstance().getUtilisateur(mail);
 		
 		//Entete
-		page.addTitle("Informations sur l'utilisateur");
+		page.addTitle("Profil");
 		
 		//Contenu
 		//TODO Mettre les valeurs dans les champs des TextField
