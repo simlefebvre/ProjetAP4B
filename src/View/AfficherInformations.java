@@ -38,7 +38,6 @@ public class AfficherInformations {
 		// Contenu propre au matériel
 		// Entete
 		// TODO à changer en fonction classe materiel
-
 		if (mat instanceof Ordinateur) {
 			page.addTitle("Ordinateur");
 			// TODO modifier fonction ajoutCheckBox avec choix si coché ou non et si modifiable ou non. Pareil pour textField

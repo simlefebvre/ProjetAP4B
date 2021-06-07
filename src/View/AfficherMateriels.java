@@ -58,7 +58,8 @@ public class AfficherMateriels {
 
 		// Pied de page
 		page.addButtonFoot("Retour", "retour", lmc);
-		page.addButtonFoot("reserver", "Reserver", lmc);
+		page.addButtonFoot("Reserver", "reserver", lmc);
+		//TODO Faire page réserver
 	}
 
 	public void close() {
