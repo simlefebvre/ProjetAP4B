@@ -9,8 +9,8 @@ public class ViewManager {
 	public PageConnexion page;
 	public PageMenuPersonnel pMenu;
 	public AfficherMateriels pAffMat;
-	public AfficherReservations pAffReserv;
-	public AfficherProfil pProfil;
+	public AfficherReservationsMateriel pAffReserv;
+	public AfficherInfosUtilisateur pProfil;
 
 	public ViewManager() {
 		showConnexion();
@@ -29,11 +29,13 @@ public class ViewManager {
 	}
 
 	public void showProfil() {
-		pProfil = new AfficherProfil(this);
+		String mail="admin";
+		pProfil = new AfficherInfosUtilisateur(this, mail);
 	}
 
 	public void showAfficherReservation() {
-		pAffReserv = new AfficherReservations(this);
+		int idMat = 8934;
+		pAffReserv = new AfficherReservationsMateriel(this, idMat);
 	}
-	// TODO Faire page AfficherUtilisateurs
+	// TODO Lier page AfficherUtilisateurs
 }

@@ -1,6 +1,9 @@
 package Model.Materiel;
 
+import java.util.LinkedList;
+
 import Model.Agenda.Agenda;
+import Model.Agenda.Reservation;
 
 /**
  * Un matériel représente un objet pouvant être réservé par un utilisateur.
@@ -54,9 +57,19 @@ public class Materiel {
 	public void setSalle(String salle) {
 		this.salle = salle;
 	}
-
+	
+	public LinkedList<Reservation> getReservations() {
+		return reservations.getListe();
+	}
+	
+	public void addReservation(Reservation r) {
+		reservations.ajouterReservation(r);
+	}
+	
 	// TODO Est ce qu'il en faut pour l'agenda ??
 
+	
+	
 	@Override
 	public boolean equals(Object o) {
 		if (o instanceof Materiel) {

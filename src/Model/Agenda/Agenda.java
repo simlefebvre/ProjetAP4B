@@ -10,25 +10,29 @@ import Model.Utilisateur.Utilisateur;
  * 
  */
 public class Agenda {
-	// Attributs
+	// Attribut
 	private LinkedList<Reservation> occupation;
 
+	
 	// Constructeur
 	public Agenda() {
 		occupation = new LinkedList<Reservation>();
 	}
 
+	
+	
 	/**
 	 * Fonction permettant l'ajout d'une reservation
 	 * 
 	 * @param r la reservation que l'on ajoute
 	 * @return true si la reservation c'est fait false sinon
 	 */
-
 	public boolean ajouterReservation(Reservation r) {
 		return this.occupation.add(r);
 	}
 
+	
+	
 	/**
 	 * Fonction permettant la supression d'une reservation
 	 * 
@@ -39,6 +43,8 @@ public class Agenda {
 		return this.occupation.remove(r);
 	}
 
+	
+	
 	/**
 	 * fonction permettant la modification d'une reservation
 	 * 
@@ -72,4 +78,18 @@ public class Agenda {
 		return -1;
 	}
 
+	
+	
+	public LinkedList<Reservation> getListe(){
+		return occupation;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }
