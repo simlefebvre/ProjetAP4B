@@ -8,14 +8,14 @@ import Model.Materiel.Ordinateur;
 import Model.Materiel.Tablette;
 import Model.Utilisateur.Administrateur;
 
-public class AfficherInformations {
+public class AfficherInfosMateriel {
 	// Attributs
 	private Formulaire page;
 	private ViewManager vm;
 	private listeMaterielController lmc;
 
 	// Constructeur
-	public AfficherInformations(ViewManager vm, int idMat) {
+	public AfficherInfosMateriel(ViewManager vm, int idMat) {
 		this.vm = vm;
 		this.lmc = new listeMaterielController(vm);
 		page = new Formulaire();
@@ -32,12 +32,12 @@ public class AfficherInformations {
 		page.addButtonFoot("Retour", "retour", null);
 		if (MainClass.connecte instanceof Administrateur) {
 			page.addButtonFoot("Modifier", "modifier", null);
-			// TODO ajout bouton modifier qui rend les textes et checkbox modifiables
+			// TODO bouton modifier qui rend les textes et checkbox modifiables
 		}
 
+		
 		// Contenu propre au matériel
 		// Entete
-		// TODO à changer en fonction classe materiel
 		if (mat instanceof Ordinateur) {
 			page.addTitle("Ordinateur");
 			// TODO modifier fonction ajoutCheckBox avec choix si coché ou non et si modifiable ou non. Pareil pour textField
@@ -54,9 +54,6 @@ public class AfficherInformations {
 		}
 
 		// TODO Afficher réservations du matériel
-
-		
-		
 		
 	}
 }

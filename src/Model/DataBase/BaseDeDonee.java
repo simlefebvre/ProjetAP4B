@@ -106,41 +106,64 @@ public class BaseDeDonee {
 		return -1;
 	}
 
+	
+	
 	/**
-	 * supression d'un materiel de la BDD
+	 * Retrouve l'utilisateur dont l'adresse mail est passée en paramètre
+	 *
+	 * @param mail adresse mail de l'utilisateur recherché
+	 * @return l'utilisateur recherché; null s'il n'est pas trouvé
+	 */
+	public Utilisateur getUtilisateur(String mail) {
+		for (Utilisateur u : utilisateurs) {
+			if (u.getMail() == mail) {
+				return u;
+			}
+		}
+		return null;
+	}
+	
+	
+	
+	
+	/**
+	 * suppression d'un materiel de la BDD
 	 * 
 	 * @param mat materiel à supprimer
-	 * @return true si la suppression et réussi, false sinon
+	 * @return true si la suppression est réussie, false sinon
 	 */
 	public boolean removeMateriel(Materiel mat) {
 		return materiels.remove(mat);
 	}
 
-	/**
-	 * suppression d'un utilisateur de la BDD
-	 * 
-	 * @param usr utilisateur à supprimer
-	 * @return true si la suppression et réussi, false sinon
-	 */
-	public boolean removeUtilisateur(Utilisateur usr) {
-		return utilisateurs.remove(usr);
-	}
-
+	
 	/**
 	 * suppression d'un materiel de la BDD
 	 * 
 	 * @param index index du materiel à supprimer
-	 * @return materiel qui a était supprimer
+	 * @return materiel qui a été supprimé
 	 */
 	public Materiel removeMateriel(int index) {
 		return materiels.remove(index);
 	}
 
+	
+	/**
+	 * suppression d'un utilisateur de la BDD
+	 * 
+	 * @param usr utilisateur à supprimer
+	 * @return true si la suppression est réussie, false sinon
+	 */
+	public boolean removeUtilisateur(Utilisateur usr) {
+		return utilisateurs.remove(usr);
+	}
+	
+	
 	/**
 	 * suppression d'un utilisateur de la BDD
 	 * 
 	 * @param index index de l'utilisateur à supprimer
-	 * @return utilisateur qui a était supprimer
+	 * @return utilisateur qui a été supprimé
 	 */
 	public Utilisateur removeUtilisateur(int index) {
 		return utilisateurs.remove(index);
