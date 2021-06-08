@@ -30,12 +30,15 @@ public class AfficherReservationsMateriel {
 			page.addLabel("          ", pan);
 			page.addTextField("par : " + res.getPar().getNom() + " " + res.getPar().getPrenom(), "par", pan);
 			
+			//TODO boutons mmodifier et supprimer
+			
 		}
 		
 		
 		//Pied de page
 		page.addButtonFoot("Annuler", "annuler", null);
-		page.addButtonFoot("Réserver", "reserver", null);
+		
+		//page.addButtonFoot("Réserver", "reserver", null);
 		
 		
 	}
