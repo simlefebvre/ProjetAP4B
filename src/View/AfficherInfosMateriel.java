@@ -30,10 +30,14 @@ public class AfficherInfosMateriel {
 		page.addTextField("Salle : ", "salle", mat.getSalle(), null, true);
 
 		// Pied de page
-		page.addButtonFoot("Retour", "retour", null);
+		page.addButtonFoot("Retour", "retour", lmc);
 		if (MainClass.connecte instanceof Administrateur) {
-			page.addButtonFoot("Modifier", "modifier", null);
+			page.addButtonFoot("Modifier", "modifier", lmc);
 			// TODO bouton modifier qui rend les textes et checkbox modifiables
+			if (MainClass.connecte instanceof Administrateur) {
+				page.addButton("modifier_" + mat.getID(), "Modifier", lmc, null);
+				page.addButton("suppr_" + mat.getID(), "Supprimer", lmc, null);
+			}
 		}
 
 		
