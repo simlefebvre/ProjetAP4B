@@ -415,6 +415,10 @@ public class Formulaire extends Fenetre {
 	}
 	
 	
+	public void refresh() {
+		fenetre.revalidate();
+	}
+	
 	
 	public void addMarge(int taille) {
 		Marge mar = new Marge(taille);

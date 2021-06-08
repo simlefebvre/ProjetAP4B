@@ -6,6 +6,7 @@ import java.awt.event.MouseListener;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
 
+import Model.DataBase.BaseDeDonee;
 import View.ViewManager;
 
 public class listeMaterielController implements MouseListener {
@@ -18,7 +19,6 @@ public class listeMaterielController implements MouseListener {
 
 	@Override
 	public void mouseClicked(MouseEvent e) {
-		System.out.println("test");
 		if(e.getSource() instanceof JButton) {
 			JButton but = (JButton) e.getSource();
 			String name = but.getName();
@@ -26,15 +26,15 @@ public class listeMaterielController implements MouseListener {
 				this.vm.pAffMat.close();
 				this.vm.showMenuProf();
 			}else if(name.contains("suppr")){
-				char num[] = {'','',''};
-				name.getChars(4, name.length(), num, 0);
 				
-				int index = Integer.parseInt(new String(num));
+				String num = name.substring(6);
+
+				int identifiant = Integer.parseInt(num);
 				
-				int choix = JOptionPane.showOptionDialog(null, "Etes vous sur de vouloir supprimer le materiel n°"+ index + " ?" , "Supression" , JOptionPane.YES_NO_OPTION,JOptionPane.WARNING_MESSAGE , null , null, null);
+				int choix = JOptionPane.showOptionDialog(null, "Etes vous sur de vouloir supprimer le materiel n°"+ identifiant + " ?" , "Supression" , JOptionPane.YES_NO_OPTION,JOptionPane.WARNING_MESSAGE , null , null, null);
 				
 				if(choix == JOptionPane.YES_OPTION) {
-					//TODO continuer ici
+					BaseDeDonee.getInstance().removeMateriel(BaseDeDonee.getInstance().getMateriel(identifiant));
 				}
 			}
 		}

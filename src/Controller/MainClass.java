@@ -5,7 +5,6 @@ import Model.Materiel.Ordinateur;
 import Model.Materiel.Tablette;
 import Model.Utilisateur.Administrateur;
 import Model.Utilisateur.Utilisateur;
-import View.AfficherInformations;
 //import Model.DataBase.BaseDeDonee;
 //import Model.Utilisateur.Administrateur;
 //import Model.Utilisateur.Utilisateur;
@@ -52,6 +51,6 @@ public class MainClass {
 		// PageMenuPersonnel mp = new PageMenuPersonnel();
 
 		// PageMenuAdministrateur ma = new PageMenuAdministrateur();
-		AfficherInformations ai = new AfficherInformations(vm, 8935);
+		//AfficherInformations ai = new AfficherInformations(vm, 8935);
 	}
 }
