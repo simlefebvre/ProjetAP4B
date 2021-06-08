@@ -1,8 +1,9 @@
 package View;
 
-import java.util.Date;
+import java.util.LinkedList;
 
-import Model.Utilisateur.Utilisateur;
+import Controller.MainClass;
+import Model.Materiel.Materiel;
 
 public class AjoutReservation {
 	//Attribut
@@ -10,25 +11,22 @@ public class AjoutReservation {
 	private ViewManager vm;
 	
 	//Constructeur
-	public AjoutReservation() {
+	public AjoutReservation(LinkedList<Materiel> ListeMat) {
 		page = new Formulaire();
-		//This.vm=;
 		
 		
 		//Entete
 		page.addTitle("Nouvelle réservation");
 		
-		//Contenu de la page
+		//Contenu de la page	
 		page.addLabel("LabInstruction", "Saisir la date et l'heure selon le format suivant : jj/MM/yyyy hh:mm");
 		page.addTextField("Date et heure de début  ", "debut");
 		page.addTextField("Date et heure de fin  ", "fin");
 		//TODO Tester si conversion en Date ok 
 		
-		
 
 		page.addMarge(1);
-		page.addTextField("Saisir votre adresse mail  ", "mail");
-		//TODO Tester validite adresse mail	
+		page.addTextField("Saisir votre adresse mail  ", "mail", MainClass.connecte.getMail(), null, false);
 		
 		
 		//Pied de page

@@ -18,6 +18,7 @@ import Model.Utilisateur.Utilisateur;
 public class Reservation {
 
 	// Attributs
+	private String identifiant;
 	private Date debut;
 	private Date fin;
 	private Utilisateur par;
@@ -27,6 +28,8 @@ public class Reservation {
 
 	// Constructeur
 	public Reservation(String newdebut, String newfin, Utilisateur par) {
+		
+		
 		Date debutResa = strToDate(newdebut);
 		Date finResa = strToDate(newfin);
 		
@@ -40,12 +43,22 @@ public class Reservation {
 			this.fin = debutResa;
 		}
 		
+		
+		this.identifiant = genererID(this.debut, this.fin);
 		this.par = par;
 	}
 	
 	
 	
 	// Méthodes de récupération et de modification des attributs
+	public String getID() {
+		return this.identifiant;
+	}
+	
+	public void setID(String id) {
+		this.identifiant = id;
+	}
+	
 	public String getDebut() {
 		return formatDate.format(this.debut);
 	}
@@ -105,6 +118,22 @@ public class Reservation {
             }
         }
 		return new Date();
+	}
+	
+	
+	
+	/**
+	 * Génère un identifiant de réservation à partir des dates de début et de fin
+	 * @param debut date de début de la réservation
+	 * @param fin	date de fin de la réservation
+	 * @return		l'identifiant généré
+	 */
+	public String genererID(Date debut, Date fin) {
+		String debutStr = formatDate.format(debut);
+		String finStr = formatDate.format(fin);
+		
+		System.out.println(debutStr+finStr);
+		return debutStr+finStr;
 	}
 	
 	

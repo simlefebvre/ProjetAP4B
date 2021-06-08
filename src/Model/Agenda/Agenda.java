@@ -83,12 +83,4 @@ public class Agenda {
 		return occupation;
 	}
 	
-	
-	
-	
-	
-	
-	
-	
-	
 }

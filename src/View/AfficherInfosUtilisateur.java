@@ -33,7 +33,6 @@ public class AfficherInfosUtilisateur {
 		
 		
 		page.addMarge(30);
-		//TODO Afficher les réservations
 		new AfficherReservationsMateriel(page, util);
 		page.addMarge(30);
 		
@@ -41,7 +40,7 @@ public class AfficherInfosUtilisateur {
 		page.addButtonFoot("Retour", "retour", null);
 		if (MainClass.connecte instanceof Administrateur) {
 			page.addButtonFoot("Modifier", "modifier", null);
-			// TODO bouton modifier qui rend les textes et checkbox modifiables mais ça va etre chiant pour les réservations si on change l'adresse mail de qqn
+			// TODO bouton modifier qui rend les textes et checkbox modifiables 
 		}	
 	}
 }

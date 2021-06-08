@@ -36,7 +36,6 @@ public class AfficherUtilisateurs {
 				page.addCheckBox("          Administrateur", "admin_", false, true, instance);
 			}
 			
-			page.addButton("modifier_" + util.getMail(), "Modifier", null, instance);
 			page.addButton("suppr_" + util.getMail(), "Supprimer", null, instance);
 			//TODO quand suppression, supprimer ses réservations
 		}
