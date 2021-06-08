@@ -8,6 +8,7 @@ import Model.Materiel.Ordinateur;
 import Model.Materiel.Tablette;
 import Model.Utilisateur.Administrateur;
 
+
 public class AfficherInfosMateriel {
 	// Attributs
 	private Formulaire page;
@@ -53,7 +54,10 @@ public class AfficherInfosMateriel {
 			// telecommande
 		}
 
-		// TODO Afficher réservations du matériel
 		
+		page.addMarge(30);
+		//Afficher des réservations du matériel
+		AfficherReservationsMateriel.AfficherReservations(page, mat.getID());
+		page.addMarge(30);
 	}
 }

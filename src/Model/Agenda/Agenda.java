@@ -1,6 +1,5 @@
 package Model.Agenda;
 
-import java.util.Date;
 import java.util.LinkedList;
 
 import Model.Utilisateur.Utilisateur;
@@ -49,11 +48,11 @@ public class Agenda {
 	 * fonction permettant la modification d'une reservation
 	 * 
 	 * @param index l'index de la reservation que l'on modifie
-	 * @param deb   la date de début de la reservation
-	 * @param fin   la date de fin de la reservation
+	 * @param deb   chaine de caracteres contenant la date de début de la reservation
+	 * @param fin   chaine de caracteres contenant la date de fin de la reservation
 	 * @param user  l'utilisateur qui fait la reservation
 	 */
-	public void modifierReservation(int index, Date deb, Date fin, Utilisateur user) {
+	public void modifierReservation(int index, String deb, String fin, Utilisateur user) {
 		Reservation r = this.occupation.get(index);
 		r.setDebut(deb);
 		r.setFin(fin);

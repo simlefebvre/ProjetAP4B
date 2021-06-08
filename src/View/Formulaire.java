@@ -365,4 +365,17 @@ public class Formulaire extends Fenetre {
 			pf.setText("");
 		}
 	}
+	
+	
+	
+	public void addMarge(int taille) {
+		Marge mar = new Marge(taille);
+		
+		JPanel pan = new JPanel();
+		pan.setLayout(new BoxLayout(pan, BoxLayout.LINE_AXIS));
+		
+		pan.add(mar);
+		contenu.add(pan);
+		fenetre.revalidate();
+	}
 }
