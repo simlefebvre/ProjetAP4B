@@ -1,5 +1,8 @@
 package View;
 
+import java.util.LinkedList;
+
+import javax.swing.JCheckBox;
 import javax.swing.JPanel;
 
 import Controller.MainClass;
@@ -32,6 +35,7 @@ public class AfficherMateriels {
 
 		// Contenu de la page
 		JPanel instance;
+		page.addLabel("consigne", "Pour réserver des matériels, cocher les cases des matériels souhaités puis cliquer sur Réserver");
 		for (Materiel mat : BaseDeDonee.getInstance().getMateriels()) {
 
 			if (mat instanceof Ordinateur) {
@@ -63,5 +67,9 @@ public class AfficherMateriels {
 	
 	public void refresh() {
 		page.refresh();
+	}
+	
+	public LinkedList<JCheckBox> getBox(){
+		return page.getChoches();
 	}
 }
