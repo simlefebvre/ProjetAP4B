@@ -48,10 +48,7 @@ public class AfficherMateriels {
 
 			page.addButton("info_" + mat.getID(), "Plus d'informations", lmc, instance);
 
-			if (MainClass.connecte instanceof Administrateur) {
-				page.addButton("modifier_" + mat.getID(), "Modifier", lmc, instance);
-				page.addButton("suppr_" + mat.getID(), "Supprimer", lmc, instance);
-			}
+			
 		}
 
 		// Pied de page
@@ -62,5 +59,9 @@ public class AfficherMateriels {
 
 	public void close() {
 		page.close();
+	}
+	
+	public void refresh() {
+		page.refresh();
 	}
 }
