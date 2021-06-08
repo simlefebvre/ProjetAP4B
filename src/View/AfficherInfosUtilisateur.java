@@ -20,21 +20,27 @@ public class AfficherInfosUtilisateur {
 		page.addTitle("Profil");
 		
 		//Contenu
-		//TODO Mettre les valeurs dans les champs des TextField
-		page.addTextField("Nom : " + util.getNom(),"nom");
-		page.addTextField("Prenom : " + util.getPrenom(),"nom");
-		page.addTextField("Adresse Mail : " + util.getMail(),"nom");
-		page.addCheckBox("Administrateur : ", "CheckAdmin");
+		page.addTextField("Nom : ","nom", util.getNom(), null, true);
+		page.addTextField("Prenom : ","prenom", util.getPrenom(), null, true);
+		page.addTextField("Adresse Mail : ","mail", util.getMail(), null, true);
+		page.addCheckBox("Administrateur : ", "CheckAdmin", true, true, null);
 		page.addButton("mdp_" + mail, "Modifier le Mot De Passe", null);
+		
+		
 		
 		//TODO Ajouter champ modif mdp
 		
+		
+		
 		//TODO Afficher les réservations
+		
+		
+		
 		// Pied de page
 		page.addButtonFoot("Retour", "retour", null);
 		if (MainClass.connecte instanceof Administrateur) {
 			page.addButtonFoot("Modifier", "modifier", null);
-			// TODO bouton modifier qui rend les textes et checkbox modifiables
+			// TODO bouton modifier qui rend les textes et checkbox modifiables mais ça va etre chiant pour les réservations si on change l'adresse mail de qqn
 		}	
 	}
 }

@@ -22,13 +22,13 @@ public class AjoutReservation {
 		page.addLabel("LabInstruction", "Saisir la date et l'heure selon le format suivant : jj/MM/yyyy hh:mm");
 		page.addTextField("Date et heure de début  ", "debut");
 		page.addTextField("Date et heure de fin  ", "fin");
-		//TODO quand recuperer debut et fin, tester si conversion en Date ok 
+		//TODO Tester si conversion en Date ok 
 		
 		
 
 		page.addMarge(1);
 		page.addTextField("Saisir votre adresse mail  ", "mail");
-		//TODO controler validite adresse mail	
+		//TODO Tester validite adresse mail	
 		
 		
 		//Pied de page

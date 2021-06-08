@@ -31,14 +31,14 @@ public class AfficherUtilisateurs {
 			instance = page.addLabel("infoUtil", "Nom : " + util.getNom()+"          Prenom : " + util.getPrenom() + "          Adresse mail : " + util.getMail());
 			
 			if (util instanceof Administrateur) {
-				page.addCheckBox("          Administrateur", "admin_", instance);
-				//TODO Cocher case admin
+				page.addCheckBox("          Administrateur", "admin_", true, true, instance);
 			} else {
-				page.addCheckBox("          Administrateur", "admin_", instance);
+				page.addCheckBox("          Administrateur", "admin_", false, true, instance);
 			}
 			
 			page.addButton("modifier_" + util.getMail(), "Modifier", null, instance);
 			page.addButton("suppr_" + util.getMail(), "Supprimer", null, instance);
+			//TODO quand suppression, supprimer ses réservations
 		}
 
 		// Pied de page

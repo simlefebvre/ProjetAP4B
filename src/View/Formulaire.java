@@ -67,58 +67,72 @@ public class Formulaire extends Fenetre {
 		fenetre.validate();
 	}
 
+	
 	/**
-	 * ajout d'une nouvelle zonne de texte dans le corps du formulaire
-	 * 
-	 * @param nomZone nom de la zone à ajouter
-	 * @param nom     identifiant permettant de reconnaitre le composant dans la
-	 *                liste
-	 * @return le panel contenant le label et l'entré
+	 * Ajout d'une nouvelle zone de texte dans le corps du formulaire.
+	 * <br>Possibilité d'ajouter la zone de texte à la suite d'une autre entrée 
+	 * @param nomZone 		texte du label
+	 * @param identifiant	identifiant de la zone de texte
+	 * @param texteDefaut	texte inscrit par défaut dans la zone de texte
+	 * @param pan			le panel auquel on veut ajouter la zone
+	 * @param verrouille	zone verouillée ou non
+	 * @return le panel dans lequel la zone se trouve
 	 */
-	public JPanel addTextField(String nomZone, String nom) {
-		JTextField entre = new JTextField();
-		entre.setName(nom);
+	public JPanel addTextField(String nomZone, String identifiant, String texteDefaut, JPanel pan, boolean verrouille) {
+		JTextField entree = new JTextField();
+		entree.setName(identifiant);
+		entree.setText(texteDefaut);
+		entree.setEnabled(!verrouille);
+			
+		entree.setMinimumSize(new Dimension(100, 20));
+		
+		
 		JLabel label = new JLabel(nomZone);
-		textes.add(entre);
+		textes.add(entree);
 
-		entre.setMinimumSize(new Dimension(100, 20));
-
-		JPanel pan = new JPanel();
-		pan.setLayout(new BoxLayout(pan, BoxLayout.LINE_AXIS));
+		
+		if(pan == null) {
+			pan = new JPanel();
+			pan.setLayout(new BoxLayout(pan, BoxLayout.LINE_AXIS));
+		}
 		pan.add(label);
-		pan.add(entre);
+		pan.add(entree);
 		contenu.add(pan);
 		contenu.add(new Marge());
 		fenetre.revalidate();
 
 		return pan;
 	}
-
+	
+	
 	/**
-	 * ajout d'une nouvelle zonne de texte dans le corps du formulaire à la suite
-	 * d'une autre entré <br>
-	 * permettant de faire des lignes de formulaire
+	 * ajout d'une nouvelle zone de texte dans le corps du formulaire
 	 * 
 	 * @param nomZone nom de la zone à ajouter
-	 * @param nom     identifiant permettant de reconnaitre le composant dans la
+	 * @param identifiant     identifiant permettant de reconnaitre le composant dans la
+	 *                liste
+	 * @return le panel contenant le label et l'entré
+	 */
+	public JPanel addTextField(String nomZone, String identifiant) {	
+		return addTextField(nomZone, identifiant, "", null, false);
+	}
+
+	
+	/**
+	 * ajout d'une nouvelle zone de texte dans le corps du formulaire à la suite d'une autre entrée permettant de faire des lignes de zones de texte
+	 * 
+	 * @param nomZone nom de la zone à ajouter
+	 * @param identifiant     identifiant permettant de reconnaitre le composant dans la
 	 *                liste
 	 * @param pan     le panel auxquel on veux ajouter
 	 */
-	public void addTextField(String nomZone, String nom, JPanel pan) {
-		JTextField entre = new JTextField();
-		entre.setName(nom);
-		JLabel label = new JLabel(nomZone);
-		textes.add(entre);
-
-		entre.setMinimumSize(new Dimension(100, 20));
-
-		pan.add(label);
-		pan.add(entre);
-		contenu.add(pan);
-		contenu.add(new Marge());
-		fenetre.revalidate();
+	public void addTextField(String nomZone, String identifiant, JPanel pan) {
+		addTextField(nomZone, identifiant, "", pan, false);
 	}
-
+	
+	
+	
+	
 	/**
 	 * ajout d'un boutton dans le pied de page du formulaire
 	 * 
@@ -134,6 +148,8 @@ public class Formulaire extends Fenetre {
 		fenetre.revalidate();
 	}
 
+	
+	
 	/**
 	 * ajout d'un titre
 	 * 
@@ -150,48 +166,67 @@ public class Formulaire extends Fenetre {
 		fenetre.revalidate();
 	}
 
-	/**
-	 * ajout d'un bouton à cocher dans le corps du formulaire
-	 * 
-	 * @param nom nom de la case à cocher
-	 * @param id  identifiant permettant de reconnaitre le composant dans la liste
-	 * @return le panel contenant le label et l'entré
-	 */
-	public JPanel addCheckBox(String nom, String id) {
-		JCheckBox entre = new JCheckBox();
-		entre.setName(id);
-		JLabel label = new JLabel(nom);
-		coches.add(entre);
 
-		JPanel pan = new JPanel();
+	
+	/**
+	 * Ajout d'un bouton à cocher dans le corps du formulaire
+	 * @param nom			nom de la case à cocher
+	 * @param id			identifiant de la case à cocher
+	 * @param coche			case cochée par défaut ou non
+	 * @param verrouille	case verrouillée ou non
+	 * @param pan			le panel auquel on veut ajouter la case
+	 * @return	le panel contenant le label dans lequel la case a été ajoutée
+	 */
+	public JPanel addCheckBox(String nom, String id, boolean coche, boolean verrouille, JPanel pan) {
+		JCheckBox entree = new JCheckBox();
+		entree.setName(id);
+		entree.setSelected(coche);
+		entree.setEnabled(! verrouille);
+		JLabel label = new JLabel(nom);
+		coches.add(entree);
+
+		if (pan == null) {
+			pan = new JPanel();
+			pan.setLayout(new BoxLayout(pan, BoxLayout.LINE_AXIS));
+		}
+		
 		pan.add(label);
-		pan.add(entre);
+		pan.add(entree);
 		contenu.add(pan);
 		contenu.add(new Marge());
 		fenetre.revalidate();
 
 		return pan;
 	}
-
+	
+	
+	
 	/**
 	 * ajout d'un bouton à cocher dans le corps du formulaire
 	 * 
 	 * @param nom nom de la case à cocher
 	 * @param id  identifiant permettant de reconnaitre le composant dans la liste
-	 * @param pan e panel auxquel on veux ajouter
+	 * @return le panel contenant le label dans lequel la case a été ajoutée
+	 */
+	public JPanel addCheckBox(String nom, String id) {
+		return addCheckBox(nom, id, false, false, null);
+	}
+
+	
+	/**
+	 * ajout d'un bouton à cocher dans le corps du formulaire
+	 * 
+	 * @param nom nom de la case à cocher
+	 * @param id  identifiant permettant de reconnaitre le composant dans la liste
+	 * @param pan le panel auquel on veut ajouter la case
 	 */
 	public void addCheckBox(String nom, String id, JPanel pan) {
-		JCheckBox entre = new JCheckBox();
-		entre.setName(id);
-		JLabel label = new JLabel(nom);
-		coches.add(entre);
-
-		pan.add(label);
-		pan.add(entre);
-		contenu.add(pan);
-		contenu.add(new Marge());
-		fenetre.revalidate();
+		addCheckBox(nom, id, false, false, pan);
 	}
+	
+	
+	
+	
 
 	/**
 	 * @return la liste des TextField du formulaire
@@ -222,6 +257,8 @@ public class Formulaire extends Fenetre {
 		return mdps;
 	}
 
+	
+	
 	/**
 	 * ajout d'un groupe de radioButton dans le corps de la page
 	 * 
@@ -258,6 +295,8 @@ public class Formulaire extends Fenetre {
 
 	}
 
+	
+	
 	/**
 	 * ajout d'une section à mot de passe
 	 * 
@@ -281,17 +320,8 @@ public class Formulaire extends Fenetre {
 		fenetre.revalidate();
 	}
 
-	/**
-	 * Ajout d'un simple label
-	 * 
-	 * @param s   texte du label
-	 * @param pan panel auxquel l'ajouter
-	 */
-	public void addLabel(String s, JPanel pan) {
-		JLabel lab = new JLabel(s);
-		pan.add(lab);
-	}
-
+	
+	
 	/**
 	 * ajout d'un bouton à un pannel sur le formulaire
 	 * 
@@ -313,6 +343,8 @@ public class Formulaire extends Fenetre {
 		fenetre.revalidate();
 	}
 
+	
+	
 	/**
 	 * ajout d'un bouton sur le formulaire
 	 * 
@@ -337,6 +369,20 @@ public class Formulaire extends Fenetre {
 		return pan;
 	}
 
+	
+	
+	/**
+	 * Ajout d'un simple label
+	 * 
+	 * @param s   texte du label
+	 * @param pan panel auxquel l'ajouter
+	 */
+	public void addLabel(String s, JPanel pan) {
+		JLabel lab = new JLabel(s);
+		pan.add(lab);
+	}
+	
+	
 	public JPanel addLabel(String nom, String affiche) {
 		JLabel lab = new JLabel();
 		lab.setName(nom);
@@ -353,6 +399,8 @@ public class Formulaire extends Fenetre {
 		return pan;
 	}
 
+	
+	
 	/**
 	 * efface tous les champs de texte du formulaire
 	 */

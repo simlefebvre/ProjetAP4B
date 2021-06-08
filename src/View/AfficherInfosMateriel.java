@@ -24,10 +24,10 @@ public class AfficherInfosMateriel {
 		Materiel mat = BaseDeDonee.getInstance().getMateriel(idMat);
 
 		// Contenu commun
-		page.addTextField("Identifiant : " + mat.getID(), "id");
-		page.addTextField("Marque : " + mat.getMarque(), "marque");
-		page.addTextField("Etat : " + mat.getEtat(), "etat");
-		page.addTextField("Salle : " + mat.getSalle(), "salle");
+		page.addTextField("Identifiant : ", "id", ""+mat.getID(), null, true);
+		page.addTextField("Marque : ", "marque", mat.getMarque(), null, true);
+		page.addTextField("Etat : ", "etat", mat.getEtat(), null, true);
+		page.addTextField("Salle : ", "salle", mat.getSalle(), null, true);
 
 		// Pied de page
 		page.addButtonFoot("Retour", "retour", null);
@@ -41,10 +41,10 @@ public class AfficherInfosMateriel {
 		// Entete
 		if (mat instanceof Ordinateur) {
 			page.addTitle("Ordinateur");
-			// TODO modifier fonction ajoutCheckBox avec choix si coché ou non et si modifiable ou non. Pareil pour textField
+			// TODO modifier fonction ajoutCheckBox avec choix si coché ou non et si modifiable ou non.
 			// fixe;
 			// souris;
-			page.addTextField("Capacite : " + ((Ordinateur) mat).getCapacite(), "capacite");
+			page.addTextField("Capacite : ", "capacite", ""+((Ordinateur) mat).getCapacite(), null, true);
 
 		} else if (mat instanceof Tablette) {
 			page.addTitle("Tablette");

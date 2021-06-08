@@ -66,8 +66,6 @@ public class Materiel {
 		reservations.ajouterReservation(r);
 	}
 	
-	// TODO Est ce qu'il en faut pour l'agenda ??
-
 	
 	
 	@Override
