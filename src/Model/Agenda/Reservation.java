@@ -21,7 +21,8 @@ public class Reservation {
 	private Date debut;
 	private Date fin;
 	private Utilisateur par;
-	private SimpleDateFormat formatDate = new SimpleDateFormat("dd/MM/yyyy HH:mm");
+	
+	private static SimpleDateFormat formatDate = new SimpleDateFormat("dd/MM/yyyy HH:mm");
 	
 
 	// Constructeur

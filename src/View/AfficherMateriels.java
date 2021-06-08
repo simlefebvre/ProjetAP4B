@@ -60,4 +60,8 @@ public class AfficherMateriels {
 	public void close() {
 		page.close();
 	}
+	
+	public void refresh() {
+		page.refresh();
+	}
 }

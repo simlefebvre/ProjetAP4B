@@ -6,6 +6,7 @@ import Model.DataBase.BaseDeDonee;
 import Model.Materiel.Materiel;
 import Model.Materiel.Ordinateur;
 import Model.Materiel.Tablette;
+import Model.Materiel.VideoProjecteur;
 import Model.Utilisateur.Administrateur;
 
 
@@ -45,23 +46,22 @@ public class AfficherInfosMateriel {
 		// Entete
 		if (mat instanceof Ordinateur) {
 			page.addTitle("Ordinateur");
-			// TODO modifier fonction ajoutCheckBox avec choix si coché ou non et si modifiable ou non.
-			// fixe;
-			// souris;
-			page.addTextField("Capacite : ", "capacite", ""+((Ordinateur) mat).getCapacite(), null, true);
+			page.addCheckBox("L'ordinateur est fixe ", "fixe", ((Ordinateur) mat).getFixe(), true, null);
+			page.addCheckBox("L'ordinateur possède une souris", "souris", ((Ordinateur) mat).getSouris(), true, null);
+			page.addTextField("Capacite : ", "capacite", "", null, true);
 
 		} else if (mat instanceof Tablette) {
 			page.addTitle("Tablette");
-			// clavier
+			page.addCheckBox("La tablette possède un clavier", "clavier", ((Tablette) mat).getClavier(), true, null);
 		} else {
 			page.addTitle("Videoprojecteur");
-			// telecommande
+			page.addCheckBox("Le videoprojecteur possède une télécommande ", "telecommande", ((VideoProjecteur) mat).getTelecommande(), true, null);
 		}
 
 		
 		page.addMarge(30);
-		//Afficher des réservations du matériel
-		AfficherReservationsMateriel.AfficherReservations(page, mat.getID());
+		//Affichage des réservations du matériel
+		new AfficherReservationsMateriel(page, idMat);
 		page.addMarge(30);
 	}
 }
