@@ -32,9 +32,10 @@ public class AfficherInfosUtilisateur {
 		
 		
 		
+		page.addMarge(30);
 		//TODO Afficher les réservations
-		
-		
+		new AfficherReservationsMateriel(page, util);
+		page.addMarge(30);
 		
 		// Pied de page
 		page.addButtonFoot("Retour", "retour", null);
