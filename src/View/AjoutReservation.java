@@ -7,20 +7,32 @@ import Model.Utilisateur.Utilisateur;
 public class AjoutReservation {
 	//Attribut
 	private Formulaire page;
-	
+	private ViewManager vm;
 	
 	//Constructeur
 	public AjoutReservation() {
+		page = new Formulaire();
+		//This.vm=;
+		
+		
 		//Entete
 		page.addTitle("Nouvelle réservation");
 		
 		//Contenu de la page
-		//TODO Faudrait pas un truc pour saisir une date et heure ??
-		//Date debut;
-		//Date fin;
+		page.addLabel("LabInstruction", "Saisir la date et l'heure selon le format suivant : jj/MM/yyyy hh:mm");
+		page.addTextField("Date et heure de début  ", "debut");
+		page.addTextField("Date et heure de fin  ", "fin");
+		//TODO quand recuperer debut et fin, tester si conversion en Date ok 
 		
 		
-		//TODO ajouter utilisateur ==> utiliser son adresse mail
-		//Utilisateur par;	
+
+		page.addMarge(1);
+		page.addTextField("Saisir votre adresse mail  ", "mail");
+		//TODO controler validite adresse mail	
+		
+		
+		//Pied de page
+		page.addButtonFoot("Annuler", "annuler", null);
+		page.addButtonFoot("Valider", "valider", null);
 	}
 }

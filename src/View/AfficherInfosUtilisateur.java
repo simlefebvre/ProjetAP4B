@@ -34,7 +34,7 @@ public class AfficherInfosUtilisateur {
 		page.addButtonFoot("Retour", "retour", null);
 		if (MainClass.connecte instanceof Administrateur) {
 			page.addButtonFoot("Modifier", "modifier", null);
-			// TODO ajout bouton modifier qui rend les textes et checkbox modifiables
+			// TODO bouton modifier qui rend les textes et checkbox modifiables
 		}	
 	}
 }

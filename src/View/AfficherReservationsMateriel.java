@@ -30,7 +30,6 @@ public class AfficherReservationsMateriel {
 			page.addLabel("          ", instance);
 			page.addTextField("par : " + res.getPar().getNom() + " " + res.getPar().getPrenom(), "par", instance);
 			
-			//TODO faudra revoir comment on identifie une reservation
 			page.addButton("modifier_" + res.getDebut(), "Modifier", null, instance);
 			page.addButton("suppr_" + res.getDebut(), "Supprimer", null, instance);
 		}
