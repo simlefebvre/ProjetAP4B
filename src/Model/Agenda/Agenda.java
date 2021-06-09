@@ -1,5 +1,6 @@
 package Model.Agenda;
 
+import java.util.Date;
 import java.util.LinkedList;
 
 import Model.Utilisateur.Utilisateur;
@@ -82,5 +83,26 @@ public class Agenda {
 	public LinkedList<Reservation> getListe(){
 		return occupation;
 	}
+
 	
+	
+	/**
+	 * Teste si le matériel à réserver est disponible sur le créneau saisi ou non
+	 * @param debutTest	Date et heure début du créneau souhaité
+	 * @param finTest	Date et heure fin du créneau souhaité
+	 * @return	true si metériel disponible, false sinon
+	 */
+	public boolean disponible (Date debutTest, Date finTest) {
+		for(Reservation r :  occupation) {
+			//Si une nouvelle date (debut ou fin) inclue dans les dates d'une réservation
+			if ((debutTest.compareTo(r.getDebut())<0 && finTest.compareTo(r.getDebut())<=0)) {
+				//debutTest et finTest, les 2 pas r.getDebut()
+				return true;
+			}else if ((debutTest.compareTo(r.getFin())>=0 && finTest.compareTo(r.getFin())>0)) {
+				//debutTest et finTest, les 2 pas r.getFin()
+				return true;
+			}
+		}
+		return false;
+	}
 }

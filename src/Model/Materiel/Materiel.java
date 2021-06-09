@@ -62,6 +62,10 @@ public class Materiel {
 		return reservations.getListe();
 	}
 	
+	public Agenda getAgenda() {
+		return reservations;
+	}
+	
 	public void addReservation(Reservation r) {
 		reservations.ajouterReservation(r);
 	}

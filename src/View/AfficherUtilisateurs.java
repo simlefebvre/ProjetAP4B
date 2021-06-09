@@ -37,7 +37,7 @@ public class AfficherUtilisateurs {
 			}
 			
 			page.addButton("suppr_" + util.getMail(), "Supprimer", null, instance);
-			//TODO quand suppression, supprimer ses réservations
+			//TODO Quand suppression, supprimer ses réservations
 		}
 
 		// Pied de page

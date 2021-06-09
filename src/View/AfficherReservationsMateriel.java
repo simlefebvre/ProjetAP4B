@@ -28,6 +28,7 @@ public class AfficherReservationsMateriel {
 		}	
 		
 		page.addButton("Ajouter", "ajouter", null);
+		//TODO Quand ajout résa, vérifier si matériel disponible ou non
 	}
 	
 	
@@ -53,9 +54,9 @@ public class AfficherReservationsMateriel {
 						instance = page.addLabel("infosMat", "Videoprojecteur       id : " + mat.getID() + "          Salle : " + mat.getSalle() + "          ");
 					}
 					
-					page.addTextField("Debut : ","debut", res.getDebut(), instance, true);
+					page.addTextField("Debut : ","debut", Reservation.formatDate.format(res.getDebut()), instance, true);
 					page.addLabel("          ", instance);
-					page.addTextField("Fin : ", "fin", res.getFin(), instance, true);
+					page.addTextField("Fin : ", "fin", Reservation.formatDate.format(res.getFin()), instance, true);
 					page.addLabel("          ", instance);
 					page.addButton("suppr_"+ res.getID(), "Supprimer", null, instance);
 				}

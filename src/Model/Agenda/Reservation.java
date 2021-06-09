@@ -23,16 +23,11 @@ public class Reservation {
 	private Date fin;
 	private Utilisateur par;
 	
-	private static SimpleDateFormat formatDate = new SimpleDateFormat("dd/MM/yyyy HH:mm");
+	public static SimpleDateFormat formatDate = new SimpleDateFormat("dd/MM/yyyy HH:mm");
 	
 
 	// Constructeur
-	public Reservation(String newdebut, String newfin, Utilisateur par) {
-		
-		
-		Date debutResa = strToDate(newdebut);
-		Date finResa = strToDate(newfin);
-		
+	public Reservation (Date debutResa, Date finResa, Utilisateur par) {		
 		if(debutResa.compareTo(finResa) <= 0) {
 			//debutConv avant fin
 			this.debut = debutResa;
@@ -42,7 +37,6 @@ public class Reservation {
 			this.debut = finResa;
 			this.fin = debutResa;
 		}
-		
 		
 		this.identifiant = genererID(this.debut, this.fin);
 		this.par = par;
@@ -59,16 +53,26 @@ public class Reservation {
 		this.identifiant = id;
 	}
 	
+	/*
 	public String getDebut() {
 		return formatDate.format(this.debut);
+	}
+	*/
+	public Date getDebut() {
+		return this.debut;
 	}
 
 	public void setDebut(String newdebut) {
 		this.debut = strToDate(newdebut);
 	}
 
+	/*
 	public String getFin() {
 		return formatDate.format(this.fin);
+	}
+	*/
+	public Date getFin() {
+		return this.fin;
 	}
 	
 	public void setFin(String newfin) {
@@ -106,7 +110,7 @@ public class Reservation {
 	 * @param date chaine de caracteres contenant la date 
 	 * @return la date convertie
 	 */
-	public Date strToDate(String date) {
+	public static Date strToDate(String date) {
 		try {
 			return formatDate.parse(date);
 		} catch (ParseException e) {
@@ -131,14 +135,6 @@ public class Reservation {
 	public String genererID(Date debut, Date fin) {
 		String debutStr = formatDate.format(debut);
 		String finStr = formatDate.format(fin);
-		
-		System.out.println(debutStr+finStr);
 		return debutStr+finStr;
-	}
-	
-	
-	
-	//TODO Tester si matériel deja reservé
-	
-	
+	}	
 }
