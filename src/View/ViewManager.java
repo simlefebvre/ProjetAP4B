@@ -1,6 +1,9 @@
 package View;
 
+import java.util.LinkedList;
+
 import Controller.MainClass;
+import Model.Materiel.Materiel;
 
 //TODO Ajouter doc
 /**
@@ -13,6 +16,7 @@ public class ViewManager {
 	public AfficherMateriels pAffMat;
 	public AfficherReservationsMateriel pAffReserv;
 	public AfficherInfosUtilisateur pProfil;
+	public AjoutReservation pAjoutReserv;
 
 	public ViewManager() {
 		showConnexion();
@@ -39,4 +43,9 @@ public class ViewManager {
 		pAffReserv = new AfficherReservationsMateriel(this, MainClass.connecte);
 	}
 	// TODO Lier page AfficherUtilisateurs
+	
+	
+	public void showReservation(LinkedList<Materiel> mat) {
+		this.pAjoutReserv = new AjoutReservation(mat, this);
+	}
 }

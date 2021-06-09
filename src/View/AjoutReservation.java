@@ -9,10 +9,12 @@ public class AjoutReservation {
 	//Attribut
 	private Formulaire page;
 	private ViewManager vm;
-	
+	private LinkedList<Materiel> ListeMat;
 	//Constructeur
-	public AjoutReservation(LinkedList<Materiel> ListeMat) {
+	public AjoutReservation(LinkedList<Materiel> ListeMat,ViewManager vm) {
+		this.vm = vm;
 		page = new Formulaire();
+		this.ListeMat = ListeMat;
 		
 		
 		//Entete
@@ -32,5 +34,9 @@ public class AjoutReservation {
 		//Pied de page
 		page.addButtonFoot("Annuler", "annuler", null);
 		page.addButtonFoot("Valider", "valider", null);
+	}
+	
+	public LinkedList<Materiel> getmat(){
+		return ListeMat;
 	}
 }
