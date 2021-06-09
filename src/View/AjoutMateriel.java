@@ -16,7 +16,6 @@ public class AjoutMateriel {
 		
 		//Partie commune		
 		//Contenu de la page
-		page.addTextField("Saisir l'identifiant ", "id");
 		page.addTextField("Saisir la marque ", "marque");
 		page.addTextField("Saisir l'état ", "etat");
 		page.addTextField("Saisir la salle ", "salle");
