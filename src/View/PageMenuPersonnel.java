@@ -24,7 +24,7 @@ public class PageMenuPersonnel {
 		page.addTitle("Menu principal");
 		// Contenu de la page
 		page.addButton("mat", "Afficher le matériel", mpc);
-		page.addButton("reservation", "Afficher les réservations", mpc);
+		page.addButton("reservation", "Afficher mes réservations", mpc);
 		page.addButton("profil", "Afficher mon profil", mpc);
 
 		// Pied de page

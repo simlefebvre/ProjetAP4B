@@ -1,5 +1,7 @@
 package View;
 
+import Controller.MainClass;
+
 //TODO Ajouter doc
 /**
  *
@@ -34,8 +36,7 @@ public class ViewManager {
 	}
 
 	public void showAfficherReservation() {
-		int idMat = 8934;
-		pAffReserv = new AfficherReservationsMateriel(this, idMat);
+		pAffReserv = new AfficherReservationsMateriel(this, MainClass.connecte);
 	}
 	// TODO Lier page AfficherUtilisateurs
 }

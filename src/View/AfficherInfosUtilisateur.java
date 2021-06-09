@@ -31,11 +31,7 @@ public class AfficherInfosUtilisateur {
 		//TODO Ajouter champ modif mdp
 		
 		
-		
-		page.addMarge(30);
-		new AfficherReservationsMateriel(page, util);
-		page.addMarge(30);
-		
+				
 		// Pied de page
 		page.addButtonFoot("Retour", "retour", null);
 		if (MainClass.connecte instanceof Administrateur) {

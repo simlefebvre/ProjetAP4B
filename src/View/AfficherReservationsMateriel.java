@@ -10,8 +10,14 @@ import Model.Materiel.Tablette;
 import Model.Utilisateur.Utilisateur;
 
 public class AfficherReservationsMateriel {	
-	// Constructeur
+	//Attributs
+	private Formulaire page;
+	private ViewManager vm;
+	
+	// Constructeurs
 	public AfficherReservationsMateriel(Formulaire page, int idMat) {
+		this.page=null;
+		this.vm = null;
 		page.addLabel("reservations","Réservations du matériel : ");		
 		
 		Materiel mat = BaseDeDonee.getInstance().getMateriel(idMat);
@@ -36,8 +42,11 @@ public class AfficherReservationsMateriel {
 	
 	
 	
-	public AfficherReservationsMateriel(Formulaire page, Utilisateur user) {
-		page.addLabel("reservations","Réservations de matériel : ");
+	public AfficherReservationsMateriel(ViewManager vm, Utilisateur user) {
+		this.vm = vm;
+		page = new Formulaire();
+		
+		page.addTitle("Mes réservations : ");
 		
 		//Pour chaque matériel
 		for(Materiel mat : BaseDeDonee.getInstance().getMateriels()) {
@@ -58,9 +67,16 @@ public class AfficherReservationsMateriel {
 					page.addLabel("          ", instance);
 					page.addTextField("Fin : ", "fin", Reservation.formatDate.format(res.getFin()), instance, true);
 					page.addLabel("          ", instance);
+					page.addButton("modif_"+ res.getID(), "Modifier", null, instance);
 					page.addButton("suppr_"+ res.getID(), "Supprimer", null, instance);
 				}
 			}
-		}	
+		}
+		
+		page.addButton("Ajouter", "ajouter", null);
+		//TODO Rediriger vers liste matériels
+		
+		
+		page.addButtonFoot("Retour", "retour", null);
 	}
 }
