@@ -36,8 +36,7 @@ public class ViewManager {
 	}
 
 	public void showProfil() {
-		String mail="admin";
-		pProfil = new AfficherInfosUtilisateur(this, mail);
+		pProfil = new AfficherInfosUtilisateur(this, MainClass.connecte.getMail());
 	}
 
 	public void showAfficherReservation() {
