@@ -17,10 +17,10 @@ import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 
 /**
- * Objet permettant la création automatisé de formulaire
+ * Objet permettant la création automatisée de formulaires
  */
 public class Formulaire extends Fenetre {
-
+	//Attributs
 	private JPanel page;
 	private JPanel contenu;
 	private JPanel piedPage;
@@ -32,6 +32,10 @@ public class Formulaire extends Fenetre {
 	private LinkedList<ButtonGroup> groupes;
 	private LinkedList<JPasswordField> mdps;
 
+	
+	
+	
+	//Constructeur
 	// TODO faire du multi ligne
 	public Formulaire() {
 
@@ -66,7 +70,30 @@ public class Formulaire extends Fenetre {
 
 		fenetre.validate();
 	}
-
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	//---------------Ajout de nouveaux éléments---------------
+	
+	/**
+	 * ajout d'un titre
+	 * @param titre titre de la page
+	 */
+	public void addTitle(String titre) {
+		Font font = new Font("Arial", Font.BOLD, 40);
+		// Creation du JLabel
+		JLabel Ltitre = new JLabel(titre);
+		Ltitre.setFont(font);
+		enTete.add(Ltitre);
+		fenetre.revalidate();
+	}
 	
 	/**
 	 * Ajout d'une nouvelle zone de texte dans le corps du formulaire.
@@ -104,27 +131,21 @@ public class Formulaire extends Fenetre {
 		return pan;
 	}
 	
-	
 	/**
 	 * ajout d'une nouvelle zone de texte dans le corps du formulaire
-	 * 
 	 * @param nomZone nom de la zone à ajouter
-	 * @param identifiant     identifiant permettant de reconnaitre le composant dans la
-	 *                liste
+	 * @param identifiant identifiant permettant de reconnaitre le composant dans la liste
 	 * @return le panel contenant le label et l'entré
 	 */
 	public JPanel addTextField(String nomZone, String identifiant) {	
 		return addTextField(nomZone, identifiant, "", null, false);
 	}
 
-	
 	/**
 	 * ajout d'une nouvelle zone de texte dans le corps du formulaire à la suite d'une autre entrée permettant de faire des lignes de zones de texte
-	 * 
 	 * @param nomZone nom de la zone à ajouter
-	 * @param identifiant     identifiant permettant de reconnaitre le composant dans la
-	 *                liste
-	 * @param pan     le panel auxquel on veux ajouter
+	 * @param identifiant identifiant permettant de reconnaitre le composant dans la liste
+	 * @param pan le panel auxquel on veux ajouter
 	 */
 	public void addTextField(String nomZone, String identifiant, JPanel pan) {
 		addTextField(nomZone, identifiant, "", pan, false);
@@ -133,9 +154,46 @@ public class Formulaire extends Fenetre {
 	
 	
 	
+	
+	/**
+	 * Ajout d'un simple label
+	 * 
+	 * @param s   texte du label
+	 * @param pan panel auxquel l'ajouter
+	 */
+	public void addLabel(String s, JPanel pan) {
+		JLabel lab = new JLabel(s);
+		pan.add(lab);
+	}
+	
+	/**
+	 * Ajout d'un label
+	 * @param nom		Nom du bouton
+	 * @param affiche	Texte à affiher sur le bouton
+	 * @return	le panel dans lequel se trouve le bouton
+	 */
+	public JPanel addLabel(String nom, String texte) {
+		JLabel lab = new JLabel();
+		lab.setName(nom);
+		lab.setText(texte);
+
+		JPanel pan = new JPanel();
+		pan.setLayout(new BoxLayout(pan, BoxLayout.LINE_AXIS));
+		pan.add(lab);
+
+		contenu.add(pan);
+		contenu.add(new Marge());
+		fenetre.revalidate();
+
+		return pan;
+	}
+
+	
+	
+	
+	
 	/**
 	 * ajout d'un boutton dans le pied de page du formulaire
-	 * 
 	 * @param nom nom du boutton
 	 * @param id  identifiant permettant de reconnaitre le composant dans la liste
 	 * @param ml  listener du boutton
@@ -147,24 +205,51 @@ public class Formulaire extends Fenetre {
 		piedPage.add(bout);
 		fenetre.revalidate();
 	}
-
-	
 	
 	/**
-	 * ajout d'un titre
-	 * 
-	 * @param titre titre de la page
+	 * Ajout d'un bouton à un pannel sur le formulaire
+	 * @param nom      nom du bouton
+	 * @param affiche  texte à afficher sur le boutton
+	 * @param listener Mouse listener du boutton
+	 * @param pan      Pannel auquel l'ajouter
 	 */
-	public void addTitle(String titre) {
-		Font font = new Font("Arial", Font.BOLD, 40);
-		// Creation du JLabel
-		JLabel Ltitre = new JLabel(titre);
-		Ltitre.setFont(font);
+	public void addButton(String nom, String affiche, MouseListener listener, JPanel pan) {
+		JButton but = new JButton();
+		but.setName(nom);
+		but.setText(affiche);
+		but.addMouseListener(listener);
 
-		enTete.add(Ltitre);
+		pan.add(but);
 
+		contenu.add(pan);
+		contenu.add(new Marge());
 		fenetre.revalidate();
 	}
+	
+	/**
+	 * Ajout d'un bouton sur le formulaire
+	 * @param nom      nom du bouton
+	 * @param affiche  texte à afficher sur le boutton
+	 * @param listener Mouse listener du boutton
+	 */
+	public JPanel addButton(String nom, String affiche, MouseListener listener) {
+		JButton but = new JButton();
+		but.setName(nom);
+		but.setText(affiche);
+		but.addMouseListener(listener);
+
+		JPanel pan = new JPanel();
+		pan.setLayout(new BoxLayout(pan, BoxLayout.LINE_AXIS));
+		pan.add(but);
+
+		contenu.add(pan);
+		contenu.add(new Marge());
+		fenetre.revalidate();
+
+		return pan;
+	}
+
+
 
 
 	
@@ -199,11 +284,8 @@ public class Formulaire extends Fenetre {
 		return pan;
 	}
 	
-	
-	
 	/**
 	 * ajout d'un bouton à cocher dans le corps du formulaire
-	 * 
 	 * @param nom nom de la case à cocher
 	 * @param id  identifiant permettant de reconnaitre le composant dans la liste
 	 * @return le panel contenant le label dans lequel la case a été ajoutée
@@ -212,10 +294,8 @@ public class Formulaire extends Fenetre {
 		return addCheckBox(nom, id, false, false, null);
 	}
 
-	
 	/**
 	 * ajout d'un bouton à cocher dans le corps du formulaire
-	 * 
 	 * @param nom nom de la case à cocher
 	 * @param id  identifiant permettant de reconnaitre le composant dans la liste
 	 * @param pan le panel auquel on veut ajouter la case
@@ -226,37 +306,6 @@ public class Formulaire extends Fenetre {
 	
 	
 	
-	
-
-	/**
-	 * @return la liste des TextField du formulaire
-	 */
-	public LinkedList<JTextField> getTextes() {
-		return textes;
-	}
-
-	/**
-	 * @return la liste des case à cocher du formulaire
-	 */
-	public LinkedList<JCheckBox> getChoches() {
-		return coches;
-	}
-
-	/**
-	 * 
-	 * @return la liste des groupes de radioButton
-	 */
-	public LinkedList<ButtonGroup> getGroupes() {
-		return groupes;
-	}
-
-	/**
-	 * @return la liste des case à cocher du formulaire
-	 */
-	public LinkedList<JPasswordField> getmdp() {
-		return mdps;
-	}
-
 	
 	
 	/**
@@ -296,6 +345,8 @@ public class Formulaire extends Fenetre {
 	}
 
 	
+
+	
 	
 	/**
 	 * ajout d'une section à mot de passe
@@ -319,88 +370,75 @@ public class Formulaire extends Fenetre {
 		contenu.add(new Marge());
 		fenetre.revalidate();
 	}
+	
 
 	
-	
-	/**
-	 * ajout d'un bouton à un pannel sur le formulaire
-	 * 
-	 * @param nom      nom du bouton
-	 * @param affiche  texte à afficher sur le boutton
-	 * @param listener Mouse listener du boutton
-	 * @param pan      Pannel auquel l'ajouter
-	 */
-	public void addButton(String nom, String affiche, MouseListener listener, JPanel pan) {
-		JButton but = new JButton();
-		but.setName(nom);
-		but.setText(affiche);
-		but.addMouseListener(listener);
-
-		pan.add(but);
-
-		contenu.add(pan);
-		contenu.add(new Marge());
-		fenetre.revalidate();
-	}
-
 	
 	
 	/**
-	 * ajout d'un bouton sur le formulaire
-	 * 
-	 * @param nom      nom du bouton
-	 * @param affiche  texte à afficher sur le boutton
-	 * @param listener Mouse listener du boutton
+	 * Ajouter une marge
+	 * @param taille	Taille de la marge
 	 */
-	public JPanel addButton(String nom, String affiche, MouseListener listener) {
-		JButton but = new JButton();
-		but.setName(nom);
-		but.setText(affiche);
-		but.addMouseListener(listener);
-
+	public void addMarge(int taille) {
+		Marge mar = new Marge(taille);
+		
 		JPanel pan = new JPanel();
 		pan.setLayout(new BoxLayout(pan, BoxLayout.LINE_AXIS));
-		pan.add(but);
-
+		
+		pan.add(mar);
 		contenu.add(pan);
-		contenu.add(new Marge());
 		fenetre.revalidate();
-
-		return pan;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	//---------------Recupérer les listes des éléments---------------
+	/**
+	 * @return la liste des TextField du formulaire
+	 */
+	public LinkedList<JTextField> getTextes() {
+		return textes;
 	}
 
-	
 	
 	/**
-	 * Ajout d'un simple label
-	 * 
-	 * @param s   texte du label
-	 * @param pan panel auxquel l'ajouter
+	 * @return la liste des case à cocher du formulaire
 	 */
-	public void addLabel(String s, JPanel pan) {
-		JLabel lab = new JLabel(s);
-		pan.add(lab);
-	}
-	
-	
-	public JPanel addLabel(String nom, String affiche) {
-		JLabel lab = new JLabel();
-		lab.setName(nom);
-		lab.setText(affiche);
-
-		JPanel pan = new JPanel();
-		pan.setLayout(new BoxLayout(pan, BoxLayout.LINE_AXIS));
-		pan.add(lab);
-
-		contenu.add(pan);
-		contenu.add(new Marge());
-		fenetre.revalidate();
-
-		return pan;
+	public LinkedList<JCheckBox> getChoches() {
+		return coches;
 	}
 
 	
+	/**
+	 * @return la liste des groupes de radioButton
+	 */
+	public LinkedList<ButtonGroup> getGroupes() {
+		return groupes;
+	}
+
 	
+	/**
+	 * @return la liste des case à cocher du formulaire
+	 */
+	public LinkedList<JPasswordField> getmdp() {
+		return mdps;
+	}
+	
+	
+		
+	
+	
+	
+	
+	
+	
+	
+	//---------------Autres méthodes---------------
 	/**
 	 * efface tous les champs de texte du formulaire
 	 */
@@ -415,19 +453,11 @@ public class Formulaire extends Fenetre {
 	}
 	
 	
+	/**
+	 * Mettre à jour la fenetre
+	 */
 	public void refresh() {
 		fenetre.revalidate();
 	}
 	
-	
-	public void addMarge(int taille) {
-		Marge mar = new Marge(taille);
-		
-		JPanel pan = new JPanel();
-		pan.setLayout(new BoxLayout(pan, BoxLayout.LINE_AXIS));
-		
-		pan.add(mar);
-		contenu.add(pan);
-		fenetre.revalidate();
-	}
 }

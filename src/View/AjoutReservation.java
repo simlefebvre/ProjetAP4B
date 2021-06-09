@@ -22,7 +22,7 @@ public class AjoutReservation {
 		page.addLabel("LabInstruction", "Saisir la date et l'heure selon le format suivant : jj/MM/yyyy hh:mm");
 		page.addTextField("Date et heure de début  ", "debut");
 		page.addTextField("Date et heure de fin  ", "fin");
-		//TODO Tester si conversion en Date ok 
+		//TODO Quand ajout reservation, tester si conversion en Date ok ==> il faut qu'elle soit différente de "01/01/1900 00:00" (en String)
 		
 
 		page.addMarge(1);
