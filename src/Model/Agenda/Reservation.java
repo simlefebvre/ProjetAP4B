@@ -24,7 +24,6 @@ public class Reservation {
 	private Utilisateur par;
 	
 	public static SimpleDateFormat formatDate = new SimpleDateFormat("dd/MM/yyyy HH:mm");
-	
 
 	// Constructeur
 	public Reservation (Date debutResa, Date finResa, Utilisateur par) {		

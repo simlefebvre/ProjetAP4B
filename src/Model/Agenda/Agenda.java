@@ -97,6 +97,9 @@ public class Agenda {
 	 * @return	true si metériel disponible, false sinon
 	 */
 	public boolean disponible (Date debutTest, Date finTest) {
+		if(occupation.size() == 0) {
+			return true;
+		}
 		for(Reservation r :  occupation) {
 			//Si une nouvelle date (debut ou fin) inclue dans les dates d'une réservation
 			if ((debutTest.compareTo(r.getDebut())<0 && finTest.compareTo(r.getDebut())<=0)) {
