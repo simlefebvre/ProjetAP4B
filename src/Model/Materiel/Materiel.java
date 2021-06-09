@@ -11,7 +11,7 @@ import Model.DataBase.BaseDeDonee;
  */
 public class Materiel {
 	// Attributs
-	protected int identifiant;//TODO Vérifier que id unique
+	protected int identifiant;
 	protected String marque;
 	protected String etat;
 	protected String salle;
@@ -89,6 +89,11 @@ public class Materiel {
 	}
 
 	
+	
+	/**
+	 * Génère un identifiant unique pour le matériel
+	 * @return l'identifiant généré
+	 */
 	public int genererID() {
 		if(BaseDeDonee.getInstance().getMateriels().size()==0) {
 			return 0;

@@ -1,5 +1,7 @@
 package Model.Utilisateur;
 
+import Model.DataBase.BaseDeDonee;
+
 /**
  * Un utilisateur est une personne qui utilise l'application
  * 
@@ -13,6 +15,7 @@ public class Utilisateur {
 
 	// Constructeur
 	public Utilisateur(String prenomSaisi, String nomSaisi, String mailSaisi, String motpasse) {
+		
 		prenom = prenomSaisi;
 		nom = nomSaisi;
 		mail = mailSaisi;
@@ -61,4 +64,19 @@ public class Utilisateur {
 			return false;
 		}
 	}
+	
+	/**
+	 * Vérifie si l'addresse mail saisie est présente dans la base de données ou non
+	 * @param addresse l'addresse mail à contrôler
+	 * @return	true si l'adresse mail
+	 */
+	public boolean uniciteMail(String addresse) {
+		for(Utilisateur user : BaseDeDonee.getInstance().getUtilisateurs()) {
+			if(addresse.equalsIgnoreCase(user.getMail())) {
+				return false;
+			}
+		}
+		return true;
+	}
+	
 }
