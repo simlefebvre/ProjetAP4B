@@ -56,7 +56,6 @@ public class AfficherMateriels {
 		// Pied de page
 		page.addButtonFoot("Retour", "retour", lmc);
 		page.addButtonFoot("Reserver", "reserver", lmc);
-		//TODO Appliquer la réservation à tous les matériels cochés
 	}
 
 	public void close() {

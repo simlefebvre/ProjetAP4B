@@ -20,7 +20,7 @@ public class AfficherInfosMateriel {
 	public AfficherInfosMateriel(ViewManager vm, int idMat) {
 		this.vm = vm;
 		this.lmc = new listeMaterielController(vm);
-		page = new Formulaire();
+		page = new Formulaire(500,700);
 
 		Materiel mat = BaseDeDonee.getInstance().getMateriel(idMat);
 

@@ -27,6 +27,22 @@ public class Fenetre extends JFrame {
 		fenetre.setVisible(true);
 	}
 	
+	public Fenetre(int x,int y) {
+		fenetre = new JFrame();
+
+		fenetre.setTitle("Gestion du parc informatique");
+
+		// Positionner au centre
+		fenetre.setLocationRelativeTo(null);
+		// Définir taille minimale
+		fenetre.setMinimumSize(new Dimension(x, y));
+		
+		// Termine le processus lorsqu'on clique sur la croix rouge
+		fenetre.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+		fenetre.setVisible(true);
+	}
+	
 	
 	public Fenetre(boolean grandEcran) {
 		fenetre = new JFrame();

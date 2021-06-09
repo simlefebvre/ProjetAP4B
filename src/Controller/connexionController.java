@@ -19,7 +19,6 @@ public class connexionController implements MouseListener {
 		this.vm = vm;
 	}
 
-	// TODO orientation administrateur
 
 	@Override
 	public void mouseClicked(MouseEvent e) {

@@ -36,7 +36,6 @@ public class AfficherReservationsMateriel {
 		}	
 		
 		page.addButton("Ajouter", "ajouter", null);
-		//TODO Quand ajout résa, vérifier si matériel disponible ou non
 	}
 	
 	
