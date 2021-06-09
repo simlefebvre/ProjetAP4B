@@ -40,16 +40,18 @@ public class listeMaterielController implements MouseListener {
 //					this.vm.pAffMat.refresh();
 //				}
 			}else if(name.contains("reserver")) {
+				boolean coche = false;
 				LinkedList<Materiel> mats = new LinkedList<>();
 				for(JCheckBox cb : this.vm.pAffMat.getBox()) {
 					if(cb.isSelected()) {
+						coche = true;
 						String num = cb.getName().substring(6);
 						int identifiant = Integer.parseInt(num);
 						mats.add(BaseDeDonee.getInstance().getMateriel(identifiant));
 					}
 				}
-				
-				this.vm.showReservation(mats);
+				if(coche)
+					this.vm.showReservation(mats);
 			}
 		}
 	}

@@ -2,6 +2,7 @@ package View;
 
 import javax.swing.JPanel;
 
+import Controller.AffReservationController;
 import Model.Agenda.Reservation;
 import Model.DataBase.BaseDeDonee;
 import Model.Materiel.Materiel;
@@ -13,9 +14,10 @@ public class AfficherReservationsMateriel {
 	//Attributs
 	private Formulaire page;
 	private ViewManager vm;
-	
+	private AffReservationController arc;
 	// Constructeurs
 	public AfficherReservationsMateriel(Formulaire page, int idMat) {
+		
 		this.page=null;
 		this.vm = null;
 		page.addLabel("reservations","Réservations du matériel : ");		
@@ -43,6 +45,7 @@ public class AfficherReservationsMateriel {
 	
 	
 	public AfficherReservationsMateriel(ViewManager vm, Utilisateur user) {
+		arc = new AffReservationController(vm);
 		this.vm = vm;
 		page = new Formulaire(true);
 		
@@ -73,10 +76,17 @@ public class AfficherReservationsMateriel {
 			}
 		}
 		
-		page.addButton("Ajouter", "ajouter", null);
-		//TODO Rediriger vers liste matériels
+		page.addButton("Ajouter", "ajouter", arc);		
 		
-		
-		page.addButtonFoot("Retour", "retour", null);
+		page.addButtonFoot("Retour", "retour", arc);
+	}
+
+
+
+
+
+
+	public void close() {
+		page.close();		
 	}
 }

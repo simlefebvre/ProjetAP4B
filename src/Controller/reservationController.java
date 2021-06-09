@@ -1,6 +1,5 @@
 package Controller;
 
-import java.awt.TrayIcon.MessageType;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.text.ParseException;
@@ -11,7 +10,6 @@ import javax.swing.JButton;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
-import Model.Agenda.Agenda;
 import Model.Agenda.Reservation;
 import Model.Materiel.Materiel;
 import View.ViewManager;
@@ -60,7 +58,7 @@ public class reservationController implements MouseListener {
 						JOptionPane.showMessageDialog(null, "Le materiel n°"+mat.getID()+" n'est pas disponnible pour les dates demandées","Erreur Disponibilité",JOptionPane.ERROR_MESSAGE);
 					}else {
 						mat.getAgenda().ajouterReservation(new Reservation(deb, fin, MainClass.connecte));
-						JOptionPane.showMessageDialog(null, "Le materiel n°"+mat.getID()+" n'eas bien était réserver","Réservé !",JOptionPane.INFORMATION_MESSAGE);
+						JOptionPane.showMessageDialog(null, "Le materiel n°"+mat.getID()+" a bien été réservé","Réservé !",JOptionPane.INFORMATION_MESSAGE);
 						vm.pAjoutReserv.close();
 					}
 				}
