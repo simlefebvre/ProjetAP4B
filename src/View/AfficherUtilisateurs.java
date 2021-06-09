@@ -14,8 +14,8 @@ public class AfficherUtilisateurs {
 	private ViewManager vm;
 	
 	//Constructeur
-	public AfficherUtilisateurs() {
-		this.vm = vm;
+	public AfficherUtilisateurs(ViewManager newvm) {
+		this.vm = newvm;
 		page = new Formulaire();
 		
 		//TODO Ouvrir en grand

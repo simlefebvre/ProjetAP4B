@@ -79,6 +79,10 @@ public class Agenda {
 	}
 
 	
+	public int getTaille() {
+		return occupation.size();
+	}
+	
 	
 	public LinkedList<Reservation> getListe(){
 		return occupation;

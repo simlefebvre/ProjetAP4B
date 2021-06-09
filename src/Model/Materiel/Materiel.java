@@ -4,21 +4,22 @@ import java.util.LinkedList;
 
 import Model.Agenda.Agenda;
 import Model.Agenda.Reservation;
+import Model.DataBase.BaseDeDonee;
 
 /**
  * Un matériel représente un objet pouvant être réservé par un utilisateur.
  */
 public class Materiel {
 	// Attributs
-	protected int identifiant;
+	protected int identifiant;//TODO Vérifier que id unique
 	protected String marque;
 	protected String etat;
 	protected String salle;
 	protected Agenda reservations;
 
 	// Constructeur
-	public Materiel(int id, String marque, String etat, String salle) {
-		this.identifiant = id;
+	public Materiel(String marque, String etat, String salle) {
+		this.identifiant = genererID();
 		this.marque = marque;
 		this.etat = etat;
 		this.salle = salle;
@@ -87,4 +88,11 @@ public class Materiel {
 		}
 	}
 
+	
+	public int genererID() {
+		if(BaseDeDonee.getInstance().getMateriels().size()==0) {
+			return 0;
+		}
+		return BaseDeDonee.getInstance().getMateriels().getLast().getID() + 1;
+	}
 }

@@ -87,7 +87,7 @@ public class Reservation {
 	public void setPar(Utilisateur par) {
 		this.par = par;
 	}
-
+	
 	@Override
 	public boolean equals(Object o) {
 		if (o instanceof Reservation) {

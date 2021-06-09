@@ -36,7 +36,6 @@ public class Formulaire extends Fenetre {
 	
 	
 	//Constructeur
-	// TODO faire du multi ligne
 	public Formulaire() {
 
 		page = new JPanel();

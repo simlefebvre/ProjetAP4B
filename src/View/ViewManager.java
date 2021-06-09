@@ -17,6 +17,7 @@ public class ViewManager {
 	public AfficherReservationsMateriel pAffReserv;
 	public AfficherInfosUtilisateur pProfil;
 	public AjoutReservation pAjoutReserv;
+	public AfficherUtilisateurs pUtilisateurs;
 
 	public ViewManager() {
 		showConnexion();
@@ -42,7 +43,10 @@ public class ViewManager {
 	public void showAfficherReservation() {
 		pAffReserv = new AfficherReservationsMateriel(this, MainClass.connecte);
 	}
-	// TODO Lier page AfficherUtilisateurs
+	
+	public void showAfficherUtilisateurs() {
+		pUtilisateurs = new AfficherUtilisateurs(this);
+	}
 	
 	
 	public void showReservation(LinkedList<Materiel> mat) {

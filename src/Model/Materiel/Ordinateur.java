@@ -13,8 +13,8 @@ public class Ordinateur extends Materiel {
 	private int capacite;
 
 	// Constructeur
-	public Ordinateur(int id, String marque, String etat, String salle, boolean fixe, boolean souris, int capacite) {
-		super(id, marque, etat, salle);
+	public Ordinateur(String marque, String etat, String salle, boolean fixe, boolean souris, int capacite) {
+		super(marque, etat, salle);
 		this.fixe = fixe;
 		this.souris = souris;
 		this.capacite = capacite;
