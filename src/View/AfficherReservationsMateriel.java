@@ -70,8 +70,8 @@ public class AfficherReservationsMateriel {
 					page.addLabel("          ", instance);
 					page.addTextField("Fin : ", "fin", Reservation.formatDate.format(res.getFin()), instance, true);
 					page.addLabel("          ", instance);
-					page.addButton("modif_"+ res.getID(), "Modifier", null, instance);
-					page.addButton("suppr_"+ res.getID(), "Supprimer", null, instance);
+					page.addButton("modif_"+ mat.getID() + "_" +res.getID(), "Modifier", null, instance);
+					page.addButton("suppr_"+ mat.getID() + "_" +res.getID(), "Supprimer", null, instance);
 				}
 			}
 		}
