@@ -5,6 +5,7 @@ import java.util.LinkedList;
 import Controller.MainClass;
 import Model.Materiel.Materiel;
 
+
 //TODO Ajouter doc
 /**
  *
@@ -19,6 +20,7 @@ public class ViewManager {
 	public AjoutReservation pAjoutReserv;
 	public AfficherUtilisateurs pUtilisateurs;
 	public AfficherInfosMateriel pAffInfosMat;
+	public ModifierInfosUtilisateur pModifInfoUtil;
 	
 	public ViewManager() {
 		showConnexion();
@@ -48,12 +50,15 @@ public class ViewManager {
 		pUtilisateurs = new AfficherUtilisateurs(this);
 	}
 	
-	
 	public void showReservation(LinkedList<Materiel> mat) {
 		this.pAjoutReserv = new AjoutReservation(mat, this);
 	}
 	
 	public void showInfoMat(int id) {
 		this.pAffInfosMat = new AfficherInfosMateriel(this, id);
+	}
+	
+	public void showModifierInfosUtilisateur() {
+		this.pModifInfoUtil = new ModifierInfosUtilisateur(this, MainClass.connecte.getMail());
 	}
 }
