@@ -7,11 +7,11 @@ import java.util.LinkedList;
  */
 public class ChoixAjoutMateriel {
 	//Attribut
-	private Formulaire page;
+	private PopUp page;
 
 	// Constructeur
 	public ChoixAjoutMateriel() {
-		page = new Formulaire();
+		page = new PopUp();
 		// Entete
 		page.addTitle("Ajouter un matériel");
 		// Contenu de la page

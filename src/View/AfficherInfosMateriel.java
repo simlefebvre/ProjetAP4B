@@ -12,7 +12,7 @@ import Model.Utilisateur.Administrateur;
 
 public class AfficherInfosMateriel {
 	// Attributs
-	private Formulaire page;
+	private PopUp page;
 	private ViewManager vm;
 	private listeMaterielController lmc;
 
@@ -20,7 +20,7 @@ public class AfficherInfosMateriel {
 	public AfficherInfosMateriel(ViewManager vm, int idMat) {
 		this.vm = vm;
 		this.lmc = new listeMaterielController(vm);
-		page = new Formulaire(500,700);
+		page = new PopUp(500,700);
 
 		Materiel mat = BaseDeDonee.getInstance().getMateriel(idMat);
 

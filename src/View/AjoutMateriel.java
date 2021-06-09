@@ -8,11 +8,11 @@ import Model.Materiel.Tablette;
  * Page permettant l'ajout d'un matériel
  */
 public class AjoutMateriel {
-	private Formulaire page;
+	private PopUp page;
 
 	// Constructeur
 	public AjoutMateriel(Materiel mat) {
-		page = new Formulaire();
+		page = new PopUp();
 		
 		//Partie commune		
 		//Contenu de la page

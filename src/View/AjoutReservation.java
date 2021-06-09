@@ -10,7 +10,7 @@ import Model.Materiel.Materiel;
 
 public class AjoutReservation {
 	//Attribut
-	private Formulaire page;
+	private PopUp page;
 	private ViewManager vm;
 	private LinkedList<Materiel> ListeMat;
 	private reservationController rc;
@@ -18,7 +18,7 @@ public class AjoutReservation {
 	public AjoutReservation(LinkedList<Materiel> ListeMat,ViewManager vm) {
 		
 		this.vm = vm;
-		page = new Formulaire();
+		page = new PopUp();
 		this.ListeMat = ListeMat;
 		rc = new reservationController(vm);
 		
