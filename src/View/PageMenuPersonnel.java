@@ -19,7 +19,7 @@ public class PageMenuPersonnel {
 	public PageMenuPersonnel(ViewManager vm) {
 		this.vm = vm;
 		mpc = new menuPersonnelControler(vm);
-		page = new Formulaire();
+		page = new Formulaire(false);
 		// Entete
 		page.addTitle("Menu principal");
 		// Contenu de la page

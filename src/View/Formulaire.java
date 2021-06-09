@@ -70,7 +70,42 @@ public class Formulaire extends Fenetre {
 		fenetre.validate();
 	}
 	
-	
+	//Constructeur
+	public Formulaire(boolean taillePage) {
+		super(taillePage);
+		
+		page = new JPanel();
+		contenu = new JPanel();
+		piedPage = new JPanel();
+		enTete = new JPanel();
+		conteneur = new JPanel();
+
+		textes = new LinkedList<>();
+		coches = new LinkedList<>();
+		groupes = new LinkedList<>();
+		mdps = new LinkedList<>();
+
+		conteneur.setLayout(new GridBagLayout());
+		fenetre.setContentPane(conteneur);
+		page.setLayout(new BoxLayout(page, BoxLayout.PAGE_AXIS));
+		contenu.setLayout(new BoxLayout(contenu, BoxLayout.PAGE_AXIS));
+		piedPage.setLayout(new BoxLayout(piedPage, BoxLayout.LINE_AXIS));
+		enTete.setLayout(new BoxLayout(enTete, BoxLayout.LINE_AXIS));
+
+		page.add(enTete);
+		page.add(new Marge(10));
+		page.add(contenu);
+		page.add(new Marge(10));
+		page.add(piedPage);
+		
+		conteneur.add(page);
+
+		if(taillePage==false) {
+			fenetre.setLocationRelativeTo(null);
+		}
+
+		fenetre.validate();
+	}
 	
 	
 	

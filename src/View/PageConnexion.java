@@ -26,7 +26,7 @@ public class PageConnexion {
 
 	// Constructeur
 	public PageConnexion(ViewManager vm) {
-		page = new Formulaire();
+		page = new Formulaire(false);
 		cc = new connexionController(vm);
 
 		page.addTextField("Identifiant / e-mail : ", "id");
