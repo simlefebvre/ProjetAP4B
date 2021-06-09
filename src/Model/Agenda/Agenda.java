@@ -100,10 +100,10 @@ public class Agenda {
 		for(Reservation r :  occupation) {
 			//Si une nouvelle date (debut ou fin) inclue dans les dates d'une réservation
 			if ((debutTest.compareTo(r.getDebut())<0 && finTest.compareTo(r.getDebut())<=0)) {
-				//debutTest et finTest, les 2 pas r.getDebut()
+				//debutTest et finTest, les 2 pas avant r.getDebut()
 				return true;
 			}else if ((debutTest.compareTo(r.getFin())>=0 && finTest.compareTo(r.getFin())>0)) {
-				//debutTest et finTest, les 2 pas r.getFin()
+				//debutTest et finTest, les 2 pas apres r.getFin()
 				return true;
 			}
 		}
