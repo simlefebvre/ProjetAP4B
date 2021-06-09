@@ -16,10 +16,7 @@ public class AfficherUtilisateurs {
 	//Constructeur
 	public AfficherUtilisateurs(ViewManager newvm) {
 		this.vm = newvm;
-		page = new Formulaire();
-		
-		//TODO Ouvrir en grand
-		//page.setExtendedState(Frame.MAXIMIZED_BOTH);
+		page = new Formulaire(true);
 		
 		// Entete
 		page.addTitle("Liste des utilisateurs");

@@ -44,7 +44,7 @@ public class AfficherReservationsMateriel {
 	
 	public AfficherReservationsMateriel(ViewManager vm, Utilisateur user) {
 		this.vm = vm;
-		page = new Formulaire();
+		page = new Formulaire(true);
 		
 		page.addTitle("Mes réservations : ");
 		

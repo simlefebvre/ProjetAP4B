@@ -26,9 +26,7 @@ public class AfficherMateriels {
 	public AfficherMateriels(ViewManager vm) {
 		this.vm = vm;
 		this.lmc = new listeMaterielController(vm);
-		page = new Formulaire();
-
-		// TODO Ouvrir en plein écran
+		page = new Formulaire(true);
 
 		// Entete
 		page.addTitle("Liste des matériels");
