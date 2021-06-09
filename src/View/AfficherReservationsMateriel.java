@@ -66,12 +66,13 @@ public class AfficherReservationsMateriel {
 						instance = page.addLabel("infosMat", "Videoprojecteur       id : " + mat.getID() + "          Salle : " + mat.getSalle() + "          ");
 					}
 					
-					page.addTextField("Debut : ","debut", Reservation.formatDate.format(res.getDebut()), instance, true);
+					page.addLabel("Debut : "+ Reservation.formatDate.format(res.getDebut()), instance);
 					page.addLabel("          ", instance);
-					page.addTextField("Fin : ", "fin", Reservation.formatDate.format(res.getFin()), instance, true);
+					page.addLabel("Fin : "+ Reservation.formatDate.format(res.getFin()), instance);
 					page.addLabel("          ", instance);
-					page.addButton("modif_"+ mat.getID() + "_" +res.getID(), "Modifier", null, instance);
-					page.addButton("suppr_"+ mat.getID() + "_" +res.getID(), "Supprimer", null, instance);
+					//page.addButton("modif_"+ mat.getID() + "_" +res.getID(), "Modifier", arc, instance);
+					//TODO ajouter un bouton modifier
+					page.addButton("suppr_"+ res.getID()+"_" + mat.getID() , "Supprimer", arc, instance);
 				}
 			}
 		}

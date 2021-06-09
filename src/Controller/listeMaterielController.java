@@ -52,6 +52,10 @@ public class listeMaterielController implements MouseListener {
 				}
 				if(coche)
 					this.vm.showReservation(mats);
+			}else if(name.contains("info")) {
+				String num = name.substring(5);				
+				int identifiant = Integer.parseInt(num);
+				vm.showInfoMat(identifiant);
 			}
 		}
 	}

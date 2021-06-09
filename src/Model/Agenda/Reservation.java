@@ -43,6 +43,11 @@ public class Reservation {
 	
 	
 	
+	
+	public Reservation(String identifiantDate) {
+		this.identifiant = identifiantDate;
+	}
+
 	// Méthodes de récupération et de modification des attributs
 	public String getID() {
 		return this.identifiant;
@@ -91,7 +96,7 @@ public class Reservation {
 	public boolean equals(Object o) {
 		if (o instanceof Reservation) {
 			Reservation b = (Reservation) o;
-			if (b.getDebut() == getDebut() && b.getFin() == getFin() && b.getPar() == getPar()) {
+			if (b.getID().equals(identifiant)) {
 				return true;
 			} else {
 				return false;

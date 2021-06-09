@@ -18,7 +18,8 @@ public class ViewManager {
 	public AfficherInfosUtilisateur pProfil;
 	public AjoutReservation pAjoutReserv;
 	public AfficherUtilisateurs pUtilisateurs;
-
+	public AfficherInfosMateriel pAffInfosMat;
+	
 	public ViewManager() {
 		showConnexion();
 	}
@@ -50,5 +51,9 @@ public class ViewManager {
 	
 	public void showReservation(LinkedList<Materiel> mat) {
 		this.pAjoutReserv = new AjoutReservation(mat, this);
+	}
+	
+	public void showInfoMat(int id) {
+		this.pAffInfosMat = new AfficherInfosMateriel(this, id);
 	}
 }
