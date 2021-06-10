@@ -10,11 +10,12 @@ import Model.Materiel.Tablette;
 public class AjoutMateriel {
 	private PopUp page;
 	private ViewManager vm;
+	private Materiel mat;
 	// Constructeur
 	public AjoutMateriel(ViewManager viewManager, Materiel mat) {
 		page = new PopUp();
 		this.vm = viewManager;
-		
+		this.mat = mat;
 		//Partie commune		
 		//Contenu de la page
 		page.addTextField("Saisir la marque ", "marque");
@@ -46,4 +47,7 @@ public class AjoutMateriel {
 		page.close();
 	}
 
+	public Materiel getMat() {
+		return mat;
+	}
 }
