@@ -4,11 +4,11 @@ package View;
  * Classe d'ajout d'utilisateurs
  */
 public class AjoutUtilisateur {
-	private Formulaire page;
+	private PopUp page;
 
 	// Constructeur
 	public AjoutUtilisateur() {
-		page = new Formulaire();
+		page = new PopUp();
 		// Entete
 		page.addTitle("Ajout d'un utilisateur");
 		// Contenu de la page

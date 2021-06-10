@@ -1,7 +1,7 @@
 package View;
 
+import Controller.AffInfoMatController;
 import Controller.MainClass;
-import Controller.listeMaterielController;
 import Model.DataBase.BaseDeDonee;
 import Model.Materiel.Materiel;
 import Model.Materiel.Ordinateur;
@@ -14,15 +14,17 @@ public class AfficherInfosMateriel {
 	// Attributs
 	private PopUp page;
 	private ViewManager vm;
-	private listeMaterielController lmc;
+	private AffInfoMatController lmc;
+	private Materiel mat;
+	
 
 	// Constructeur
 	public AfficherInfosMateriel(ViewManager vm, int idMat) {
 		this.vm = vm;
-		this.lmc = new listeMaterielController(vm);
+		this.lmc = new AffInfoMatController(vm);
 		page = new PopUp(500,700);
 
-		Materiel mat = BaseDeDonee.getInstance().getMateriel(idMat);
+		mat = BaseDeDonee.getInstance().getMateriel(idMat);
 
 		// Contenu commun
 		page.addTextField("Identifiant : ", "id", ""+mat.getID(), null, true);
@@ -62,7 +64,15 @@ public class AfficherInfosMateriel {
 		
 		page.addMarge(30);
 		//Affichage des réservations du matériel
-		new AfficherReservationsMateriel(page, idMat);
+		new AfficherReservationsMateriel(page, idMat,vm);
 		page.addMarge(30);
+	}
+
+	public void close() {
+		page.close();
+	}
+	
+	public Materiel getMat() {
+		return mat;
 	}
 }

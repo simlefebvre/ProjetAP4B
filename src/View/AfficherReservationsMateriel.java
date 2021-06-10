@@ -2,6 +2,7 @@ package View;
 
 import javax.swing.JPanel;
 
+import Controller.AffInfoMatController;
 import Controller.AffReservationController;
 import Model.Agenda.Reservation;
 import Model.DataBase.BaseDeDonee;
@@ -15,11 +16,14 @@ public class AfficherReservationsMateriel {
 	private Formulaire page;
 	private ViewManager vm;
 	private AffReservationController arc;
+	private AffInfoMatController aimc;
 	// Constructeurs
-	public AfficherReservationsMateriel(Formulaire page, int idMat) {
+	public AfficherReservationsMateriel(Formulaire page, int idMat,ViewManager vm) {
+		
+		aimc = new AffInfoMatController(vm);
 		
 		this.page=null;
-		this.vm = null;
+		this.vm = vm;
 		page.addLabel("reservations","Réservations du matériel : ");		
 		
 		Materiel mat = BaseDeDonee.getInstance().getMateriel(idMat);
@@ -31,11 +35,11 @@ public class AfficherReservationsMateriel {
 			page.addLabel("          ", instance);
 			page.addTextField("par : " + res.getPar().getNom() + " " + res.getPar().getPrenom(), "par", instance);
 				
-			page.addButton("modifier_" + res.getID(), "Modifier", null, instance);
-			page.addButton("suppr_" + res.getID(), "Supprimer", null, instance);
+			page.addButton("modifier_" + res.getID(), "Modifier", aimc, instance);
+			page.addButton("suppr_" + res.getID(), "Supprimer", aimc, instance);
 		}	
 		
-		page.addButton("Ajouter", "ajouter", null);
+		page.addButton("Ajouter", "ajouter", aimc);
 	}
 	
 	
