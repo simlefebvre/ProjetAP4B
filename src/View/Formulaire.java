@@ -29,7 +29,7 @@ public class Formulaire extends Fenetre {
 
 	private LinkedList<JTextField> textes;
 	private LinkedList<JCheckBox> coches;
-	private LinkedList<ButtonGroup> groupes;
+	private LinkedList<JRadioButton> groupes;
 	private LinkedList<JPasswordField> mdps;
 
 	
@@ -333,9 +333,10 @@ public class Formulaire extends Fenetre {
 		JPanel Pgroupe = new JPanel();
 		Pgroupe.setLayout(new BoxLayout(Pgroupe, BoxLayout.PAGE_AXIS));
 
-		ButtonGroup groupes = new ButtonGroup();
+		ButtonGroup groupe = new ButtonGroup();
 		for (int i = 0; i < nombre; i++) {
 			JRadioButton bouton = new JRadioButton(boutton.get(i));
+			groupe.add(bouton);
 			groupes.add(bouton);
 			Pgroupe.add(bouton);
 		}
@@ -431,7 +432,7 @@ public class Formulaire extends Fenetre {
 	/**
 	 * @return la liste des groupes de radioButton
 	 */
-	public LinkedList<ButtonGroup> getGroupes() {
+	public LinkedList<JRadioButton> getGroupes() {
 		return groupes;
 	}
 

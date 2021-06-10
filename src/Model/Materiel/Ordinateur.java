@@ -20,6 +20,13 @@ public class Ordinateur extends Materiel {
 		this.capacite = capacite;
 	}
 
+	public Ordinateur() {
+		super();
+		this.fixe = false;
+		this.souris = false;
+		this.capacite = 0;
+	}
+
 	// Méthodes de récupération et de modification des attributs
 	public boolean getFixe() {
 		return this.fixe;

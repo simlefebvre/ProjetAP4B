@@ -9,10 +9,11 @@ import Model.Materiel.Tablette;
  */
 public class AjoutMateriel {
 	private PopUp page;
-
+	private ViewManager vm;
 	// Constructeur
-	public AjoutMateriel(Materiel mat) {
+	public AjoutMateriel(ViewManager viewManager, Materiel mat) {
 		page = new PopUp();
+		this.vm = viewManager;
 		
 		//Partie commune		
 		//Contenu de la page

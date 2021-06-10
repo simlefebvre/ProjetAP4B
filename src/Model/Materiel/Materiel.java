@@ -26,6 +26,14 @@ public class Materiel {
 		this.reservations = new Agenda();
 	}
 
+	public Materiel() {
+		this.identifiant = genererID();
+		this.marque = null;
+		this.etat = null;
+		this.salle = null;
+		this.reservations = new Agenda();
+	}
+
 	// Méthodes de récupération et de modification des attributs
 	public int getID() {
 		return this.identifiant;

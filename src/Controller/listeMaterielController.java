@@ -27,18 +27,6 @@ public class listeMaterielController implements MouseListener {
 			if(name.equalsIgnoreCase("retour")) {
 				this.vm.pAffMat.close();
 				this.vm.showMenuProf();
-//			}else if(name.contains("suppr")){
-//				
-//				String num = name.substring(6);
-//
-//				int identifiant = Integer.parseInt(num);
-//				
-//				int choix = JOptionPane.showOptionDialog(null, "Etes vous sur de vouloir supprimer le materiel n°"+ identifiant + " ?" , "Supression" , JOptionPane.YES_NO_OPTION,JOptionPane.WARNING_MESSAGE , null , null, null);
-//				
-//				if(choix == JOptionPane.YES_OPTION) {
-//					BaseDeDonee.getInstance().removeMateriel(BaseDeDonee.getInstance().getMateriel(identifiant));
-//					this.vm.pAffMat.refresh();
-//				}
 			}else if(name.contains("reserver")) {
 				boolean coche = false;
 				LinkedList<Materiel> mats = new LinkedList<>();
@@ -56,6 +44,8 @@ public class listeMaterielController implements MouseListener {
 				String num = name.substring(5);				
 				int identifiant = Integer.parseInt(num);
 				vm.showInfoMat(identifiant);
+			}else if(name.equalsIgnoreCase("ajout")) {
+				vm.showAjoutMateriel();
 			}
 		}
 	}

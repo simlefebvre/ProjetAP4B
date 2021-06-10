@@ -15,6 +15,11 @@ public class VideoProjecteur extends Materiel {
 		this.telecommande = telecommande;
 	}
 
+	public VideoProjecteur() {
+		super();
+		this.telecommande = false;
+	}
+
 	// Méthodes de récupération et de modification des attributs
 	public boolean getTelecommande() {
 		return this.telecommande;

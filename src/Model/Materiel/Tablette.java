@@ -15,6 +15,11 @@ public class Tablette extends Materiel {
 		this.clavier = clavier;
 	}
 
+	public Tablette() {
+		super();
+		this.clavier = false;
+	}
+
 	// Méthodes de récupération et de modification des attributs
 	public boolean getClavier() {
 		return this.clavier;

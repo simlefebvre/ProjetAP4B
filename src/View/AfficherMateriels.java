@@ -56,6 +56,9 @@ public class AfficherMateriels {
 		// Pied de page
 		page.addButtonFoot("Retour", "retour", lmc);
 		page.addButtonFoot("Reserver", "reserver", lmc);
+		if(MainClass.connecte instanceof Administrateur) {
+			page.addButtonFoot("Ajout", "ajout", lmc);
+		}
 	}
 
 	public void close() {
