@@ -47,5 +47,8 @@ public class Ordinateur extends Materiel {
 	public void setCapacite(int newCapacite) {
 		this.capacite = newCapacite;
 	}
-
+	
+	public void setFixe(boolean newFixe) {
+		this.fixe = newFixe;
+	}
 }

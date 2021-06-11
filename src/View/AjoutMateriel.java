@@ -1,5 +1,11 @@
 package View;
 
+import java.util.LinkedList;
+
+import javax.swing.JCheckBox;
+import javax.swing.JTextField;
+
+import Controller.AjoutMatController;
 import Model.Materiel.Materiel;
 import Model.Materiel.Ordinateur;
 import Model.Materiel.Tablette;
@@ -11,10 +17,14 @@ public class AjoutMateriel {
 	private PopUp page;
 	private ViewManager vm;
 	private Materiel mat;
+	private AjoutMatController amc;
+	
 	// Constructeur
 	public AjoutMateriel(ViewManager viewManager, Materiel mat) {
+
 		page = new PopUp();
 		this.vm = viewManager;
+		this.amc = new AjoutMatController(vm);
 		this.mat = mat;
 		//Partie commune		
 		//Contenu de la page
@@ -23,8 +33,8 @@ public class AjoutMateriel {
 		page.addTextField("Saisir la salle ", "salle");
 		
 		// Pied de page
-		page.addButtonFoot("Annuler", "annuler", null);
-		page.addButtonFoot("Valider", "valider", null);
+		page.addButtonFoot("Annuler", "annuler", amc);
+		page.addButtonFoot("Valider", "valider", amc);
 		
 		
 		
@@ -49,5 +59,13 @@ public class AjoutMateriel {
 
 	public Materiel getMat() {
 		return mat;
+	}
+	
+	public LinkedList<JTextField> getText() {
+		return page.getTextes();
+	}
+	
+	public LinkedList<JCheckBox> getCoches() {
+		return page.getChoches();
 	}
 }
