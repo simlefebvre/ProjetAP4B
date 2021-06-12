@@ -24,6 +24,7 @@ public class ViewManager {
 	public ModifierInfosUtilisateur pModifInfoUtil;
 	public ChoixAjoutMateriel pChoixAjoutMat;
 	public AjoutMateriel pAjoutMat;
+	public ModifierInfoMateriel pModifMat;
 	
 	public ViewManager() {
 		showConnexion();
@@ -73,5 +74,8 @@ public class ViewManager {
 	public void showNewMat(Materiel m) {
 		pAjoutMat = new AjoutMateriel(this,m);
 		
+	}
+	public void showModifMat(Materiel m) {
+		pModifMat = new ModifierInfoMateriel(this, m);
 	}
 }

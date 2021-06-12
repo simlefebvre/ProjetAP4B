@@ -35,13 +35,9 @@ public class AfficherInfosMateriel {
 		// Pied de page
 		page.addButtonFoot("Retour", "retour", lmc);
 		if (MainClass.connecte instanceof Administrateur) {
-			page.addButtonFoot("Modifier", "modifier", lmc);
+			page.addButtonFoot("Modifier", "Modifier", lmc);
 			// TODO bouton modifier qui rend les textes et checkbox modifiables
-			if (MainClass.connecte instanceof Administrateur) {
-				page.addButton("modifier_" + mat.getID(), "Modifier", lmc, null);
-				page.addButton("suppr_" + mat.getID(), "Supprimer", lmc, null);
-				//TODO pas d'affichage des boutons ps null pointer exception à corriger dans formulaire (mais je sais pas pk c'est toi qui m'as demandé)
-			}
+			page.addButtonFoot("Supprimer","Supprimer",  lmc);
 		}
 
 		

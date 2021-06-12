@@ -5,6 +5,7 @@ import java.awt.event.MouseListener;
 import java.util.LinkedList;
 
 import javax.swing.JButton;
+import javax.swing.JOptionPane;
 
 import Model.DataBase.BaseDeDonee;
 import Model.Materiel.Materiel;
@@ -30,6 +31,14 @@ public class AffInfoMatController implements MouseListener {
 			LinkedList<Materiel> mat = new LinkedList<>();
 			mat.add(vm.pAffInfosMat.getMat());
 			vm.showReservation(mat);
+		}else if(name.equalsIgnoreCase("Modifier")) {
+			this.vm.showModifMat(vm.pAffInfosMat.getMat());
+		}else if(name.equalsIgnoreCase("Supprimer")) {
+			int choix =JOptionPane.showOptionDialog(null, "Etes-vous sur de vouloir supprimer ce composant ?", "Suppression d'un composant",JOptionPane.YES_NO_OPTION, JOptionPane.ERROR_MESSAGE, null, null, null);
+			if(choix == JOptionPane.YES_OPTION) {
+				BaseDeDonee.getInstance().removeMateriel(vm.pAffInfosMat.getMat());
+				vm.pAffInfosMat.close();
+			}
 		}
 		
 	}

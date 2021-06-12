@@ -115,7 +115,7 @@ public class Formulaire extends Fenetre {
 	 * @param nomZone 		texte du label
 	 * @param identifiant	identifiant de la zone de texte
 	 * @param texteDefaut	texte inscrit par défaut dans la zone de texte
-	 * @param pan			le panel auquel on veut ajouter la zone
+	 * @param pan			le panel auquel on veut ajouter la zone (peut être null)
 	 * @param verrouille	zone verouillée ou non
 	 * @return le panel dans lequel la zone se trouve
 	 */
@@ -273,7 +273,7 @@ public class Formulaire extends Fenetre {
 	 * @param id			identifiant de la case à cocher
 	 * @param coche			case cochée par défaut ou non
 	 * @param verrouille	case verrouillée ou non
-	 * @param pan			le panel auquel on veut ajouter la case
+	 * @param pan			le panel auquel on veut ajouter la case peut être null
 	 * @return	le panel contenant le label dans lequel la case a été ajoutée
 	 */
 	public JPanel addCheckBox(String nom, String id, boolean coche, boolean verrouille, JPanel pan) {
