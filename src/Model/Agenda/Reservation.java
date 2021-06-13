@@ -57,11 +57,6 @@ public class Reservation {
 		this.identifiant = id;
 	}
 	
-	/*
-	public String getDebut() {
-		return formatDate.format(this.debut);
-	}
-	*/
 	public Date getDebut() {
 		return this.debut;
 	}
@@ -70,11 +65,6 @@ public class Reservation {
 		this.debut = strToDate(newdebut);
 	}
 
-	/*
-	public String getFin() {
-		return formatDate.format(this.fin);
-	}
-	*/
 	public Date getFin() {
 		return this.fin;
 	}

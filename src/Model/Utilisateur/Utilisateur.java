@@ -15,7 +15,6 @@ public class Utilisateur {
 
 	// Constructeur
 	public Utilisateur(String prenomSaisi, String nomSaisi, String mailSaisi, String motpasse) {
-		
 		prenom = prenomSaisi;
 		nom = nomSaisi;
 		mail = mailSaisi;
@@ -45,7 +44,7 @@ public class Utilisateur {
 
 	// Autres méthodes
 	public boolean connexion(String Identifiant, String MDP) {
-		if (mail.equalsIgnoreCase(Identifiant) && motDePasse.equalsIgnoreCase(MDP)) {
+		if (mail.equalsIgnoreCase(Identifiant) && motDePasse.equals(MDP)) {
 			return true;
 		}
 		return false;
@@ -79,4 +78,16 @@ public class Utilisateur {
 		return true;
 	}
 	
+	
+	/**
+	 * Controle si le mot de passe saisi correspond au mot de passe de l'utilisateur ou non
+	 * @param mdp le mot de passe à tester
+	 * @return true si le mot de passe est correct, false sinon
+	 */
+	public boolean controleMDP (String mdp) {
+		if(this.motDePasse.equals(mdp)) {
+			return true;
+		}
+		return false;
+	}
 }

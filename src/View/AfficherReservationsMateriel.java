@@ -29,11 +29,12 @@ public class AfficherReservationsMateriel {
 		Materiel mat = BaseDeDonee.getInstance().getMateriel(idMat);
 		
 		for (Reservation res : mat.getReservations()) {
-			JPanel instance = page.addTextField("Debut : " + res.getDebut(),"debut");
+			JPanel instance = new JPanel();
+			page.addLabel("Debut : " + Reservation.formatDate.format(res.getDebut()), instance);
 			page.addLabel("          ", instance);
-			page.addTextField("Fin : " + res.getFin(), "fin", instance);
+			page.addLabel("Fin : " + Reservation.formatDate.format(res.getFin()), instance);
 			page.addLabel("          ", instance);
-			page.addTextField("par : " + res.getPar().getNom() + " " + res.getPar().getPrenom(), "par", instance);
+			page.addLabel("par : " + res.getPar().getNom() + " " + res.getPar().getPrenom(), instance);
 				
 			page.addButton("modifier_" + res.getID(), "Modifier", aimc, instance);
 			page.addButton("suppr_" + res.getID(), "Supprimer", aimc, instance);

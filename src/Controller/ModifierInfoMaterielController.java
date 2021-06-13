@@ -28,7 +28,7 @@ public class ModifierInfoMaterielController implements MouseListener {
 		if(name.equalsIgnoreCase("Valider")) {
 			for(JTextField tf : vm.pModifMat.getText()) {
 				if(tf.getText().isEmpty()) {
-					JOptionPane.showMessageDialog(null, "Il faut remplir tous les champs", "Erreur champs mal rempli", JOptionPane.ERROR_MESSAGE);
+					JOptionPane.showMessageDialog(null, "Il faut remplir tous les champs", "Erreur champs mal remplis", JOptionPane.ERROR_MESSAGE);
 					return;
 				}
 			}

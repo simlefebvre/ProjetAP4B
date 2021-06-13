@@ -12,14 +12,14 @@ import Model.Utilisateur.Utilisateur;
 
 public class ModifierInfosUtilisateur {
 	// Attributs
-	private Formulaire page;
+	private PopUp page;
 	private ViewManager vm;
 	private ModifierInfosUtilisateurController miuc;
 
 	public ModifierInfosUtilisateur(ViewManager vm, String mail) {
 		this.vm = vm;
 		this.miuc = new ModifierInfosUtilisateurController(vm);
-		page = new Formulaire();
+		page = new PopUp();
 
 		Utilisateur util = BaseDeDonee.getInstance().getUtilisateur(mail);
 		
