@@ -1,4 +1,4 @@
-package Controller;
+	package Controller;
 
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
@@ -99,8 +99,8 @@ public class ModifierInfosUtilisateurController implements MouseListener{
 				
 				//TODO Si besoin, passer une variable en paramtere qui donne la page qui a ouvert celle là
 				//Mise à jour de la page showProfil
-				this.vm.pProfil.close();
-				this.vm.showProfil();
+				//this.vm.pProfil.close();
+				//this.vm.showProfil();
 			
 			} else if (b.getName().equals("retour")) {
 				this.vm.pModifInfoUtil.close();

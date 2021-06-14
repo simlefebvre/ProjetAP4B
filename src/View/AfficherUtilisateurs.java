@@ -1,9 +1,9 @@
 package View;
 
-import java.awt.Frame;
-
 import javax.swing.JPanel;
+import javax.swing.SwingUtilities;
 
+import Controller.AfficherUtilisateursController;
 import Model.DataBase.BaseDeDonee;
 import Model.Utilisateur.Administrateur;
 import Model.Utilisateur.Utilisateur;
@@ -12,10 +12,12 @@ public class AfficherUtilisateurs {
 	//Attributs
 	private Formulaire page;
 	private ViewManager vm;
+	private AfficherUtilisateursController auc;
 	
 	//Constructeur
 	public AfficherUtilisateurs(ViewManager newvm) {
 		this.vm = newvm;
+		auc = new AfficherUtilisateursController(newvm);
 		page = new Formulaire(true);
 		
 		// Entete
@@ -33,13 +35,22 @@ public class AfficherUtilisateurs {
 				page.addCheckBox("          Administrateur", "admin_", false, true, instance);
 			}
 			
-			page.addButton("suppr_" + util.getMail(), "Supprimer", null, instance);
-			//TODO Quand suppression, supprimer ses réservations
+			page.addButton("modif_" + util.getMail(), "Modifier", auc, instance);
+			page.addButton("suppr_" + util.getMail(), "Supprimer", auc, instance);
 		}
 
 		// Pied de page
-		page.addButtonFoot("Retour", "retour", null);
-		page.addButtonFoot("Ajouter", "ajouter", null);
+		page.addButtonFoot("Retour", "retour", auc);
+		page.addButtonFoot("Ajouter", "ajouter", auc);
 	}
 	
+	public void close() {
+		page.close();
+	}
+	
+	public void refresh() {
+		page.close();
+		vm.showAfficherUtilisateurs();
+		
+	}
 }

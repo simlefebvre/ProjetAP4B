@@ -34,7 +34,7 @@ public class AffInfoMatController implements MouseListener {
 		}else if(name.equalsIgnoreCase("Modifier")) {
 			this.vm.showModifMat(vm.pAffInfosMat.getMat());
 		}else if(name.equalsIgnoreCase("Supprimer")) {
-			int choix =JOptionPane.showOptionDialog(null, "Etes-vous sur de vouloir supprimer ce composant ?", "Suppression d'un composant",JOptionPane.YES_NO_OPTION, JOptionPane.ERROR_MESSAGE, null, null, null);
+			int choix =JOptionPane.showOptionDialog(null, "Etes-vous sûr de vouloir supprimer ce composant ?", "Suppression d'un composant",JOptionPane.YES_NO_OPTION, JOptionPane.ERROR_MESSAGE, null, null, null);
 			if(choix == JOptionPane.YES_OPTION) {
 				BaseDeDonee.getInstance().removeMateriel(vm.pAffInfosMat.getMat());
 				vm.pAffInfosMat.close();

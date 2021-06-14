@@ -18,6 +18,7 @@ public class ViewManager {
 	public AfficherMateriels pAffMat;
 	public AfficherReservationsMateriel pAffReserv;
 	public AfficherInfosUtilisateur pProfil;
+	public AfficherUtilisateurs pAffUtilisateurs;
 	public AjoutReservation pAjoutReserv;
 	public AfficherUtilisateurs pUtilisateurs;
 	public AfficherInfosMateriel pAffInfosMat;
@@ -46,12 +47,12 @@ public class ViewManager {
 		pProfil = new AfficherInfosUtilisateur(this, MainClass.connecte.getMail());
 	}
 
+	public void showAfficherUtilisateurs() {
+		pAffUtilisateurs = new AfficherUtilisateurs(this);
+	}
+
 	public void showAfficherReservation() {
 		pAffReserv = new AfficherReservationsMateriel(this, MainClass.connecte);
-	}
-	
-	public void showAfficherUtilisateurs() {
-		pUtilisateurs = new AfficherUtilisateurs(this);
 	}
 	
 	public void showReservation(LinkedList<Materiel> mat) {
@@ -68,7 +69,6 @@ public class ViewManager {
 
 	public void showAjoutMateriel() {
 		this.pChoixAjoutMat = new ChoixAjoutMateriel(this);
-		
 	}
 
 	public void showNewMat(Materiel m) {

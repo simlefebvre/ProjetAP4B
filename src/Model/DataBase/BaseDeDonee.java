@@ -90,6 +90,15 @@ public class BaseDeDonee {
 	}
 
 	/**
+	 * Retrouve le matériel dont l'index est passé en paramètre
+	 * @param index index du matériel recherché
+	 * @return le matériel recherché
+	 */
+	public Materiel getMaterielIndex(int index) {
+		return materiels.get(index);
+	}
+	
+	/**
 	 * Retrouver l'index de l'utilisateur passé en paramettre
 	 * 
 	 * @param usr utilisateur auxquel on veux trouver l'index dans la BDD
@@ -116,7 +125,7 @@ public class BaseDeDonee {
 	 */
 	public Utilisateur getUtilisateur(String mail) {
 		for (Utilisateur u : utilisateurs) {
-			if (u.getMail() == mail) {
+			if (u.getMail().equalsIgnoreCase(mail)) {
 				return u;
 			}
 		}
@@ -124,6 +133,10 @@ public class BaseDeDonee {
 	}
 	
 	
+	
+	public Utilisateur getUtilisateurIndex(int index) {
+		return utilisateurs.get(index);
+	}
 	
 	
 	/**
@@ -133,6 +146,7 @@ public class BaseDeDonee {
 	 * @return true si la suppression est réussie, false sinon
 	 */
 	public boolean removeMateriel(Materiel mat) {
+		mat.supprimerAgenda(null);
 		return materiels.remove(mat);
 	}
 
@@ -143,8 +157,9 @@ public class BaseDeDonee {
 	 * @param index index du materiel à supprimer
 	 * @return materiel qui a été supprimé
 	 */
-	public Materiel removeMateriel(int index) {
-		return materiels.remove(index);
+	public Boolean removeMateriel(int index) {
+		Materiel mat = getMaterielIndex(index);
+		return removeMateriel(mat);
 	}
 
 	
@@ -155,6 +170,7 @@ public class BaseDeDonee {
 	 * @return true si la suppression est réussie, false sinon
 	 */
 	public boolean removeUtilisateur(Utilisateur usr) {
+		removeAgenda(usr);
 		return utilisateurs.remove(usr);
 	}
 	
@@ -165,8 +181,16 @@ public class BaseDeDonee {
 	 * @param index index de l'utilisateur à supprimer
 	 * @return utilisateur qui a été supprimé
 	 */
-	public Utilisateur removeUtilisateur(int index) {
-		return utilisateurs.remove(index);
+	public Boolean removeUtilisateur(int index) {
+		Utilisateur usr = getUtilisateurIndex(index);
+		return removeUtilisateur(usr);
+	}
+	
+	
+	public void removeAgenda(Utilisateur usr) {
+		for(Materiel mat : getMateriels()) {
+			mat.supprimerAgenda(usr);
+		}
 	}
 
 }

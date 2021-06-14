@@ -5,6 +5,7 @@ import java.util.LinkedList;
 import Model.Agenda.Agenda;
 import Model.Agenda.Reservation;
 import Model.DataBase.BaseDeDonee;
+import Model.Utilisateur.Utilisateur;
 
 /**
  * Un matériel représente un objet pouvant être réservé par un utilisateur.
@@ -107,5 +108,10 @@ public class Materiel {
 			return 0;
 		}
 		return BaseDeDonee.getInstance().getMateriels().getLast().getID() + 1;
+	}
+	
+	
+	public void supprimerAgenda(Utilisateur usr) {
+		this.reservations.supprimerAgenda(usr);
 	}
 }

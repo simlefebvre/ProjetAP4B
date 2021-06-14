@@ -112,4 +112,17 @@ public class Agenda {
 		}
 		return false;
 	}
+	
+	
+	public void supprimerAgenda(Utilisateur usr) {
+		for(Reservation r : this.getListe()) {
+			if(usr == null) {
+				supprimerReservation(r);
+			}else {
+				if(r.getPar().getMail().equals(usr.getMail())) {
+					supprimerReservation(r);
+				}
+			}
+		}
+	}
 }

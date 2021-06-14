@@ -24,11 +24,10 @@ public class AfficherInfosUtilisateurController implements MouseListener{
 			JButton b = (JButton) e.getSource();
 			if (b.getName().equalsIgnoreCase("modifier")) {
 				this.vm.showModifierInfosUtilisateur(this.util);
-					
 			} else if (b.getName().equals("retour")) {
 				this.vm.pProfil.close();
 				this.vm.showMenuProf();
-			} 
+			}
 		}
 	}
 

@@ -74,8 +74,6 @@ public class AfficherReservationsMateriel {
 					page.addLabel("          ", instance);
 					page.addLabel("Fin : "+ Reservation.formatDate.format(res.getFin()), instance);
 					page.addLabel("          ", instance);
-					//page.addButton("modif_"+ mat.getID() + "_" +res.getID(), "Modifier", arc, instance);
-					//TODO ajouter un bouton modifier
 					page.addButton("suppr_"+ res.getID()+"_" + mat.getID() , "Supprimer", arc, instance);
 				}
 			}

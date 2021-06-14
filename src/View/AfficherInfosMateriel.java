@@ -36,7 +36,6 @@ public class AfficherInfosMateriel {
 		page.addButtonFoot("Retour", "retour", lmc);
 		if (MainClass.connecte instanceof Administrateur) {
 			page.addButtonFoot("Modifier", "Modifier", lmc);
-			// TODO bouton modifier qui rend les textes et checkbox modifiables
 			page.addButtonFoot("Supprimer","Supprimer",  lmc);
 		}
 

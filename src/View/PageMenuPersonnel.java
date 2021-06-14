@@ -27,12 +27,12 @@ public class PageMenuPersonnel {
 		page.addButton("reservation", "Afficher mes réservations", mpc);
 		page.addButton("profil", "Afficher mon profil", mpc);
 
-		// Pied de page
-		page.addButtonFoot("Déconnexion", "deconnexion", mpc);
 		if (MainClass.connecte instanceof Administrateur) {
 			page.addButton("utilisateurs", "Afficher la liste des utilisateurs", mpc);
 		}
-
+		
+		// Pied de page
+		page.addButtonFoot("Déconnexion", "deconnexion", mpc);
 	}
 
 	public void close() {
