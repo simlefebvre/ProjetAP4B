@@ -4,7 +4,9 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
 import javax.swing.JButton;
+import javax.swing.JCheckBox;
 import javax.swing.JOptionPane;
+import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
 import Model.Utilisateur.Utilisateur;
@@ -12,9 +14,11 @@ import View.ViewManager;
 
 public class ModifierInfosUtilisateurController implements MouseListener{
 	private ViewManager vm;
+	private Utilisateur util;
 
-	public ModifierInfosUtilisateurController(ViewManager vm) {
+	public ModifierInfosUtilisateurController(ViewManager vm, Utilisateur util) {
 		this.vm = vm;
+		this.util = util;
 	}
 	
 	
@@ -23,54 +27,83 @@ public class ModifierInfosUtilisateurController implements MouseListener{
 		if (e.getSource() instanceof JButton) {
 			JButton b = (JButton) e.getSource();
 			if (b.getName().equalsIgnoreCase("valider")) {
-				//TODO Aymeric en est là !
-				//TODO Passer identifiant utilisateur grâce au bouton
-				
-				
-				//Créer un admin ou personnel en fonction de si la case admin est cochée ou non
-				Utilisateur usr = new Utilisateur("","","","");
-				
-				
+								
 				//Controler la validité des champs
-				for(JTextField tf : vm.pModifMat.getText()) {
+				for(JTextField tf : vm.pModifInfoUtil.getText()) {
 					if(tf.getText().isEmpty()) {
-						String tfname =tf.getName();
-						//Vérifier que tout est rempli (sauf nouveau mot de passe)
-						if(!(tfname.equalsIgnoreCase("mdpNouveau") || tfname.equalsIgnoreCase("mdpConfirmer"))) {						
-							JOptionPane.showMessageDialog(null, "Il faut remplir tous les champs", "Erreur champs mal remplis", JOptionPane.ERROR_MESSAGE);
+						//Vérifier que tout est rempli
+						JOptionPane.showMessageDialog(null, "Il faut remplir tous les champs", "Erreur champs mal remplis", JOptionPane.ERROR_MESSAGE);
+						return;
+					}
+				}
+				
+				//Controler la validité des mots de passe si utilisateur connecté est admin et qu'il ne modifie pas son profil
+				String NewMDP = "";
+				boolean nouveauMDP = false;
+				for(JPasswordField pw : vm.pModifInfoUtil.getmdp()) {
+					String pwname =pw.getName();
+					//TODO prendre en compte cas où l'admin change mdp d'un utilisateur
+					//Vérifier que ancien mdp valide
+					if(pwname.equals("mdpAncien")) {
+						NewMDP = new String(pw.getPassword());
+						if (!util.controleMDP(NewMDP)) {
+							JOptionPane.showMessageDialog(null, "Erreur mauvais mot de passe", "Erreur saisie mot de passe", JOptionPane.ERROR_MESSAGE);
 							return;
 						}
-						
-						//Verifier que le mot de passe saisi est correct
-						if(tfname.equals("mdpAncien")) {
-							if(usr.controleMDP(tfname)) {
-								JOptionPane.showMessageDialog(null, "Mauvais mot de passe", "Erreur mot de passe", JOptionPane.ERROR_MESSAGE);
-								return;
-							}
+					}
+					
+					//Controle si mdpNouveau saisi
+					if(pwname.equals("mdpNouveau")) {
+						String testNewMDP = new String(pw.getPassword());
+						if(!testNewMDP.isEmpty()) {
+							NewMDP = testNewMDP;
+							nouveauMDP = true;
 						}
 					}
+					
+					//Controle si mdpConfimer saisi et existe
+					if(pwname.equals("mdpConfirmer")) {
+						if(nouveauMDP) {
+							String testNewMDP = new String(pw.getPassword());
+							if(testNewMDP.isEmpty()) {
+								JOptionPane.showMessageDialog(null, "Erreur confirmer le nouveau mot de passe", "Erreur saisie confirmation mot de passe", JOptionPane.ERROR_MESSAGE);
+								return;
+							}
+							if(testNewMDP.compareTo(NewMDP)!=0) {
+								JOptionPane.showMessageDialog(null, "Erreur les mots de passe ne correspondent pas", "Erreur saisie mots de passe", JOptionPane.ERROR_MESSAGE);
+								return;
+							}
+							//Enregistrer nouveau mot de passe
+							util.setMDP(NewMDP);
+						}
+						
+					}
 				}
+				
+				
 				
 				//Ajouter les valeurs des champs à l'utilisateur
-				
-				for(JTextField tf : vm.pModifMat.getText()) {
+				for(JTextField tf : vm.pModifInfoUtil.getText()) {
 					String tfname =tf.getName();
-					if(tfname.equalsIgnoreCase("NomChamp")) {
-						//Ajouter champ
+					if(tfname.equals("nom")) {
+						this.util.setNom(tf.getText());
+					}else if(tfname.equals("prenom")) {
+						this.util.setPrenom(tf.getText());
+					}else if(tfname.equals("mail")) {
+						this.util.setMail(tf.getText());
 					}
-					
-					
-					
-					//controler que nouveau mdp ok, si vide then ne pas changer
-					
-					
 				}
+			
+				JOptionPane.showMessageDialog(null, "Modifications Sauvegardées");
+				vm.pModifInfoUtil.close();
 				
-				
-				
+				//TODO Si besoin, passer une variable en paramtere qui donne la page qui a ouvert celle là
+				//Mise à jour de la page showProfil
+				this.vm.pProfil.close();
+				this.vm.showProfil();
+			
 			} else if (b.getName().equals("retour")) {
 				this.vm.pModifInfoUtil.close();
-				this.vm.showProfil();
 			} 
 		}
 	}

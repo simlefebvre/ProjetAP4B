@@ -4,17 +4,17 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
 import javax.swing.JButton;
-import javax.swing.JCheckBox;
-import javax.swing.JTextField;
 
-import Model.Utilisateur.Administrateur;
+import Model.Utilisateur.Utilisateur;
 import View.ViewManager;
 
 public class AfficherInfosUtilisateurController implements MouseListener{
 	private ViewManager vm;
+	private Utilisateur util;
 
-	public AfficherInfosUtilisateurController(ViewManager vm) {
+	public AfficherInfosUtilisateurController(ViewManager vm, Utilisateur usr) {
 		this.vm = vm;
+		this.util = usr;
 	}
 	
 	
@@ -23,8 +23,7 @@ public class AfficherInfosUtilisateurController implements MouseListener{
 		if (e.getSource() instanceof JButton) {
 			JButton b = (JButton) e.getSource();
 			if (b.getName().equalsIgnoreCase("modifier")) {
-				this.vm.pProfil.close();
-				this.vm.showModifierInfosUtilisateur();
+				this.vm.showModifierInfosUtilisateur(this.util);
 					
 			} else if (b.getName().equals("retour")) {
 				this.vm.pProfil.close();

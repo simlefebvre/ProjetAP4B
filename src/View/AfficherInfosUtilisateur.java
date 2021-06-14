@@ -17,11 +17,13 @@ public class AfficherInfosUtilisateur {
 	private AfficherInfosUtilisateurController aiuc;
 
 	public AfficherInfosUtilisateur(ViewManager vm, String mail) {
+		Utilisateur util = BaseDeDonee.getInstance().getUtilisateur(mail);
+		
 		this.vm = vm;
-		this.aiuc = new AfficherInfosUtilisateurController(vm);
+		this.aiuc = new AfficherInfosUtilisateurController(vm, util);
 		page = new Formulaire();
 
-		Utilisateur util = BaseDeDonee.getInstance().getUtilisateur(mail);
+		
 		
 		//Entete
 		page.addTitle("Profil");

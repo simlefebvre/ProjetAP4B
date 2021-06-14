@@ -3,6 +3,7 @@ package View;
 import java.util.LinkedList;
 
 import javax.swing.JCheckBox;
+import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
 import Controller.ModifierInfosUtilisateurController;
@@ -16,12 +17,12 @@ public class ModifierInfosUtilisateur {
 	private ViewManager vm;
 	private ModifierInfosUtilisateurController miuc;
 
-	public ModifierInfosUtilisateur(ViewManager vm, String mail) {
+	public ModifierInfosUtilisateur(ViewManager vm, Utilisateur util) {
 		this.vm = vm;
-		this.miuc = new ModifierInfosUtilisateurController(vm);
+		this.miuc = new ModifierInfosUtilisateurController(vm, util);
 		page = new PopUp();
 
-		Utilisateur util = BaseDeDonee.getInstance().getUtilisateur(mail);
+		//Utilisateur util = BaseDeDonee.getInstance().getUtilisateur(mail);
 		
 		//Entete
 		page.addTitle("Modifier profil");
@@ -31,17 +32,18 @@ public class ModifierInfosUtilisateur {
 		page.addTextField("Nom : ","nom", util.getNom(), null, false);
 		page.addTextField("Prenom : ","prenom", util.getPrenom(), null, false);
 		page.addTextField("Adresse Mail : ","mail", util.getMail(), null, false);
+		/*
 		if(util instanceof Administrateur) {
 			page.addCheckBox("Administrateur : ", "CheckAdmin", true, false, null);
 		}else {
 			page.addCheckBox("Administrateur : ", "CheckAdmin", false, true, null);
 		}
-		
-		page.addTextField("Saisir ancien mot de passe : ", "mdpAncien", "", null, false);
+		*/
+		page.addPasswordField("Saisir ancien mot de passe : ", "mdpAncien");
 		page.addMarge(5);
 		page.addLabel("infoMDP", "Facultatif :");
-		page.addTextField("Saisir nouveau mot de passe : ", "mdpNouveau", "", null, false);
-		page.addTextField("Confirmer nouveau mot de passe : ", "mdpConfirmer", "", null, false);
+		page.addPasswordField("Saisir nouveau mot de passe : ", "mdpNouveau");
+		page.addPasswordField("Confirmer nouveau mot de passe : ", "mdpConfirmer");
 				
 		// Pied de page
 		page.addButtonFoot("Retour", "retour", miuc);
@@ -52,11 +54,16 @@ public class ModifierInfosUtilisateur {
 		page.close();
 	}
 	
-	public LinkedList<JTextField> getTF(){
+	public LinkedList<JTextField> getText(){
 		return page.getTextes();
 	}
 	
 	public LinkedList<JCheckBox> getCB(){
 		return page.getChoches();
 	}
+	
+	public LinkedList<JPasswordField> getmdp(){
+		return page.getmdp();
+	}
+	
 }

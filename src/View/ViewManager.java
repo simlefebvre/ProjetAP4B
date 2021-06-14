@@ -4,7 +4,7 @@ import java.util.LinkedList;
 
 import Controller.MainClass;
 import Model.Materiel.Materiel;
-import Model.Materiel.Ordinateur;
+import Model.Utilisateur.Utilisateur;
 
 
 //TODO Ajouter doc
@@ -62,8 +62,8 @@ public class ViewManager {
 		this.pAffInfosMat = new AfficherInfosMateriel(this, id);
 	}
 	
-	public void showModifierInfosUtilisateur() {
-		this.pModifInfoUtil = new ModifierInfosUtilisateur(this, MainClass.connecte.getMail());
+	public void showModifierInfosUtilisateur(Utilisateur usr) {
+		this.pModifInfoUtil = new ModifierInfosUtilisateur(this, usr);
 	}
 
 	public void showAjoutMateriel() {
