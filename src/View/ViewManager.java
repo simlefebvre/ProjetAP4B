@@ -26,6 +26,8 @@ public class ViewManager {
 	public ChoixAjoutMateriel pChoixAjoutMat;
 	public AjoutMateriel pAjoutMat;
 	public ModifierInfoMateriel pModifMat;
+	public AjoutUtilisateur pAjoutUtil;
+	
 	
 	public ViewManager() {
 		showConnexion();
@@ -63,8 +65,8 @@ public class ViewManager {
 		this.pAffInfosMat = new AfficherInfosMateriel(this, id);
 	}
 	
-	public void showModifierInfosUtilisateur(Utilisateur usr) {
-		this.pModifInfoUtil = new ModifierInfosUtilisateur(this, usr);
+	public void showModifierInfosUtilisateur(Utilisateur usr, String ouvertPar) {
+		this.pModifInfoUtil = new ModifierInfosUtilisateur(this, usr, ouvertPar);
 	}
 
 	public void showAjoutMateriel() {
@@ -77,5 +79,9 @@ public class ViewManager {
 	}
 	public void showModifMat(Materiel m) {
 		pModifMat = new ModifierInfoMateriel(this, m);
+	}
+	
+	public void showAjoutUtil() {
+		pAjoutUtil = new AjoutUtilisateur(this);
 	}
 }

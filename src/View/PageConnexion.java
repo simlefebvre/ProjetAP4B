@@ -34,6 +34,8 @@ public class PageConnexion {
 		page.addTitle("Connexion");
 		page.addButtonFoot("Connexion", "con", cc);
 		page.addButtonFoot("Mot de passe oublié", "mdpoub", cc);
+		
+		//TODO Ajouter bouton quitter
 	}
 
 	// Méthodes set et get

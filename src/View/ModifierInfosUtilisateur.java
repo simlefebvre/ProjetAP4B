@@ -17,9 +17,9 @@ public class ModifierInfosUtilisateur {
 	private ViewManager vm;
 	private ModifierInfosUtilisateurController miuc;
 
-	public ModifierInfosUtilisateur(ViewManager vm, Utilisateur util) {
+	public ModifierInfosUtilisateur(ViewManager vm, Utilisateur util, String ouvertPar) {
 		this.vm = vm;
-		this.miuc = new ModifierInfosUtilisateurController(vm, util);
+		this.miuc = new ModifierInfosUtilisateurController(vm, util, ouvertPar);
 		page = new PopUp();
 
 		//Utilisateur util = BaseDeDonee.getInstance().getUtilisateur(mail);

@@ -77,7 +77,7 @@ public class Utilisateur {
 	 * @param addresse l'addresse mail à contrôler
 	 * @return	true si l'adresse mail
 	 */
-	public boolean uniciteMail(String addresse) {
+	public static boolean uniciteMail(String addresse) {
 		for(Utilisateur user : BaseDeDonee.getInstance().getUtilisateurs()) {
 			if(addresse.equalsIgnoreCase(user.getMail())) {
 				return false;

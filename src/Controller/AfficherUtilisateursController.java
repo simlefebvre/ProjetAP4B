@@ -25,8 +25,6 @@ public class AfficherUtilisateursController implements MouseListener{
 			JButton b = (JButton) e.getSource();
 			String nomBouton = b.getName();
 			
-			
-			//Modifier noms des boutons
 			if (nomBouton.contains("modif")) {
 				//Récupérer id utilisateur
 				String mail = nomBouton.substring(6);
@@ -34,7 +32,7 @@ public class AfficherUtilisateursController implements MouseListener{
 				Utilisateur util = BaseDeDonee.getInstance().getUtilisateur(mail);
 				if(util != null) {
 					//Modifier utilisateur
-					this.vm.showModifierInfosUtilisateur(util);	
+					this.vm.showModifierInfosUtilisateur(util, "afficherUtil");	
 				}
 					
 			} else if (nomBouton.contains("suppr")) {
@@ -62,7 +60,7 @@ public class AfficherUtilisateursController implements MouseListener{
 				this.vm.pAffUtilisateurs.close();
 				this.vm.showMenuProf();
 			}else if (b.getName().equals("ajouter")) {
-				//TODO Ajouter instruction
+				this.vm.showAjoutUtil();
 			}
 		}
 	}

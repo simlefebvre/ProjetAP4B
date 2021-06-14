@@ -15,10 +15,12 @@ import View.ViewManager;
 public class ModifierInfosUtilisateurController implements MouseListener{
 	private ViewManager vm;
 	private Utilisateur util;
+	private String ouvertPar;
 
-	public ModifierInfosUtilisateurController(ViewManager vm, Utilisateur util) {
+	public ModifierInfosUtilisateurController(ViewManager vm, Utilisateur util, String ouvertPar) {
 		this.vm = vm;
 		this.util = util;
+		this.ouvertPar = ouvertPar;
 	}
 	
 	
@@ -97,10 +99,17 @@ public class ModifierInfosUtilisateurController implements MouseListener{
 				JOptionPane.showMessageDialog(null, "Modifications Sauvegardées");
 				vm.pModifInfoUtil.close();
 				
-				//TODO Si besoin, passer une variable en paramtere qui donne la page qui a ouvert celle là
-				//Mise à jour de la page showProfil
-				//this.vm.pProfil.close();
-				//this.vm.showProfil();
+				if(ouvertPar.compareTo("profil")==0) {
+					//Mise à jour de la page showProfil
+					this.vm.pProfil.close();
+					this.vm.showProfil();
+				}else {
+					//Mise à jour de la page showAfficherReservation
+					this.vm.pAffUtilisateurs.close();
+					this.vm.showAfficherUtilisateurs();
+				}
+				
+				
 			
 			} else if (b.getName().equals("retour")) {
 				this.vm.pModifInfoUtil.close();

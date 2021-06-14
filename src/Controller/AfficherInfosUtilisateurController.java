@@ -23,7 +23,7 @@ public class AfficherInfosUtilisateurController implements MouseListener{
 		if (e.getSource() instanceof JButton) {
 			JButton b = (JButton) e.getSource();
 			if (b.getName().equalsIgnoreCase("modifier")) {
-				this.vm.showModifierInfosUtilisateur(this.util);
+				this.vm.showModifierInfosUtilisateur(this.util, "profil");
 			} else if (b.getName().equals("retour")) {
 				this.vm.pProfil.close();
 				this.vm.showMenuProf();
