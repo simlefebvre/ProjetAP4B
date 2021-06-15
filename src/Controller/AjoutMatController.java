@@ -62,6 +62,7 @@ public class AjoutMatController implements MouseListener {
 							o.setCapacite(capacite);
 						}catch(Exception ex) {
 							JOptionPane.showMessageDialog(null,"Veuillez entrer un entier dans la capacite", "Erreur capacite", JOptionPane.ERROR_MESSAGE);
+							return;
 						}
 					}
 					
@@ -84,6 +85,10 @@ public class AjoutMatController implements MouseListener {
 			
 			BaseDeDonee.getInstance().addMateriel(mat);
 			vm.pAjoutMat.close();
+			
+			//Maj AfficherMateriels
+			vm.pAffMat.close();
+			vm.showMaterielDispo();
 		}
 		
 	}

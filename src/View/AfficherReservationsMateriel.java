@@ -35,9 +35,8 @@ public class AfficherReservationsMateriel {
 			page.addLabel("Fin : " + Reservation.formatDate.format(res.getFin()), instance);
 			page.addLabel("          ", instance);
 			page.addLabel("par : " + res.getPar().getNom() + " " + res.getPar().getPrenom(), instance);
-				
-			page.addButton("modifier_" + res.getID(), "Modifier", aimc, instance);
-			page.addButton("suppr_" + res.getID(), "Supprimer", aimc, instance);
+			//TODO Si temps, vérifier que personne qui supprime a fait la résa ou est admin
+			page.addButton("suppr_"+ res.getID()+"_" + mat.getID(), "Supprimer", aimc, instance);
 		}	
 		
 		page.addButton("Ajouter", "ajouter", aimc);
@@ -57,7 +56,6 @@ public class AfficherReservationsMateriel {
 		
 		//Pour chaque matériel
 		for(Materiel mat : BaseDeDonee.getInstance().getMateriels()) {
-			//pour chaque résa, check sur faite par user ou pas
 			for (Reservation res : mat.getReservations()) {
 				if (res.getPar() == user) {
 					JPanel instance;
@@ -74,14 +72,13 @@ public class AfficherReservationsMateriel {
 					page.addLabel("          ", instance);
 					page.addLabel("Fin : "+ Reservation.formatDate.format(res.getFin()), instance);
 					page.addLabel("          ", instance);
-					page.addButton("suppr_"+ res.getID()+"_" + mat.getID() , "Supprimer", arc, instance);
+					page.addButton("suppr_"+ res.getID()+"_" + mat.getID(), "Supprimer", arc, instance);
 				}
 			}
 		}
+		page.addButton("ajouter", "Ajouter", arc);		
 		
-		page.addButton("Ajouter", "ajouter", arc);		
-		
-		page.addButtonFoot("Retour", "retour", arc);
+		page.addButtonFoot("Retour ", "retour", arc);
 	}
 
 

@@ -7,10 +7,12 @@ import java.util.Date;
 import java.util.LinkedList;
 
 import javax.swing.JButton;
+import javax.swing.JCheckBox;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
 import Model.Agenda.Reservation;
+import Model.DataBase.BaseDeDonee;
 import Model.Materiel.Materiel;
 import View.ViewManager;
 
@@ -62,7 +64,12 @@ public class reservationController implements MouseListener {
 						vm.pAjoutReserv.close();
 					}
 				}
-				
+				//Décocher les JCheckBox
+				for(JCheckBox cb : this.vm.pAffMat.getBox()) {
+					if(cb.isSelected()) {
+						cb.setSelected(false);
+					}
+				}
 				
 				
 			}else if(name.equalsIgnoreCase("annuler")) {

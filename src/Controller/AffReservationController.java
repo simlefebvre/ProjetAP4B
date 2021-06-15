@@ -37,7 +37,8 @@ public class AffReservationController implements MouseListener {
 			
 			if(choix == JOptionPane.YES_OPTION) {
 				BaseDeDonee.getInstance().getMateriel(identifiant).getAgenda().supprimerReservation(new Reservation(identifiantDate));
-				this.vm.pAffMat.refresh();
+				this.vm.pAffReserv.close();
+				this.vm.showAfficherReservation();
 			}
 		}
 		

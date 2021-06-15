@@ -22,7 +22,7 @@ public class AfficherInfosMateriel {
 	public AfficherInfosMateriel(ViewManager vm, int idMat) {
 		this.vm = vm;
 		this.lmc = new AffInfoMatController(vm);
-		page = new PopUp(500,700);
+		page = new PopUp(700,700);
 
 		mat = BaseDeDonee.getInstance().getMateriel(idMat);
 

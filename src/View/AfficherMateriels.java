@@ -65,10 +65,6 @@ public class AfficherMateriels {
 		page.close();
 	}
 	
-	public void refresh() {
-		page.refresh();
-	}
-	
 	public LinkedList<JCheckBox> getBox(){
 		return page.getChoches();
 	}

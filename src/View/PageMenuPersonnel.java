@@ -23,6 +23,7 @@ public class PageMenuPersonnel {
 		// Entete
 		page.addTitle("Menu principal");
 		// Contenu de la page
+		page.addLabel("infoConnecte", "Connecté en tant que " + MainClass.connecte.getPrenom() + " " + MainClass.connecte.getNom());
 		page.addButton("mat", "Afficher le matériel", mpc);
 		page.addButton("reservation", "Afficher mes réservations", mpc);
 		page.addButton("profil", "Afficher mon profil", mpc);

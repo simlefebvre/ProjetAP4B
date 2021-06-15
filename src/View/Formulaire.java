@@ -465,14 +465,5 @@ public class Formulaire extends Fenetre {
 		for (JPasswordField pf : mdps) {
 			pf.setText("");
 		}
-	}
-	
-	
-	/**
-	 * Mettre à jour la fenetre
-	 */
-	public void refresh() {
-		fenetre.revalidate();
-	}
-	
+	}	
 }

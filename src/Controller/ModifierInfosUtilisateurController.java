@@ -44,15 +44,17 @@ public class ModifierInfosUtilisateurController implements MouseListener{
 				boolean nouveauMDP = false;
 				for(JPasswordField pw : vm.pModifInfoUtil.getmdp()) {
 					String pwname =pw.getName();
-					//TODO prendre en compte cas où l'admin change mdp d'un utilisateur
-					//Vérifier que ancien mdp valide
-					if(pwname.equals("mdpAncien")) {
-						NewMDP = new String(pw.getPassword());
-						if (!util.controleMDP(NewMDP)) {
-							JOptionPane.showMessageDialog(null, "Erreur mauvais mot de passe", "Erreur saisie mot de passe", JOptionPane.ERROR_MESSAGE);
-							return;
+					if(ouvertPar.compareTo("profil")==0) {
+						//Vérifier que ancien mdp valide
+						if(pwname.equals("mdpAncien")) {
+							NewMDP = new String(pw.getPassword());
+							if (!util.controleMDP(NewMDP)) {
+								JOptionPane.showMessageDialog(null, "Erreur mauvais mot de passe", "Erreur saisie mot de passe", JOptionPane.ERROR_MESSAGE);
+								return;
+							}
 						}
 					}
+					
 					
 					//Controle si mdpNouveau saisi
 					if(pwname.equals("mdpNouveau")) {
