@@ -4,6 +4,7 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
 import javax.swing.JButton;
+import javax.swing.JOptionPane;
 
 import View.ViewManager;
 
@@ -35,6 +36,11 @@ public class menuPersonnelControler implements MouseListener {
 				MainClass.connecte = null;
 				vm.pMenu.close();
 				vm.showConnexion();
+			} else if (b.getName().equalsIgnoreCase("quitter")) {
+				int choix =JOptionPane.showOptionDialog(null, "Etes-vous sûr de vouloir quitter ?", "Quitter",JOptionPane.YES_NO_OPTION, JOptionPane.ERROR_MESSAGE, null, null, null);
+				if(choix == JOptionPane.YES_OPTION) {
+					System.exit(0);
+				}
 			}
 		}
 	}

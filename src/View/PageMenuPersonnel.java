@@ -33,6 +33,7 @@ public class PageMenuPersonnel {
 		
 		// Pied de page
 		page.addButtonFoot("Déconnexion", "deconnexion", mpc);
+		page.addButtonFoot("Quitter", "quitter", mpc);
 	}
 
 	public void close() {

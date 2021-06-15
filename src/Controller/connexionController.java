@@ -44,6 +44,11 @@ public class connexionController implements MouseListener {
 			}
 		} else if (bouton.getText().equalsIgnoreCase("Mot de passe oublié")) {
 			JOptionPane.showMessageDialog(null, "Voyez avec votre administrateur réseau");
+		} else if (bouton.getText().equalsIgnoreCase("quitter")) {
+			int choix =JOptionPane.showOptionDialog(null, "Etes-vous sûr de vouloir quitter ?", "Quitter",JOptionPane.YES_NO_OPTION, JOptionPane.ERROR_MESSAGE, null, null, null);
+			if(choix == JOptionPane.YES_OPTION) {
+				System.exit(0);
+			}
 		}
 
 	}
