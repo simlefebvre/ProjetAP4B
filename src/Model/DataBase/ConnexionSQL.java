@@ -72,5 +72,43 @@ public class ConnexionSQL {
 			 }
 		 }
 	 }
-	
+
+	 
+	 public static void delMateriel(int ID){
+		 String sql = "delete from materiel where materiel.ID = ?";
+		 try (PreparedStatement pstmt = conn.prepareStatement(sql)){
+			 pstmt.setInt(1, ID);
+			 pstmt.executeUpdate();
+		 }catch(SQLException e) {
+			 System.out.println(e.getMessage());
+		 }
+		 String rq1 = "delete from reservation where reservation.mat = ?";
+		 try (PreparedStatement pstmt = conn.prepareStatement(rq1)){
+			 pstmt.setInt(1, ID);
+			 pstmt.executeUpdate();
+		 }catch(SQLException e) {
+			 System.out.println(e.getMessage());
+		 }
+		 String rq2 = "delete from ordinateur where ordinateur.ID = ?";
+		 try (PreparedStatement pstmt = conn.prepareStatement(rq2)){
+			 pstmt.setInt(1, ID);
+			 pstmt.executeUpdate();
+		 }catch(SQLException e) {
+			 System.out.println(e.getMessage());
+		 }
+		 String rq3 = "delete from tablette where tablette.ID = ?";
+		 try (PreparedStatement pstmt = conn.prepareStatement(rq3)){
+			 pstmt.setInt(1, ID);
+			 pstmt.executeUpdate();
+		 }catch(SQLException e) {
+			 System.out.println(e.getMessage());
+		 }
+		 String rq4 = "delete from videoprojecteur where videoprojecteur.ID = ?";
+		 try (PreparedStatement pstmt = conn.prepareStatement(rq4)){
+			 pstmt.setInt(1, ID);
+			 pstmt.executeUpdate();
+		 }catch(SQLException e) {
+			 System.out.println(e.getMessage());
+		 }
+	 }
 }

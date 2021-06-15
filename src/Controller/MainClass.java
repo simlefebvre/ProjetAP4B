@@ -49,12 +49,13 @@ public class MainClass {
 		Reservation r = new Reservation(Reservation.strToDate("12/02/2020 12:00"), Reservation.strToDate("14/03/2021 15:00"), admin);
 		ordi.addReservation(r);
 		BaseDeDonee.getInstance().addMateriel(ordi);
+		//ConnexionSQL.newMateriel(ordi);
 		Tablette tab = new Tablette("Lenovo", "Très bon", "B401", true);
 		r = new Reservation(Reservation.strToDate("12/02/2000 12:00"), Reservation.strToDate("14/03/2001 15:00"), admin);
 		BaseDeDonee.getInstance().addMateriel(tab);
 		BaseDeDonee.getInstance().addMateriel(new VideoProjecteur("Sharp", "Bon", "A803", true));
 		//AfficherMateriels affMat = new AfficherMateriels(vm);
-
+		ConnexionSQL.delMateriel(0);
 		tab.addReservation(r);
 		
 		
