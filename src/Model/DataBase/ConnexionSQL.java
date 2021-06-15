@@ -3,6 +3,7 @@ package Model.DataBase;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import Model.Materiel.Materiel;
@@ -72,8 +73,7 @@ public class ConnexionSQL {
 			 }
 		 }
 	 }
-
-	 
+ 
 	 public static void delMateriel(int ID){
 		 String sql = "delete from materiel where materiel.ID = ?";
 		 try (PreparedStatement pstmt = conn.prepareStatement(sql)){
@@ -111,4 +111,92 @@ public class ConnexionSQL {
 			 System.out.println(e.getMessage());
 		 }
 	 }
+
+	 public static void modifMat(int ID, String etat, String marque, String salle,int Capacite, boolean  fixe, boolean souris) {
+		 String sql = "update materiel set "
+		 		+ "etat = ?,"
+		 		+ "marque = ?,"
+		 		+ "salle = ? "
+		 		+ "where materiel.ID = ?;";
+		 String sql1 = "update ordinateur set "
+		 		+ "capacite = ?,"
+		 		+ "fixe = ?,"
+		 		+ "souris = ? "
+		 		+ "where ordinateur.ID = ?;";
+		 try (PreparedStatement pstmt = conn.prepareStatement(sql);
+				 PreparedStatement pstmt2 = conn.prepareStatement(sql1)){
+			 pstmt.setString(1, etat);
+			 pstmt.setString(2, marque);
+			 pstmt.setString(3, salle);
+			 pstmt.setInt(4, ID);
+			 pstmt.executeUpdate();
+			 
+			 pstmt2.setInt(1, Capacite);
+			 pstmt2.setBoolean(2, fixe);
+			 pstmt2.setBoolean(3, souris);
+			 pstmt2.setInt(4, ID);
+			 pstmt2.executeUpdate();
+		 }catch(SQLException e) {
+			 System.out.println(e.getMessage());
+		 }
+	 }
+	 
+	 public static void modifMat(int ID, String etat, String marque, String salle, boolean telecommande) {
+		 //TODO a tester
+		 String rq = "select ID from tablette where tablette.ID = ?;";
+		 try(PreparedStatement pstmt1 = conn.prepareStatement(rq)){
+			 pstmt1.setInt(1, ID);
+			 ResultSet rs = pstmt1.executeQuery();
+			 if(rs.first()) {
+				 	String sql = "update materiel set "
+					 		+ "etat = ?,"
+					 		+ "marque = ?,"
+					 		+ "salle = ? "
+					 		+ "where materiel.ID = ?;";
+					 String sql1 = "update tablette set "
+					 		+ "clavier = ? "
+					 		+ "where tablette.ID = ?;";
+					 try (PreparedStatement pstmt = conn.prepareStatement(sql);
+							 PreparedStatement pstmt2 = conn.prepareStatement(sql1)){
+						 pstmt.setString(1, etat);
+						 pstmt.setString(2, marque);
+						 pstmt.setString(3, salle);
+						 pstmt.setInt(4, ID);
+						 pstmt.executeUpdate();
+						 
+						 pstmt2.setBoolean(1, telecommande);
+						 pstmt2.setInt(2, ID);
+						 pstmt2.executeUpdate();
+					 }catch (SQLException e) {
+						 System.out.println(e.getMessage());
+					}
+					 
+			 }else {
+				 	String sql = "update materiel set "
+					 		+ "etat = ?,"
+					 		+ "marque = ?,"
+					 		+ "salle = ? "
+					 		+ "where materiel.ID = ?;";
+					 String sql1 = "update videoprojecteur set "
+					 		+ "telecommande = ? "
+					 		+ "where videoprojecteur.ID = ?;";
+					 try (PreparedStatement pstmt = conn.prepareStatement(sql);
+							 PreparedStatement pstmt2 = conn.prepareStatement(sql1)){
+						 pstmt.setString(1, etat);
+						 pstmt.setString(2, marque);
+						 pstmt.setString(3, salle);
+						 pstmt.setInt(4, ID);
+						 pstmt.executeUpdate();
+						 
+						 pstmt2.setBoolean(1, telecommande);
+						 pstmt2.setInt(2, ID);
+						 pstmt2.executeUpdate();
+					 }catch (SQLException e) {
+						 System.out.println(e.getMessage());
+					}
+			 }
+		 }catch(SQLException e) {
+			 System.out.println(e.getMessage());
+		 }
+	 }		 
 }
