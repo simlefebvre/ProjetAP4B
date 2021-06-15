@@ -1,7 +1,8 @@
-package Controller;
+	package Controller;
 
 import Model.Agenda.Reservation;
 import Model.DataBase.BaseDeDonee;
+import Model.DataBase.ConnexionSQL;
 import Model.Materiel.Ordinateur;
 import Model.Materiel.Tablette;
 import Model.Materiel.VideoProjecteur;
@@ -30,6 +31,8 @@ public class MainClass {
 	public ViewManager vm;
 
 	public static void main(String[] args) {
+		ConnexionSQL.connect();
+		
 		// PageConnexion con = new PageConnexion();
 		// PageMenuPersonnel menuPerso = new PageMenuPersonnel();
 		ViewManager vm = new ViewManager();
