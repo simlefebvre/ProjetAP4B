@@ -37,8 +37,10 @@ public class MainClass {
 		// PageMenuPersonnel menuPerso = new PageMenuPersonnel();
 		ViewManager vm = new ViewManager();
 		Administrateur admin = new Administrateur("admin", "admin", "admin", "admin");
+		//ConnexionSQL.newUtil(admin);
 		BaseDeDonee.getInstance().addUtilisateur(admin);
 		Personnel usr = new Personnel("user", "user", "user", "user");
+		//ConnexionSQL.newUtil(usr);
 		BaseDeDonee.getInstance().addUtilisateur(usr);
 		// AjoutPersonel ap = new AjoutPersonel();
 		// AjoutUtilisateur ajoutUti = new AjoutUtilisateur();
@@ -54,12 +56,12 @@ public class MainClass {
 		//ConnexionSQL.newMateriel(tab);
 		BaseDeDonee.getInstance().addMateriel(tab);
 		BaseDeDonee.getInstance().addMateriel(new VideoProjecteur("Sharp", "Bon", "A803", true));
-		ConnexionSQL.modifMat(1, "Bon", "Lenovo", "B44", true);
+		//ConnexionSQL.modifMat(1, "Bon", "Lenovo", "B44", true);
 		//AfficherMateriels affMat = new AfficherMateriels(vm);
 		//ConnexionSQL.delMateriel(0);
 		tab.addReservation(r);
 		
-		
+		ConnexionSQL.delUtil("admin");
 		//ChoixAjoutMateriel pChoixMat = new ChoixAjoutMateriel();
 		
 

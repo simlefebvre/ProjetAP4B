@@ -200,5 +200,13 @@ public class ConnexionSQL {
 		 }
  	 }
 
-
+	 public static void delUtil(String mail) {
+		 String sql = "delete from utilisateur where utilisateur.mail = ?";
+		 try (PreparedStatement pstmt = conn.prepareStatement(sql)){
+			 pstmt.setString(1, mail);
+			 pstmt.executeUpdate();
+		 }catch(SQLException e) {
+			 System.out.println(e.getMessage());
+		 }
+	 }
 }
