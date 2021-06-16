@@ -9,6 +9,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
+import Model.DataBase.ConnexionSQL;
 import Model.Utilisateur.Utilisateur;
 import View.ViewManager;
 
@@ -40,7 +41,7 @@ public class ModifierInfosUtilisateurController implements MouseListener{
 				}
 				
 				//Controler la validité des mots de passe si utilisateur connecté est admin et qu'il ne modifie pas son profil
-				String NewMDP = "";
+				String NewMDP = new String();
 				boolean nouveauMDP = false;
 				for(JPasswordField pw : vm.pModifInfoUtil.getmdp()) {
 					String pwname =pw.getName();
@@ -52,6 +53,7 @@ public class ModifierInfosUtilisateurController implements MouseListener{
 								JOptionPane.showMessageDialog(null, "Erreur mauvais mot de passe", "Erreur saisie mot de passe", JOptionPane.ERROR_MESSAGE);
 								return;
 							}
+							//TODO Si pas de nouveau mdp, mdp mofifié dans bdd alors que devrait pas. SOit on prend ce cas en compte, soit on crée getMDP()
 						}
 					}
 					
@@ -77,27 +79,36 @@ public class ModifierInfosUtilisateurController implements MouseListener{
 								JOptionPane.showMessageDialog(null, "Erreur les mots de passe ne correspondent pas", "Erreur saisie mots de passe", JOptionPane.ERROR_MESSAGE);
 								return;
 							}
-							//Enregistrer nouveau mot de passe
-							util.setMDP(NewMDP);
 						}
 						
 					}
 				}
 				
 				
+				String nom = new String();
+				String prenom = new String();
+				String NouveauMail = new String();
 				
 				//Ajouter les valeurs des champs à l'utilisateur
 				for(JTextField tf : vm.pModifInfoUtil.getText()) {
 					String tfname =tf.getName();
 					if(tfname.equals("nom")) {
-						this.util.setNom(tf.getText());
+						nom = tf.getText();
 					}else if(tfname.equals("prenom")) {
-						this.util.setPrenom(tf.getText());
+						prenom = tf.getText();
 					}else if(tfname.equals("mail")) {
-						this.util.setMail(tf.getText());
+						NouveauMail = tf.getText();
 					}
 				}
 			
+				
+				//Sauvegarder les nouvelles informations dans la base de données
+				if(nouveauMDP) {
+					ConnexionSQL.modifUtil(util.getMail(), NouveauMail, nom, prenom, NewMDP, true);//TODO prendre en compte changement admin
+				}else {
+					ConnexionSQL.modifUtil(util.getMail(), NouveauMail, nom, prenom, true);
+				}
+				
 				JOptionPane.showMessageDialog(null, "Modifications Sauvegardées");
 				vm.pModifInfoUtil.close();
 				

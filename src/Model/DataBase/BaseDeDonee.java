@@ -28,7 +28,7 @@ public class BaseDeDonee {
 	 * @param mat nouveaux materiel que l'on souhaite ajouter
 	 */
 	public void addMateriel(Materiel mat) {
-		materiels.add(mat);
+		ConnexionSQL.newMateriel(mat);
 	}
 
 	/**
@@ -38,14 +38,17 @@ public class BaseDeDonee {
 	 */
 	public void addUtilisateur(Utilisateur usr) {
 		utilisateurs.add(usr);
+		//ConnexionSQL.newUtil(usr);
 	}
 
 	public LinkedList<Materiel> getMateriels() {
 		return materiels;
+		//TODO A Passer en sql
 	}
 
 	public LinkedList<Utilisateur> getUtilisateurs() {
 		return utilisateurs;
+		//TODO A Passer en sql
 	}
 
 	/**
@@ -55,6 +58,7 @@ public class BaseDeDonee {
 	 */
 	public final static BaseDeDonee getInstance() {
 		return unique;
+		//TODO A Passer en sql ???
 	}
 
 	/**
@@ -72,6 +76,7 @@ public class BaseDeDonee {
 			index++;
 		}
 		return -1;
+		//TODO Est ce qu'on garde en sql ??
 	}
 
 	/**
@@ -87,6 +92,7 @@ public class BaseDeDonee {
 			}
 		}
 		return null;
+		//TODO A Passer en sql
 	}
 
 	/**
@@ -96,6 +102,7 @@ public class BaseDeDonee {
 	 */
 	public Materiel getMaterielIndex(int index) {
 		return materiels.get(index);
+		//TODO Est ce qu'on la garde en sql ??
 	}
 	
 	/**
@@ -113,6 +120,7 @@ public class BaseDeDonee {
 			index++;
 		}
 		return -1;
+		//TODO Est ce qu'on garde en sql ?
 	}
 
 	
@@ -130,12 +138,14 @@ public class BaseDeDonee {
 			}
 		}
 		return null;
+		//TODO A Passer en sql
 	}
 	
 	
 	
 	public Utilisateur getUtilisateurIndex(int index) {
 		return utilisateurs.get(index);
+		//TODO Est ce qu'on garde en sql ?
 	}
 	
 	
@@ -145,9 +155,10 @@ public class BaseDeDonee {
 	 * @param mat materiel à supprimer
 	 * @return true si la suppression est réussie, false sinon
 	 */
-	public boolean removeMateriel(Materiel mat) {
-		mat.supprimerAgenda(null);
-		return materiels.remove(mat);
+	public void removeMateriel(Materiel mat) {
+		mat.supprimerAgenda(null);//TODO A Passer en sql
+		ConnexionSQL.delMateriel(mat.getID());
+		
 	}
 
 	
@@ -157,9 +168,10 @@ public class BaseDeDonee {
 	 * @param index index du materiel à supprimer
 	 * @return materiel qui a été supprimé
 	 */
-	public Boolean removeMateriel(int index) {
+	public void removeMateriel(int index) {
 		Materiel mat = getMaterielIndex(index);
-		return removeMateriel(mat);
+		removeMateriel(mat);
+		//TODO Est ce qu'on garde en sql ??
 	}
 
 	
@@ -169,10 +181,12 @@ public class BaseDeDonee {
 	 * @param usr utilisateur à supprimer
 	 * @return true si la suppression est réussie, false sinon
 	 */
-	public boolean removeUtilisateur(Utilisateur usr) {
-		removeAgenda(usr);
-		return utilisateurs.remove(usr);
+	public void removeUtilisateur(Utilisateur usr) {
+		removeAgenda(usr);//TODO A Passer en sql
+		ConnexionSQL.delUtil(usr.getMail());
 	}
+	
+	
 	
 	
 	/**
@@ -181,9 +195,10 @@ public class BaseDeDonee {
 	 * @param index index de l'utilisateur à supprimer
 	 * @return utilisateur qui a été supprimé
 	 */
-	public Boolean removeUtilisateur(int index) {
+	public void removeUtilisateur(int index) {
 		Utilisateur usr = getUtilisateurIndex(index);
-		return removeUtilisateur(usr);
+		removeUtilisateur(usr);
+		//TODO Est ce qu'on devrait pas suppr les méthodes qui prennent l'index en parametre ??
 	}
 	
 	
@@ -191,6 +206,7 @@ public class BaseDeDonee {
 		for(Materiel mat : getMateriels()) {
 			mat.supprimerAgenda(usr);
 		}
+		//TODO A Passer en sql
 	}
 
 }
