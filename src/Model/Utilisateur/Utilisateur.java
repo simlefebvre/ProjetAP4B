@@ -49,6 +49,10 @@ public class Utilisateur {
 	public void setMDP(String MDP) {
 		motDePasse = MDP;
 	}
+	
+	public String getMDP() {
+		return motDePasse;
+	}
 
 	// Autres méthodes
 	public boolean connexion(String Identifiant, String MDP) {
