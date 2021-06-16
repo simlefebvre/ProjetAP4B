@@ -61,7 +61,8 @@ public class MainClass {
 		//ConnexionSQL.delMateriel(0);
 		tab.addReservation(r);
 		
-		ConnexionSQL.delUtil("admin");
+		ConnexionSQL.modifUtil("user", "usr", "usr", "usr", false);
+		//ConnexionSQL.delUtil("admin");
 		//ChoixAjoutMateriel pChoixMat = new ChoixAjoutMateriel();
 		
 

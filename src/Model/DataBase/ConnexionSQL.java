@@ -209,4 +209,24 @@ public class ConnexionSQL {
 			 System.out.println(e.getMessage());
 		 }
 	 }
+
+	 public static void modifUtil(String mail, String nom, String prenom, String mdp, boolean admin) {
+		 String sql = "update utilisateur set "
+			 		+ "nom = ?,"
+			 		+ "prenom = ?,"
+			 		+ "mot_de_passe = ?,"
+			 		+ "administrateur = ? "
+			 		+ "where utilisateur.mail = \"" + mail + "\";";
+		 
+		 try (PreparedStatement pstmt = conn.prepareStatement(sql)){
+			 pstmt.setString(1, nom);
+			 pstmt.setString(2, prenom);
+			 pstmt.setString(3, mdp);
+			 pstmt.setBoolean(4, admin);
+			 
+			 pstmt.executeUpdate();
+		 }catch (SQLException e) {
+			 System.out.println(e.getMessage());
+		 }
+	 }
 }
