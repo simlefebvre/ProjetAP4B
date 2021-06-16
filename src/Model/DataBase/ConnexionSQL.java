@@ -10,6 +10,7 @@ import Model.Materiel.Materiel;
 import Model.Materiel.Ordinateur;
 import Model.Materiel.Tablette;
 import Model.Materiel.VideoProjecteur;
+import Model.Utilisateur.Utilisateur;
 
 public class ConnexionSQL {
 	
@@ -142,61 +143,92 @@ public class ConnexionSQL {
 	 }
 	 
 	 public static void modifMat(int ID, String etat, String marque, String salle, boolean telecommande) {
-		 //TODO a tester
 		 String rq = "select ID from tablette where tablette.ID = ?;";
 		 try(PreparedStatement pstmt1 = conn.prepareStatement(rq)){
 			 pstmt1.setInt(1, ID);
 			 ResultSet rs = pstmt1.executeQuery();
-			 if(rs.first()) {
-				 	String sql = "update materiel set "
-					 		+ "etat = ?,"
-					 		+ "marque = ?,"
-					 		+ "salle = ? "
-					 		+ "where materiel.ID = ?;";
-					 String sql1 = "update tablette set "
-					 		+ "clavier = ? "
-					 		+ "where tablette.ID = ?;";
-					 try (PreparedStatement pstmt = conn.prepareStatement(sql);
-							 PreparedStatement pstmt2 = conn.prepareStatement(sql1)){
-						 pstmt.setString(1, etat);
-						 pstmt.setString(2, marque);
-						 pstmt.setString(3, salle);
-						 pstmt.setInt(4, ID);
-						 pstmt.executeUpdate();
-						 
-						 pstmt2.setBoolean(1, telecommande);
-						 pstmt2.setInt(2, ID);
-						 pstmt2.executeUpdate();
-					 }catch (SQLException e) {
-						 System.out.println(e.getMessage());
-					}
+			 
+		 	String sql = "update materiel set "
+			 		+ "etat = ?,"
+			 		+ "marque = ?,"
+			 		+ "salle = ? "
+			 		+ "where materiel.ID = ?;";
+			 String sql1 = "update videoprojecteur set "
+			 		+ "telecommande = ? "
+			 		+ "where videoprojecteur.ID = ?;";
+			 String sql2 = "update tablette set "
+				 		+ "clavier = ? "
+				 		+ "where tablette.ID = ?;";
+			 try (PreparedStatement pstmt = conn.prepareStatement(sql);
+					 PreparedStatement pstmt2 = conn.prepareStatement(sql1);
+					 PreparedStatement pstmt3 = conn.prepareStatement(sql2)){
+				 
+				pstmt.setString(1, etat);
+				pstmt.setString(2, marque);
+				pstmt.setString(3, salle);
+				pstmt.setInt(4, ID);
+				pstmt.executeUpdate();
+				 
+				pstmt2.setBoolean(1, telecommande);
+				pstmt2.setInt(2, ID);
+				pstmt2.executeUpdate();
+				 
+				pstmt3.setBoolean(1, telecommande);
+				pstmt3.setInt(2, ID);
+				pstmt3.executeUpdate();
 					 
-			 }else {
-				 	String sql = "update materiel set "
-					 		+ "etat = ?,"
-					 		+ "marque = ?,"
-					 		+ "salle = ? "
-					 		+ "where materiel.ID = ?;";
-					 String sql1 = "update videoprojecteur set "
-					 		+ "telecommande = ? "
-					 		+ "where videoprojecteur.ID = ?;";
-					 try (PreparedStatement pstmt = conn.prepareStatement(sql);
-							 PreparedStatement pstmt2 = conn.prepareStatement(sql1)){
-						 pstmt.setString(1, etat);
-						 pstmt.setString(2, marque);
-						 pstmt.setString(3, salle);
-						 pstmt.setInt(4, ID);
-						 pstmt.executeUpdate();
-						 
-						 pstmt2.setBoolean(1, telecommande);
-						 pstmt2.setInt(2, ID);
-						 pstmt2.executeUpdate();
-					 }catch (SQLException e) {
-						 System.out.println(e.getMessage());
-					}
+			 }catch (SQLException e) {
+				 System.out.println(e.getMessage());
 			 }
 		 }catch(SQLException e) {
 			 System.out.println(e.getMessage());
 		 }
-	 }		 
+	 } 
+
+	 public static void newUtil(Utilisateur util) {
+		 	 String sql = "insert into materiel(ID, Marque, Salle, etat) values (?,?,?,?)";
+			 try (PreparedStatement pstmt = conn.prepareStatement(sql)){
+				 pstmt.setInt(1, mat.getID());
+				 pstmt.setString(2, mat.getMarque());
+				 pstmt.setString(3, mat.getSalle());
+				 pstmt.setString(4, mat.getEtat());
+				 pstmt.executeUpdate();
+			 } catch(SQLException e){
+				 System.out.println(e.getMessage());
+			 }
+			 
+			 if(mat instanceof Ordinateur) {
+				 String rq = "insert into ordinateur (ID,Capacite,fixe,souris) values (?,?,?,?)";
+				 try (PreparedStatement pstmt = conn.prepareStatement(rq)){
+					 pstmt.setInt(1, mat.getID());
+					 pstmt.setInt(2, ((Ordinateur)mat).getCapacite());
+					 pstmt.setBoolean(3, ((Ordinateur)mat).getFixe());
+					 pstmt.setBoolean(4, ((Ordinateur) mat).getSouris());
+					 pstmt.executeUpdate();
+				 } catch(SQLException e){
+					 System.out.println(e.getMessage());
+				 }
+			 }else if(mat instanceof Tablette) {
+				 String rq = "insert into tablette (ID,clavier) values (?,?)";
+				 try (PreparedStatement pstmt = conn.prepareStatement(rq)){
+					 pstmt.setInt(1, mat.getID());
+					 pstmt.setBoolean(2, ((Tablette)mat).getClavier());
+					 pstmt.executeUpdate();
+				 } catch(SQLException e){
+					 System.out.println(e.getMessage());
+				 }
+			 }else if(mat instanceof VideoProjecteur) {
+				 String rq = "insert into VideoProjecteur (ID,telecomande) values (?,?)";
+				 try (PreparedStatement pstmt = conn.prepareStatement(rq)){
+					 pstmt.setInt(1, mat.getID());
+					 pstmt.setBoolean(2, ((VideoProjecteur)mat).getTelecommande());
+					 pstmt.executeUpdate();
+				 } catch(SQLException e){
+					 System.out.println(e.getMessage());
+				 }
+		 }
+	 
+ 
+		 
+	 }
 }
