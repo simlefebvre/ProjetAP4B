@@ -210,6 +210,8 @@ public class ConnexionSQL {
 		 }
 	 }
 
+	 
+	 //Modifier utilisateur en modifiant mot de passe
 	 public static void modifUtil(String mail, String nom, String prenom, String mdp, boolean admin) {
 		 String sql = "update utilisateur set "
 			 		+ "nom = ?,"
@@ -217,6 +219,7 @@ public class ConnexionSQL {
 			 		+ "mot_de_passe = ?,"
 			 		+ "administrateur = ? "
 			 		+ "where utilisateur.mail = \"" + mail + "\";";
+		 //TODO On change pas mail ?? SI on change pas, modif ModifierInfosUtilisateur
 		 
 		 try (PreparedStatement pstmt = conn.prepareStatement(sql)){
 			 pstmt.setString(1, nom);
@@ -229,4 +232,25 @@ public class ConnexionSQL {
 			 System.out.println(e.getMessage());
 		 }
 	 }
+	 
+	 
+	//Modifier utilisateur sans modifier le mot de passe
+		 public static void modifUtil(String mail, String nom, String prenom, boolean admin) {
+			 String sql = "update utilisateur set "
+				 		+ "nom = ?,"
+				 		+ "prenom = ?,"
+				 		+ "administrateur = ? "
+				 		+ "where utilisateur.mail = \"" + mail + "\";";
+			 //TODO On change pas mail ?? SI on change pas, modif ModifierInfosUtilisateur
+			 
+			 try (PreparedStatement pstmt = conn.prepareStatement(sql)){
+				 pstmt.setString(1, nom);
+				 pstmt.setString(2, prenom);
+				 pstmt.setBoolean(3, admin);
+				 
+				 pstmt.executeUpdate();
+			 }catch (SQLException e) {
+				 System.out.println(e.getMessage());
+			 }
+		 }
 }
