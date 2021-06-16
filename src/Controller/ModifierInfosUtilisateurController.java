@@ -87,7 +87,7 @@ public class ModifierInfosUtilisateurController implements MouseListener{
 				
 				String nom = new String();
 				String prenom = new String();
-				String mail = new String();
+				String NouveauMail = new String();
 				
 				//Ajouter les valeurs des champs à l'utilisateur
 				for(JTextField tf : vm.pModifInfoUtil.getText()) {
@@ -97,16 +97,16 @@ public class ModifierInfosUtilisateurController implements MouseListener{
 					}else if(tfname.equals("prenom")) {
 						prenom = tf.getText();
 					}else if(tfname.equals("mail")) {
-						mail = tf.getText();
+						NouveauMail = tf.getText();
 					}
 				}
 			
 				
 				//Sauvegarder les nouvelles informations dans la base de données
 				if(nouveauMDP) {
-					ConnexionSQL.modifUtil(mail, nom, prenom, NewMDP, true);//TODO prendre en compte changement admin
+					ConnexionSQL.modifUtil(util.getMail(), NouveauMail, nom, prenom, NewMDP, true);//TODO prendre en compte changement admin
 				}else {
-					ConnexionSQL.modifUtil(mail, nom, prenom, true);
+					ConnexionSQL.modifUtil(util.getMail(), NouveauMail, nom, prenom, true);
 				}
 				
 				JOptionPane.showMessageDialog(null, "Modifications Sauvegardées");
