@@ -4,12 +4,12 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
 import javax.swing.JButton;
-import javax.swing.JCheckBox;
 import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
 import Model.DataBase.ConnexionSQL;
+import Model.Utilisateur.Administrateur;
 import Model.Utilisateur.Utilisateur;
 import View.ViewManager;
 
@@ -102,10 +102,19 @@ public class ModifierInfosUtilisateurController implements MouseListener{
 			
 				
 				//Sauvegarder les nouvelles informations dans la base de données
+				//TODO prendre en compte changement admin
 				if(nouveauMDP) {
-					ConnexionSQL.modifUtil(util.getMail(), NouveauMail, nom, prenom, NewMDP, true);//TODO prendre en compte changement admin
+					if(util instanceof Administrateur) {
+						ConnexionSQL.modifUtil(util.getMail(), NouveauMail, nom, prenom, NewMDP, true);
+					}else {
+						ConnexionSQL.modifUtil(util.getMail(), NouveauMail, nom, prenom, NewMDP, false);
+					}
 				}else {
-					ConnexionSQL.modifUtil(util.getMail(), NouveauMail, nom, prenom, true);
+					if(util instanceof Administrateur) {
+						ConnexionSQL.modifUtil(util.getMail(), NouveauMail, nom, prenom, true);
+					}else {
+						ConnexionSQL.modifUtil(util.getMail(), NouveauMail, nom, prenom, false);
+					}
 				}
 				
 				JOptionPane.showMessageDialog(null, "Modifications Sauvegardées");

@@ -12,7 +12,6 @@ import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
 import Model.Agenda.Reservation;
-import Model.DataBase.BaseDeDonee;
 import Model.Materiel.Materiel;
 import View.ViewManager;
 
@@ -59,7 +58,8 @@ public class reservationController implements MouseListener {
 					if(!mat.getAgenda().disponible(deb, fin)) {
 						JOptionPane.showMessageDialog(null, "Le materiel n°"+mat.getID()+" n'est pas disponnible pour les dates demandées","Erreur Disponibilité",JOptionPane.ERROR_MESSAGE);
 					}else {
-						mat.getAgenda().ajouterReservation(new Reservation(deb, fin, MainClass.connecte));
+						mat.getAgenda().ajouterReservation(new Reservation(deb, fin, MainClass.connecte, mat));
+						
 						JOptionPane.showMessageDialog(null, "Le materiel n°"+mat.getID()+" a bien été réservé","Réservé !",JOptionPane.INFORMATION_MESSAGE);
 						vm.pAjoutReserv.close();
 					}

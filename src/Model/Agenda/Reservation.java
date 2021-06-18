@@ -28,7 +28,7 @@ public class Reservation {
 	public static SimpleDateFormat formatDate = new SimpleDateFormat("dd/MM/yyyy HH:mm");
 
 	// Constructeur
-	public Reservation (Date debutResa, Date finResa, Utilisateur par, Materiel mat) {	
+	public Reservation(Date debutResa, Date finResa, Utilisateur par, Materiel mat) {	
 		if(debutResa.compareTo(finResa) <= 0) {
 			//debutConv avant fin
 			this.debut = debutResa;
@@ -50,6 +50,8 @@ public class Reservation {
 	public Reservation(String identifiantDate) {
 		this.identifiant = identifiantDate;
 	}
+
+
 
 	// Méthodes de récupération et de modification des attributs
 	public String getID() {
