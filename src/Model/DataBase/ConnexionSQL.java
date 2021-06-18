@@ -345,4 +345,26 @@ public class ConnexionSQL {
 		 
 		 return mat;
 	 }
+
+	 public static Utilisateur getUtilisateur(String string) {
+		 String sql = "select * from utilisateur where mail = \""+ string +"\";";
+		 
+		 try(Statement stmt = conn.createStatement();
+				 ResultSet rs = stmt.executeQuery(sql)){
+			//pstmt.setString(1, string);
+			
+			while(rs.next()) {
+				if(rs.getBoolean(5)) {
+					return new Administrateur(rs.getString(3), rs.getString(2),rs.getString(1), rs.getString(4));
+				}else {
+					return new Personnel(rs.getString(3), rs.getString(2),rs.getString(1), rs.getString(4));
+				}
+				
+			}
+		 }catch(SQLException e){
+			 System.out.println(e.getMessage());
+		 }
+		 
+		 return null;
+	 }
 }
