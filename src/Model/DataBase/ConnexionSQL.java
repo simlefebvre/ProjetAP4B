@@ -5,7 +5,9 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Date;
 
+import Model.Agenda.Reservation;
 import Model.Materiel.Materiel;
 import Model.Materiel.Ordinateur;
 import Model.Materiel.Tablette;
@@ -210,6 +212,16 @@ public class ConnexionSQL {
 		 }
 	 }
 
+	 /*public static void newReservation(Reservation r) {
+		 String sql = "insert into reservation(id,mat,deb,fin,util) values (?,?,?,?,?);";
+		 
+		 try(PreparedStatement pstmt = conn.prepareStatement(sql)) {
+			 pstmt.setString(1, r.getID());
+			 pstmt.setInt(2, r.);
+		 }catch(SQLException e) {
+			 System.out.println(e.getMessage());
+		 }
+	 }*/
 	 
 	 //Modifier utilisateur en modifiant mot de passe
 	 public static void modifUtil(String ancienMail, String nouveauMail, String nom, String prenom, String mdp, boolean admin) {
