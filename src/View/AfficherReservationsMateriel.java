@@ -6,6 +6,7 @@ import Controller.AffInfoMatController;
 import Controller.AffReservationController;
 import Model.Agenda.Reservation;
 import Model.DataBase.BaseDeDonee;
+import Model.DataBase.ConnexionSQL;
 import Model.Materiel.Materiel;
 import Model.Materiel.Ordinateur;
 import Model.Materiel.Tablette;
@@ -55,10 +56,10 @@ public class AfficherReservationsMateriel {
 		page.addTitle("Mes réservations : ");
 		
 		//Pour chaque matériel
-		for(Materiel mat : BaseDeDonee.getInstance().getMateriels()) {
-			for (Reservation res : mat.getReservations()) {
-				if (res.getPar() == user) {
+		
+			for (Reservation res : ConnexionSQL.getReservationUsr(user.getMail())) {
 					JPanel instance;
+					Materiel mat = res.getMat();
 					
 					if (mat instanceof Ordinateur) {
 						instance = page.addLabel("infosMat", "Ordinateur            id : " + mat.getID() + "          Salle : " + mat.getSalle() + "          ");
@@ -73,8 +74,6 @@ public class AfficherReservationsMateriel {
 					page.addLabel("Fin : "+ Reservation.formatDate.format(res.getFin()), instance);
 					page.addLabel("          ", instance);
 					page.addButton("suppr_"+ res.getID()+"_" + mat.getID(), "Supprimer", arc, instance);
-				}
-			}
 		}
 		page.addButton("ajouter", "Ajouter", arc);		
 		

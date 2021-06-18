@@ -432,7 +432,7 @@ public class ConnexionSQL {
 		 return res;
 	 }
 	 
-	 public static LinkedList<Reservation> getReservationMat(String id) {
+	 public static LinkedList<Reservation> getReservationUsr(String id) {
 		 String sql = "select * from reservation where mat = \""+id+"\";";
 		 LinkedList<Reservation> res = new LinkedList<>();
 		 try (Statement stmt = conn.createStatement();
