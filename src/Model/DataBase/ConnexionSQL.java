@@ -69,7 +69,7 @@ public class ConnexionSQL {
 				 System.out.println(e.getMessage());
 			 }
 		 }else if(mat instanceof VideoProjecteur) {
-			 String rq = "insert into VideoProjecteur (ID,telecomande) values (?,?)";
+			 String rq = "insert into VideoProjecteur (ID,telecommande) values (?,?)";
 			 try (PreparedStatement pstmt = conn.prepareStatement(rq)){
 				 pstmt.setInt(1, mat.getID());
 				 pstmt.setBoolean(2, ((VideoProjecteur)mat).getTelecommande());
@@ -255,44 +255,94 @@ public class ConnexionSQL {
 	 
 	 
 	//Modifier utilisateur sans modifier le mot de passe
-		 public static void modifUtil(String ancienMail, String nouveauMail, String nom, String prenom, boolean admin) {
-			 String sql = "update utilisateur set "
-					 	+ "mail = ?,"
-				 		+ "nom = ?,"
-				 		+ "prenom = ?,"
-				 		+ "administrateur = ? "
-				 		+ "where utilisateur.mail = \"" + ancienMail + "\";";
-			 //TODO On change admin ?? Si on change, modif ModifierInfosUtilisateur
+	 public static void modifUtil(String ancienMail, String nouveauMail, String nom, String prenom, boolean admin) {
+		 String sql = "update utilisateur set "
+				 	+ "mail = ?,"
+			 		+ "nom = ?,"
+			 		+ "prenom = ?,"
+			 		+ "administrateur = ? "
+			 		+ "where utilisateur.mail = \"" + ancienMail + "\";";
+		 //TODO On change admin ?? Si on change, modif ModifierInfosUtilisateur
+		 
+		 try (PreparedStatement pstmt = conn.prepareStatement(sql)){
+			 pstmt.setString(1, nouveauMail);
+			 pstmt.setString(2, nom);
+			 pstmt.setString(3, prenom);
+			 pstmt.setBoolean(4, admin);
 			 
-			 try (PreparedStatement pstmt = conn.prepareStatement(sql)){
-				 pstmt.setString(1, nouveauMail);
-				 pstmt.setString(2, nom);
-				 pstmt.setString(3, prenom);
-				 pstmt.setBoolean(4, admin);
-				 
-				 pstmt.executeUpdate();
-			 }catch (SQLException e) {
-				 System.out.println(e.getMessage());
-			 }
+			 pstmt.executeUpdate();
+		 }catch (SQLException e) {
+			 System.out.println(e.getMessage());
+		 }
+	 }
+	 
+	 public static LinkedList<Utilisateur> getUtilisateurs(){
+		 LinkedList<Utilisateur> util = new LinkedList<>();
+		 
+		 String sql = "select * from utilisateur;";
+		 try(Statement stmt = conn.createStatement();
+				 ResultSet rs = stmt.executeQuery(sql)){
+					 while(rs.next()) {
+						 if(rs.getBoolean(5)) { 
+							 util.add(new Administrateur(rs.getString(1), rs.getString(2), rs.getString(1), rs.getString(4)));
+						 }else {
+							 util.add(new Personnel(rs.getString(1), rs.getString(2), rs.getString(1), rs.getString(4)));
+						 }
+					 }
+		 }catch(SQLException e){
+			 System.out.println(e.getMessage());
 		 }
 		 
-		 public static LinkedList<Utilisateur> getUtilisateurs(){
-			 LinkedList<Utilisateur> util = new LinkedList<>();
+		 return util;
+	 }
+	 
+	 public static LinkedList<Materiel> getMateriels(){
+		 LinkedList<Materiel> mat = new LinkedList<>();
+		 
+		 String sql = "select * from materiel;";
+		 
+		 try(Statement stmt = conn.createStatement();
+				 ResultSet rs = stmt.executeQuery(sql)){
 			 
-			 String sql = "select * from utilisateur;";
-			 try(Statement stmt = conn.createStatement();
-					 ResultSet rs = stmt.executeQuery(sql)){
-						 while(rs.next()) {
-							 if(rs.getBoolean(5)) { 
-								 util.add(new Administrateur(rs.getString(1), rs.getString(2), rs.getString(1), rs.getString(4)));
-							 }else {
-								 util.add(new Personnel(rs.getString(1), rs.getString(2), rs.getString(1), rs.getString(4)));
-							 }
-						 }
-			 }catch(SQLException e){
-				 System.out.println(e.getMessage());
+			 while(rs.next()) {
+				 
+				 String rqo = "select * from ordinateur where id = ?;";
+				 String rqt = "select * from tablette where id = ?;";
+				 String rqvp = "select * from VideoProjecteur where id = ?;";
+				 
+				 try(PreparedStatement pstmto = conn.prepareStatement(rqo);
+						 PreparedStatement pstmtt = conn.prepareStatement(rqt);
+						 PreparedStatement pstmtvp = conn.prepareStatement(rqvp);){
+					 
+					 
+					 pstmto.setInt(1, rs.getInt(1));
+					 pstmtt.setInt(1, rs.getInt(1));
+					 pstmtvp.setInt(1, rs.getInt(1));
+					 
+					 ResultSet rso = pstmto.executeQuery();
+					 ResultSet rst = pstmtt.executeQuery();
+					 ResultSet rsvp = pstmtvp.executeQuery();
+					 
+					 while(rso.next()) {
+						 mat.add(new Ordinateur(rs.getString(2),rs.getString(4),rs.getString(3),rso.getBoolean(2),rso.getBoolean(3),rso.getInt(4),rs.getInt(1)));
+					 }
+					 while(rst.next()) {
+						 mat.add(new Tablette(rs.getString(2),rs.getString(4),rs.getString(3),rst.getBoolean(2),rs.getInt(1)));
+					 }
+					 while(rsvp.next()) {
+						 mat.add(new VideoProjecteur(rs.getString(2),rs.getString(4),rs.getString(3),rsvp.getBoolean(2),rs.getInt(1)));
+					 }
+				 }catch(SQLException e) {
+					 System.out.println(e.getMessage());
+				 }
+				 
 			 }
 			 
-			 return util;
+		 }catch(SQLException e){
+			 System.out.println(e.getMessage());
 		 }
+		 
+		 
+		 return mat;
+	 }
 }

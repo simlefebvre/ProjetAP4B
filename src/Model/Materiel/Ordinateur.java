@@ -19,7 +19,14 @@ public class Ordinateur extends Materiel {
 		this.souris = souris;
 		this.capacite = capacite;
 	}
-
+	
+	public Ordinateur(String marque, String etat, String salle, boolean fixe, boolean souris, int capacite,int index) {
+		super(marque, etat, salle,index);
+		this.fixe = fixe;
+		this.souris = souris;
+		this.capacite = capacite;
+	}
+	
 	public Ordinateur() {
 		super();
 		this.fixe = false;

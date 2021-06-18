@@ -15,6 +15,10 @@ public class VideoProjecteur extends Materiel {
 		this.telecommande = telecommande;
 	}
 
+	public VideoProjecteur(String marque, String etat, String salle, boolean telecommande,int index) {
+		super(marque, etat, salle,index);
+		this.telecommande = telecommande;
+	}
 	public VideoProjecteur() {
 		super();
 		this.telecommande = false;

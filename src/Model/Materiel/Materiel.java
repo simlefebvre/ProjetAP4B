@@ -26,6 +26,14 @@ public class Materiel {
 		this.salle = salle;
 		this.reservations = new Agenda();
 	}
+	
+	public Materiel(String marque, String etat, String salle,int index) {
+		this.identifiant = index;
+		this.marque = marque;
+		this.etat = etat;
+		this.salle = salle;
+		this.reservations = new Agenda();
+	}
 
 	public Materiel() {
 		this.identifiant = genererID();

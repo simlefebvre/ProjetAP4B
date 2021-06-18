@@ -15,6 +15,11 @@ public class Tablette extends Materiel {
 		this.clavier = clavier;
 	}
 
+	public Tablette(String marque, String etat, String salle, boolean clavier,int index) {
+		super(marque, etat, salle,index);
+		this.clavier = clavier;
+	}
+	
 	public Tablette() {
 		super();
 		this.clavier = false;

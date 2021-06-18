@@ -29,6 +29,7 @@ public class BaseDeDonee {
 	 */
 	public void addMateriel(Materiel mat) {
 		ConnexionSQL.newMateriel(mat);
+		materiels.add(mat);
 	}
 
 	/**
