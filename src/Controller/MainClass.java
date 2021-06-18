@@ -36,6 +36,8 @@ public class MainClass {
 		// PageConnexion con = new PageConnexion();
 		// PageMenuPersonnel menuPerso = new PageMenuPersonnel();
 		ViewManager vm = new ViewManager();
+		
+		/*
 		Administrateur admin = new Administrateur("admin", "admin", "admin", "admin");
 		//ConnexionSQL.newUtil(admin);
 		BaseDeDonee.getInstance().addUtilisateur(admin);
@@ -48,11 +50,11 @@ public class MainClass {
 		//AfficherUtilisateurs au = new AfficherUtilisateurs();
 
 		Ordinateur ordi = new Ordinateur("Asus", "Bon état", "B401", true, true, 1024);
-		Reservation r = new Reservation(Reservation.strToDate("12/02/2020 12:00"), Reservation.strToDate("14/03/2021 15:00"), admin);
+		Reservation r = new Reservation(Reservation.strToDate("12/02/2020 12:00"), Reservation.strToDate("14/03/2021 15:00"), admin, ordi);
 		ordi.addReservation(r);
 		BaseDeDonee.getInstance().addMateriel(ordi);
 		Tablette tab = new Tablette("Lenovo", "Très bon", "B401", true);
-		r = new Reservation(Reservation.strToDate("12/02/2000 12:00"), Reservation.strToDate("14/03/2001 15:00"), admin);
+		r = new Reservation(Reservation.strToDate("12/02/2000 12:00"), Reservation.strToDate("14/03/2001 15:00"), admin, tab);
 		//ConnexionSQL.newMateriel(tab);
 		BaseDeDonee.getInstance().addMateriel(tab);
 		BaseDeDonee.getInstance().addMateriel(new VideoProjecteur("Sharp", "Bon", "A803", true));
@@ -61,7 +63,7 @@ public class MainClass {
 		//ConnexionSQL.delMateriel(0);
 		tab.addReservation(r);
 		
-		ConnexionSQL.modifUtil("user", "usr", "usr", "usr", false);
+		//ConnexionSQL.modifUtil("user", "usr", "usr", "usr", false);
 		//ConnexionSQL.delUtil("admin");
 		//ChoixAjoutMateriel pChoixMat = new ChoixAjoutMateriel();
 		
@@ -73,5 +75,6 @@ public class MainClass {
 		
 
 		//AfficherInfosUtilisateur aui = new AfficherInfosUtilisateur(vm, "admin");
+		 */
 	}
 }
