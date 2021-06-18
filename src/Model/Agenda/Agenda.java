@@ -3,6 +3,7 @@ package Model.Agenda;
 import java.util.Date;
 import java.util.LinkedList;
 
+import Model.DataBase.ConnexionSQL;
 import Model.Utilisateur.Utilisateur;
 
 /**
@@ -96,7 +97,8 @@ public class Agenda {
 	 * @param finTest	Date et heure fin du créneau souhaité
 	 * @return	true si metériel disponible, false sinon
 	 */
-	public boolean disponible (Date debutTest, Date finTest) {
+	public boolean disponible (Date debutTest, Date finTest,int ID) {
+		occupation = ConnexionSQL.getReservationMat(ID);
 		if(occupation.size() == 0) {
 			return true;
 		}
