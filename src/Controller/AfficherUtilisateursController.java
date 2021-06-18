@@ -7,6 +7,7 @@ import javax.swing.JButton;
 import javax.swing.JOptionPane;
 
 import Model.DataBase.BaseDeDonee;
+import Model.DataBase.ConnexionSQL;
 import Model.Utilisateur.Utilisateur;
 import View.AfficherUtilisateurs;
 import View.ViewManager;
@@ -43,18 +44,12 @@ public class AfficherUtilisateursController implements MouseListener{
 				if(mail.equalsIgnoreCase(MainClass.connecte.getMail())) {
 					JOptionPane.showMessageDialog(null, "Erreur vous ne pouvez pas supprimer votre profil", "Erreur suppression profil", JOptionPane.ERROR_MESSAGE);
 				}else {
-					//Chercher utilisateur en fonction son id
-					//TODO modifier endroit ou on récupère liste des utilisateurs
-					Utilisateur util = BaseDeDonee.getInstance().getUtilisateur(mail);
-					if(util != null) {
-						//Supprimer utilisateur					
-						int choix =JOptionPane.showOptionDialog(null, "Etes-vous sûr de vouloir supprimer cet utilisateur ?", "Suppression d'un utilisateur",JOptionPane.YES_NO_OPTION, JOptionPane.ERROR_MESSAGE, null, null, null);
-						if(choix == JOptionPane.YES_OPTION) {
-							//TODO A mettre en sql
-							BaseDeDonee.getInstance().removeUtilisateur(util);
-							//MAJ page
-							vm.pAffUtilisateurs.refresh();
-						}
+					//Supprimer utilisateur					
+					int choix =JOptionPane.showOptionDialog(null, "Etes-vous sûr de vouloir supprimer cet utilisateur ?", "Suppression d'un utilisateur",JOptionPane.YES_NO_OPTION, JOptionPane.ERROR_MESSAGE, null, null, null);
+					if(choix == JOptionPane.YES_OPTION) {
+						ConnexionSQL.delUtil(mail);
+						//MAJ page AfficherUtilisateurs
+						vm.pAffUtilisateurs.refresh();
 					}
 				}
 				

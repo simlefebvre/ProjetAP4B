@@ -9,6 +9,7 @@ import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
 import Model.DataBase.BaseDeDonee;
+import Model.DataBase.ConnexionSQL;
 import Model.Utilisateur.Administrateur;
 import Model.Utilisateur.Personnel;
 import Model.Utilisateur.Utilisateur;
@@ -86,9 +87,9 @@ public class AjoutUtilisateurController implements MouseListener{
 				//Controler si on crée un Administrateur ou un Personnel
 				Boolean etatCoche = vm.pAjoutUtil.getCB().getFirst().isSelected();
 				if(etatCoche) {
-					BaseDeDonee.getInstance().addUtilisateur(new Administrateur(prenom,nom,mail,testNewMDP));
+					ConnexionSQL.newUtil(new Administrateur(prenom,nom,mail,testNewMDP));
 				}else{
-					BaseDeDonee.getInstance().addUtilisateur(new Personnel(prenom,nom,mail,testNewMDP));
+					ConnexionSQL.newUtil(new Personnel(prenom,nom,mail,testNewMDP));
 				}
 
 				//Valider enregistrement
