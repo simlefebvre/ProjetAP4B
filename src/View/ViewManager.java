@@ -46,7 +46,7 @@ public class ViewManager {
 	}
 
 	public void showProfil() {
-		pProfil = new AfficherInfosUtilisateur(this, MainClass.connecte.getMail());
+		pProfil = new AfficherInfosUtilisateur(this);
 	}
 
 	public void showAfficherUtilisateurs() {

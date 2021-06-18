@@ -101,22 +101,33 @@ public class ModifierInfosUtilisateurController implements MouseListener{
 				}
 			
 				
+				
 				//Sauvegarder les nouvelles informations dans la base de données
 				//TODO prendre en compte changement admin
+				
+				//TODO ne pas changer le mail ==> enlever champ mail dans modif profil
+				//TODO -------------------------A prendre aussi en compte de là------------------------
+				String ancienMail = util.getMail();
 				if(nouveauMDP) {
 					if(util instanceof Administrateur) {
-						ConnexionSQL.modifUtil(util.getMail(), NouveauMail, nom, prenom, NewMDP, true);
+						ConnexionSQL.modifUtil(ancienMail, NouveauMail, nom, prenom, NewMDP, true);
 					}else {
-						ConnexionSQL.modifUtil(util.getMail(), NouveauMail, nom, prenom, NewMDP, false);
+						ConnexionSQL.modifUtil(ancienMail, NouveauMail, nom, prenom, NewMDP, false);
 					}
 				}else {
 					if(util instanceof Administrateur) {
-						ConnexionSQL.modifUtil(util.getMail(), NouveauMail, nom, prenom, true);
+						ConnexionSQL.modifUtil(ancienMail, NouveauMail, nom, prenom, true);
 					}else {
-						ConnexionSQL.modifUtil(util.getMail(), NouveauMail, nom, prenom, false);
+						ConnexionSQL.modifUtil(ancienMail, NouveauMail, nom, prenom, false);
 					}
 				}
 				
+				if(MainClass.connecte.getMail().equals(ancienMail)){
+					MainClass.connecte = ConnexionSQL.getUtilisateur(NouveauMail);
+				}
+				
+				//TODO ------------------------------------------A de là-----------------------------------
+					
 				JOptionPane.showMessageDialog(null, "Modifications Sauvegardées");
 				vm.pModifInfoUtil.close();
 				

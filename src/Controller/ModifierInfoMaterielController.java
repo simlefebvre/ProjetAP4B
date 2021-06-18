@@ -108,6 +108,9 @@ public class ModifierInfoMaterielController implements MouseListener {
 			
 			JOptionPane.showMessageDialog(null, "Modifications Sauvegardées");
 			vm.pModifMat.close();
+			vm.pAffMat.close();
+			vm.showMaterielDispo();
+			vm.pAffInfosMat.close();
 			
 		}else if(name.equalsIgnoreCase("annuler")) {
 			vm.pModifMat.close();

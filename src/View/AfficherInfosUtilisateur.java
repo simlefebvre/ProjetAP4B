@@ -17,9 +17,7 @@ public class AfficherInfosUtilisateur {
 	private ViewManager vm;
 	private AfficherInfosUtilisateurController aiuc;
 
-	public AfficherInfosUtilisateur(ViewManager vm, String mail) {
-		//Utilisateur util = BaseDeDonee.getInstance().getUtilisateur(mail);
-		//TODO Modifier manière récup infos, chercher dans BDD
+	public AfficherInfosUtilisateur(ViewManager vm) {
 		Utilisateur util = MainClass.connecte;
 		this.vm = vm;
 		this.aiuc = new AfficherInfosUtilisateurController(vm, util);
