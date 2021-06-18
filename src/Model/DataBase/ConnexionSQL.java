@@ -367,4 +367,53 @@ public class ConnexionSQL {
 		 
 		 return null;
 	 }
+	 
+	 public static Materiel getMateriel(int id) {
+		 
+		 
+		 String sql = "select * from materiel where id = ?;";
+		 
+		 try(PreparedStatement pstmt = conn.prepareStatement(sql)){
+			 
+			 pstmt.setInt(1, id);
+			 
+			 ResultSet rs = pstmt.executeQuery(sql);
+			 while(rs.next()) {
+				 
+				 String rqo = "select * from ordinateur where id = ?;";
+				 String rqt = "select * from tablette where id = ?;";
+				 String rqvp = "select * from VideoProjecteur where id = ?;";
+				 
+				 try(PreparedStatement pstmto = conn.prepareStatement(rqo);
+						 PreparedStatement pstmtt = conn.prepareStatement(rqt);
+						 PreparedStatement pstmtvp = conn.prepareStatement(rqvp);){
+					 
+					 
+					 pstmto.setInt(1, rs.getInt(1));
+					 pstmtt.setInt(1, rs.getInt(1));
+					 pstmtvp.setInt(1, rs.getInt(1));
+					 
+					 ResultSet rso = pstmto.executeQuery();
+					 ResultSet rst = pstmtt.executeQuery();
+					 ResultSet rsvp = pstmtvp.executeQuery();
+					 
+					 while(rso.next()) {
+						 return new Ordinateur(rs.getString(2),rs.getString(4),rs.getString(3),rso.getBoolean(2),rso.getBoolean(3),rso.getInt(4),rs.getInt(1));
+					 }
+					 while(rst.next()) {
+						 return new Tablette(rs.getString(2),rs.getString(4),rs.getString(3),rst.getBoolean(2),rs.getInt(1));
+					 }
+					 while(rsvp.next()) {
+						 return new VideoProjecteur(rs.getString(2),rs.getString(4),rs.getString(3),rsvp.getBoolean(2),rs.getInt(1));
+					 }
+				 }catch(SQLException e) {
+					 System.out.println(e.getMessage());
+				 }
+			 }
+	 }catch(SQLException e){
+		 System.out.println(e.getMessage());
+	 }
+		 return null;
+ }
+
 }
