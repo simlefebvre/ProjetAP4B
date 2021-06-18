@@ -7,7 +7,7 @@ import javax.swing.JPanel;
 
 import Controller.MainClass;
 import Controller.listeMaterielController;
-import Model.DataBase.BaseDeDonee;
+import Model.DataBase.ConnexionSQL;
 import Model.Materiel.Materiel;
 import Model.Materiel.Ordinateur;
 import Model.Materiel.Tablette;
@@ -34,7 +34,7 @@ public class AfficherMateriels {
 		// Contenu de la page
 		JPanel instance;
 		page.addLabel("consigne", "Pour réserver des matériels, cocher les cases des matériels souhaités puis cliquer sur Réserver");
-		for (Materiel mat : BaseDeDonee.getInstance().getMateriels()) {
+		for (Materiel mat : ConnexionSQL.getMateriels()) {
 
 			if (mat instanceof Ordinateur) {
 				instance = page.addLabel("infosMat", "Ordinateur            id : " + mat.getID() + "          Etat : "

@@ -2,7 +2,7 @@ package View;
 
 import Controller.AffInfoMatController;
 import Controller.MainClass;
-import Model.DataBase.BaseDeDonee;
+import Model.DataBase.ConnexionSQL;
 import Model.Materiel.Materiel;
 import Model.Materiel.Ordinateur;
 import Model.Materiel.Tablette;
@@ -24,7 +24,7 @@ public class AfficherInfosMateriel {
 		this.lmc = new AffInfoMatController(vm);
 		page = new PopUp(700,700);
 
-		mat = BaseDeDonee.getInstance().getMateriel(idMat);
+		mat = ConnexionSQL.getMateriel(idMat);
 
 		// Contenu commun
 		page.addTextField("Identifiant : ", "id", ""+mat.getID(), null, true);
@@ -59,7 +59,7 @@ public class AfficherInfosMateriel {
 		
 		page.addMarge(30);
 		//Affichage des réservations du matériel
-		new AfficherReservationsMateriel(page, idMat,vm);
+		//new AfficherReservationsMateriel(page, idMat,vm);
 		page.addMarge(30);
 	}
 

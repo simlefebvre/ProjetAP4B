@@ -30,8 +30,7 @@ public class AfficherUtilisateursController implements MouseListener{
 				//Récupérer id utilisateur
 				String mail = nomBouton.substring(6);
 				//Chercher utilisateur en fonction son id
-				//TODO modifier endroit ou on récupère liste des utilisateurs
-				Utilisateur util = BaseDeDonee.getInstance().getUtilisateur(mail);
+				Utilisateur util = ConnexionSQL.getUtilisateur(mail);
 				if(util != null) {
 					//Modifier utilisateur
 					this.vm.showModifierInfosUtilisateur(util, "afficherUtil");	

@@ -5,6 +5,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import Model.Materiel.Materiel;
+import Model.Utilisateur.Administrateur;
 import Model.Utilisateur.Utilisateur;
 
 /**
@@ -50,6 +51,8 @@ public class Reservation {
 	public Reservation(String identifiantDate) {
 		this.identifiant = identifiantDate;
 	}
+
+
 
 
 
@@ -142,5 +145,5 @@ public class Reservation {
 		String debutStr = formatDate.format(debut);
 		String finStr = formatDate.format(fin);
 		return debutStr+finStr;
-	}	
+	}
 }

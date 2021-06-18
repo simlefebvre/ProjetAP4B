@@ -34,6 +34,7 @@ public class Ordinateur extends Materiel {
 		this.capacite = 0;
 	}
 
+
 	// Méthodes de récupération et de modification des attributs
 	public boolean getFixe() {
 		return this.fixe;

@@ -377,7 +377,7 @@ public class ConnexionSQL {
 			 
 			 pstmt.setInt(1, id);
 			 
-			 ResultSet rs = pstmt.executeQuery(sql);
+			 ResultSet rs = pstmt.executeQuery();
 			 while(rs.next()) {
 				 
 				 String rqo = "select * from ordinateur where id = ?;";
