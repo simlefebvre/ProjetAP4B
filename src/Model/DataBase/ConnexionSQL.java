@@ -212,16 +212,21 @@ public class ConnexionSQL {
 		 }
 	 }
 
-	 /*public static void newReservation(Reservation r) {
+	 public static void newReservation(Reservation r) {
 		 String sql = "insert into reservation(id,mat,deb,fin,util) values (?,?,?,?,?);";
 		 
 		 try(PreparedStatement pstmt = conn.prepareStatement(sql)) {
 			 pstmt.setString(1, r.getID());
-			 pstmt.setInt(2, r.);
+			 pstmt.setInt(2, r.getMat().getID());
+			 pstmt.setString(3, Reservation.formatDate.format(r.getDebut()));
+			 pstmt.setString(4, Reservation.formatDate.format(r.getFin()));
+			 pstmt.setString(5, r.getPar().getMail());
+			 
+			 pstmt.executeUpdate();
 		 }catch(SQLException e) {
 			 System.out.println(e.getMessage());
 		 }
-	 }*/
+	 }
 	 
 	 //Modifier utilisateur en modifiant mot de passe
 	 public static void modifUtil(String ancienMail, String nouveauMail, String nom, String prenom, String mdp, boolean admin) {

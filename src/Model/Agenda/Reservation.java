@@ -4,6 +4,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import Model.Materiel.Materiel;
 import Model.Utilisateur.Utilisateur;
 
 /**
@@ -22,11 +23,12 @@ public class Reservation {
 	private Date debut;
 	private Date fin;
 	private Utilisateur par;
+	private Materiel mat;
 	
 	public static SimpleDateFormat formatDate = new SimpleDateFormat("dd/MM/yyyy HH:mm");
 
 	// Constructeur
-	public Reservation (Date debutResa, Date finResa, Utilisateur par) {		
+	public Reservation (Date debutResa, Date finResa, Utilisateur par, Materiel mat) {	
 		if(debutResa.compareTo(finResa) <= 0) {
 			//debutConv avant fin
 			this.debut = debutResa;
@@ -37,6 +39,7 @@ public class Reservation {
 			this.fin = debutResa;
 		}
 		
+		this.mat = mat;
 		this.identifiant = genererID(this.debut, this.fin);
 		this.par = par;
 	}
@@ -73,6 +76,13 @@ public class Reservation {
 		this.fin = strToDate(newfin);
 	}
 	
+	public Materiel getMat() {
+		return this.mat;
+	}
+	
+	public void setMat(Materiel mat) {
+		this.mat = mat;
+	}
 
 	public Utilisateur getPar() {
 		return this.par;
