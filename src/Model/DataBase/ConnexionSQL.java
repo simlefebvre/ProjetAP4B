@@ -445,4 +445,15 @@ public class ConnexionSQL {
 		 }
 		 return res;
 	 }
+	 
+	 public static void delReservation(String id) {
+		 String sql = "delete from reservation where id = ? ;";
+		 try (PreparedStatement pstmt = conn.prepareStatement(sql)){
+			 pstmt.setString(1, id);
+			 pstmt.executeUpdate();
+		 }catch(SQLException e) {
+			 System.out.println(e.getMessage());
+		 }
+		 
+	 }
 }

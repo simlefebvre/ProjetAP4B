@@ -9,6 +9,7 @@ import javax.swing.JOptionPane;
 
 import Model.Agenda.Reservation;
 import Model.DataBase.BaseDeDonee;
+import Model.DataBase.ConnexionSQL;
 import Model.Materiel.Materiel;
 import View.ViewManager;
 
@@ -38,7 +39,7 @@ public class AffInfoMatController implements MouseListener {
 		}else if(name.equalsIgnoreCase("Supprimer")) {
 			int choix =JOptionPane.showOptionDialog(null, "Etes-vous sûr de vouloir supprimer ce composant ?", "Suppression d'un composant",JOptionPane.YES_NO_OPTION, JOptionPane.ERROR_MESSAGE, null, null, null);
 			if(choix == JOptionPane.YES_OPTION) {
-				BaseDeDonee.getInstance().removeMateriel(vm.pAffInfosMat.getMat());
+				ConnexionSQL.delMateriel(vm.pAffInfosMat.getMat().getID());
 				vm.pAffInfosMat.close();
 				//Maj AfficherMateriels
 				vm.pAffMat.close();
@@ -52,7 +53,8 @@ public class AffInfoMatController implements MouseListener {
 			int choix =JOptionPane.showOptionDialog(null, "Etes-vous sûr de vouloir supprimer cette réservation ?", "Suppression d'une réservation",JOptionPane.YES_NO_OPTION, JOptionPane.ERROR_MESSAGE, null, null, null);
 			
 			if(choix == JOptionPane.YES_OPTION) {
-				BaseDeDonee.getInstance().getMateriel(identifiant).getAgenda().supprimerReservation(new Reservation(identifiantDate));
+				//BaseDeDonee.getInstance().getMateriel(identifiant).getAgenda().supprimerReservation(new Reservation(identifiantDate));
+				ConnexionSQL.delReservation(identifiantDate);
 				//MAJ page info mat
 				vm.pAffInfosMat.close();
 				vm.showInfoMat(identifiant);

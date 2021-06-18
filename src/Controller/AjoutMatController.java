@@ -9,6 +9,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
 import Model.DataBase.BaseDeDonee;
+import Model.DataBase.ConnexionSQL;
 import Model.Materiel.Materiel;
 import Model.Materiel.Ordinateur;
 import Model.Materiel.Tablette;
@@ -83,7 +84,7 @@ public class AjoutMatController implements MouseListener {
 				}
 			}
 			
-			BaseDeDonee.getInstance().addMateriel(mat);
+			ConnexionSQL.newMateriel(mat);
 			vm.pAjoutMat.close();
 			
 			//Maj AfficherMateriels
