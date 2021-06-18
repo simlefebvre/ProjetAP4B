@@ -53,7 +53,6 @@ public class ModifierInfosUtilisateurController implements MouseListener{
 								JOptionPane.showMessageDialog(null, "Erreur mauvais mot de passe", "Erreur saisie mot de passe", JOptionPane.ERROR_MESSAGE);
 								return;
 							}
-							//TODO Si pas de nouveau mdp, mdp mofifié dans bdd alors que devrait pas. SOit on prend ce cas en compte, soit on crée getMDP()
 						}
 					}
 					
