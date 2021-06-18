@@ -5,7 +5,8 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.Date;
+import java.sql.Statement;
+import java.util.LinkedList;
 
 import Model.Agenda.Reservation;
 import Model.Materiel.Materiel;
@@ -13,6 +14,7 @@ import Model.Materiel.Ordinateur;
 import Model.Materiel.Tablette;
 import Model.Materiel.VideoProjecteur;
 import Model.Utilisateur.Administrateur;
+import Model.Utilisateur.Personnel;
 import Model.Utilisateur.Utilisateur;
 
 public class ConnexionSQL {
@@ -272,5 +274,25 @@ public class ConnexionSQL {
 			 }catch (SQLException e) {
 				 System.out.println(e.getMessage());
 			 }
+		 }
+		 
+		 public static LinkedList<Utilisateur> getUtilisateurs(){
+			 LinkedList<Utilisateur> util = new LinkedList<>();
+			 
+			 String sql = "select * from utilisateur;";
+			 try(Statement stmt = conn.createStatement();
+					 ResultSet rs = stmt.executeQuery(sql)){
+						 while(rs.next()) {
+							 if(rs.getBoolean(5)) { 
+								 util.add(new Administrateur(rs.getString(1), rs.getString(2), rs.getString(1), rs.getString(4)));
+							 }else {
+								 util.add(new Personnel(rs.getString(1), rs.getString(2), rs.getString(1), rs.getString(4)));
+							 }
+						 }
+			 }catch(SQLException e){
+				 System.out.println(e.getMessage());
+			 }
+			 
+			 return util;
 		 }
 }
