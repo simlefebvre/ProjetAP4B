@@ -8,6 +8,7 @@ import javax.swing.JButton;
 import javax.swing.JCheckBox;
 
 import Model.DataBase.BaseDeDonee;
+import Model.DataBase.ConnexionSQL;
 import Model.Materiel.Materiel;
 import View.ViewManager;
 
@@ -35,7 +36,7 @@ public class listeMaterielController implements MouseListener {
 						coche = true;
 						String num = cb.getName().substring(6);
 						int identifiant = Integer.parseInt(num);
-						mats.add(BaseDeDonee.getInstance().getMateriel(identifiant));
+						mats.add(ConnexionSQL.getMateriel(identifiant));
 					}
 				}
 				if(coche)
