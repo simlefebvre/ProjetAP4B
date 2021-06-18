@@ -27,9 +27,8 @@ public class AfficherReservationsMateriel {
 		this.vm = vm;
 		page.addLabel("reservations","Réservations du matériel : ");		
 		
-		Materiel mat = BaseDeDonee.getInstance().getMateriel(idMat);
 		
-		for (Reservation res : mat.getReservations()) {
+		for (Reservation res : ConnexionSQL.getReservationMat(idMat)) {
 			JPanel instance = new JPanel();
 			page.addLabel("Debut : " + Reservation.formatDate.format(res.getDebut()), instance);
 			page.addLabel("          ", instance);
@@ -37,7 +36,7 @@ public class AfficherReservationsMateriel {
 			page.addLabel("          ", instance);
 			page.addLabel("par : " + res.getPar().getNom() + " " + res.getPar().getPrenom(), instance);
 			//TODO Si temps, vérifier que personne qui supprime a fait la résa ou est admin
-			page.addButton("suppr_"+ res.getID()+"_" + mat.getID(), "Supprimer", aimc, instance);
+			page.addButton("suppr_"+ res.getID()+"_" + idMat, "Supprimer", aimc, instance);
 		}	
 		
 		page.addButton("Ajouter", "ajouter", aimc);
