@@ -433,7 +433,7 @@ public class ConnexionSQL {
 	 }
 	 
 	 public static LinkedList<Reservation> getReservationUsr(String id) {
-		 String sql = "select * from reservation where mat = \""+id+"\";";
+		 String sql = "select * from reservation where util = \""+id+"\";";
 		 LinkedList<Reservation> res = new LinkedList<>();
 		 try (Statement stmt = conn.createStatement();
 				 ResultSet rs = stmt.executeQuery(sql)){
