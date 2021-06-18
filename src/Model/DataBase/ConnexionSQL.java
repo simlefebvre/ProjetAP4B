@@ -431,4 +431,18 @@ public class ConnexionSQL {
 		 }
 		 return res;
 	 }
+	 
+	 public static LinkedList<Reservation> getReservationMat(String id) {
+		 String sql = "select * from reservation where mat = \""+id+"\";";
+		 LinkedList<Reservation> res = new LinkedList<>();
+		 try (Statement stmt = conn.createStatement();
+				 ResultSet rs = stmt.executeQuery(sql)){
+			 while(rs.next()) {
+				 res.add(new Reservation(Reservation.strToDate(rs.getString(3)), Reservation.strToDate(rs.getString(4)), ConnexionSQL.getUtilisateur(rs.getString(5)),ConnexionSQL.getMateriel(rs.getInt(2))));
+			 }
+		 }catch(SQLException e){
+			 System.out.println(e.getMessage());
+		 }
+		 return res;
+	 }
 }
