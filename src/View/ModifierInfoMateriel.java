@@ -32,8 +32,8 @@ public class ModifierInfoMateriel {
 		page.addTextField("Saisir la marque", "marque", mat.getMarque(), null, false);
 		page.addTextField("Saisir la l'état", "etat", mat.getEtat(), null, false);
 		page.addTextField("Saisir la salle", "salle", mat.getSalle(), null, false);
-		page.addButtonFoot("Valider", "valider", mimc);
 		page.addButtonFoot("Annuler", "annuler", mimc);
+		page.addButtonFoot("Valider", "valider", mimc);
 		
 		if(mat instanceof Ordinateur) {
 			Ordinateur ordi = (Ordinateur) mat;

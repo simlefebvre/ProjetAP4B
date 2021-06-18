@@ -8,6 +8,7 @@ import javax.swing.JCheckBox;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
+import Model.DataBase.ConnexionSQL;
 import Model.Materiel.Materiel;
 import Model.Materiel.Ordinateur;
 import Model.Materiel.Tablette;
@@ -32,39 +33,47 @@ public class ModifierInfoMaterielController implements MouseListener {
 					return;
 				}
 			}
+			
 			Materiel mat = vm.pModifMat.getMat();
 			if(mat instanceof Ordinateur) {
-				Ordinateur ordi = (Ordinateur) mat;
+				String marque = "", etat = "", salle = "";
+				int capacite = 0;
+				boolean fixe = false, souris = false;
+				
 				for(JTextField tf : vm.pModifMat.getText()) {
 					String tfname =tf.getName();
 					if(tfname.equalsIgnoreCase("marque")) {
-						ordi.setMarque(tf.getText());
+						marque=tf.getText();
 					}else if(tfname.equalsIgnoreCase("etat")) {
-						ordi.setEtat(tf.getText());
+						etat=tf.getText();
 					}else if(tfname.equalsIgnoreCase("salle")) {
-						ordi.setSalle(tf.getText());
+						salle=tf.getText();
 					}else if(tfname.equalsIgnoreCase("capacite")) {
-						ordi.setCapacite(Integer.parseInt(tf.getText()));
+						capacite = Integer.parseInt(tf.getText());
 					}
 				}
 				for(JCheckBox cb : vm.pModifMat.getCoche()) {
 					String cbname =cb.getName();
 					if(cbname.equalsIgnoreCase("fixe")) {
-						ordi.setFixe(cb.isSelected());
+						fixe = cb.isSelected();
 					}else if(cbname.equalsIgnoreCase("souris")) {
-						ordi.setSouris(cb.isSelected());
+						souris = cb.isSelected();
 					}
 				}
+				ConnexionSQL.modifMat(mat.getID(), etat, marque, salle, capacite, fixe, souris);
 			}else if(mat instanceof Tablette) {
+				String marque = "", etat = "", salle = "";
+				boolean clavier = false;
+				
 				Tablette tab = (Tablette) mat;
 				for(JTextField tf : vm.pModifMat.getText()) {
 					String tfname =tf.getName();
 					if(tfname.equalsIgnoreCase("marque")) {
-						tab.setMarque(tf.getText());
+						marque=tf.getText();
 					}else if(tfname.equalsIgnoreCase("etat")) {
-						tab.setEtat(tf.getText());
+						etat=tf.getText();
 					}else if(tfname.equalsIgnoreCase("salle")) {
-						tab.setSalle(tf.getText());
+						salle=tf.getText();
 					}
 				}
 				for(JCheckBox cb : vm.pModifMat.getCoche()) {
@@ -73,24 +82,28 @@ public class ModifierInfoMaterielController implements MouseListener {
 						tab.setClavier(cb.isSelected());
 					}
 				}
+				ConnexionSQL.modifMat(mat.getID(), etat, marque, salle, clavier);
 			}else if(mat instanceof VideoProjecteur) {
-				VideoProjecteur vp = (VideoProjecteur) mat;
+				String marque = "", etat = "", salle = "";
+				boolean telecommande = false;
+				
 				for(JTextField tf : vm.pModifMat.getText()) {
 					String tfname =tf.getName();
 					if(tfname.equalsIgnoreCase("marque")) {
-						vp.setMarque(tf.getText());
+						marque=tf.getText();
 					}else if(tfname.equalsIgnoreCase("etat")) {
-						vp.setEtat(tf.getText());
+						etat=tf.getText();
 					}else if(tfname.equalsIgnoreCase("salle")) {
-						vp.setSalle(tf.getText());
+						salle=tf.getText();
 					}
 				}
 				for(JCheckBox cb : vm.pModifMat.getCoche()) {
 					String cbname =cb.getName();
 					if(cbname.equalsIgnoreCase("telecommande")) {
-						vp.setTelecommande(cb.isSelected());
+						telecommande=cb.isSelected();
 					}
 				}
+				ConnexionSQL.modifMat(mat.getID(), etat, marque, salle, telecommande);
 			}
 			
 			JOptionPane.showMessageDialog(null, "Modifications Sauvegardées");

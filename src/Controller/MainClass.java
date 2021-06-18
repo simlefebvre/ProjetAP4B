@@ -37,6 +37,8 @@ public class MainClass {
 		// PageMenuPersonnel menuPerso = new PageMenuPersonnel();
 		ViewManager vm = new ViewManager();
 		
+		
+		
 		/*
 		Administrateur admin = new Administrateur("admin", "admin", "admin", "admin");
 		//ConnexionSQL.newUtil(admin);

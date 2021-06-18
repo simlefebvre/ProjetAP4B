@@ -9,6 +9,7 @@ import javax.swing.JOptionPane;
 
 import Model.Agenda.Reservation;
 import Model.DataBase.BaseDeDonee;
+import Model.DataBase.ConnexionSQL;
 import View.ViewManager;
 
 public class AffReservationController implements MouseListener {
@@ -36,7 +37,7 @@ public class AffReservationController implements MouseListener {
 			int choix = JOptionPane.showOptionDialog(null, "Etes vous sur de vouloir supprimer la reservation n°"+ identifiant + " ?" , "Supression" , JOptionPane.YES_NO_OPTION,JOptionPane.WARNING_MESSAGE , null , null, null);
 			
 			if(choix == JOptionPane.YES_OPTION) {
-				BaseDeDonee.getInstance().getMateriel(identifiant).getAgenda().supprimerReservation(new Reservation(identifiantDate));
+				ConnexionSQL.delReservation(identifiantDate);
 				this.vm.pAffReserv.close();
 				this.vm.showAfficherReservation();
 			}

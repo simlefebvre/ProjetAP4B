@@ -5,6 +5,7 @@ import java.util.LinkedList;
 import Model.Agenda.Agenda;
 import Model.Agenda.Reservation;
 import Model.DataBase.BaseDeDonee;
+import Model.DataBase.ConnexionSQL;
 import Model.Utilisateur.Utilisateur;
 
 /**
@@ -112,10 +113,10 @@ public class Materiel {
 	 * @return l'identifiant généré
 	 */
 	public int genererID() {
-		if(BaseDeDonee.getInstance().getMateriels().size()==0) {
+		if(ConnexionSQL.getMateriels().size()==0) {
 			return 0;
 		}
-		return BaseDeDonee.getInstance().getMateriels().getLast().getID() + 1;
+		return ConnexionSQL.getMateriels().getLast().getID() + 1;
 	}
 	
 	

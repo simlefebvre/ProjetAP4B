@@ -46,7 +46,7 @@ public class AfficherInfosMateriel {
 			page.addTitle("Ordinateur");
 			page.addCheckBox("L'ordinateur est fixe ", "fixe", ((Ordinateur) mat).getFixe(), true, null);
 			page.addCheckBox("L'ordinateur possède une souris", "souris", ((Ordinateur) mat).getSouris(), true, null);
-			page.addTextField("Capacite : ", "capacite", "", null, true);
+			page.addTextField("Capacite : ", "capacite", ""+((Ordinateur) mat).getCapacite(), null, true);
 
 		} else if (mat instanceof Tablette) {
 			page.addTitle("Tablette");
@@ -59,7 +59,7 @@ public class AfficherInfosMateriel {
 		
 		page.addMarge(30);
 		//Affichage des réservations du matériel
-		//new AfficherReservationsMateriel(page, idMat,vm);
+		new AfficherReservationsMateriel(page, idMat,vm);
 		page.addMarge(30);
 	}
 
