@@ -7,6 +7,7 @@ import javax.swing.JButton;
 import javax.swing.JOptionPane;
 
 import Model.DataBase.BaseDeDonee;
+import Model.DataBase.ConnexionSQL;
 import Model.Utilisateur.Utilisateur;
 import View.PageConnexion;
 import View.ViewManager;
@@ -29,7 +30,7 @@ public class connexionController implements MouseListener {
 			String mdp = vm.page.getMdp();
 
 			boolean test = false;
-			for (Utilisateur usr : BaseDeDonee.getInstance().getUtilisateurs()) {
+			for (Utilisateur usr : ConnexionSQL.getUtilisateurs()) {
 				if (usr.connexion(identifiant, mdp)) {
 					MainClass.connecte = usr;
 					vm.page.close();

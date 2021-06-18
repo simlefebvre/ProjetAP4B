@@ -6,6 +6,7 @@ import javax.swing.JCheckBox;
 import javax.swing.JTextField;
 
 import Controller.AfficherInfosUtilisateurController;
+import Controller.MainClass;
 import Model.DataBase.BaseDeDonee;
 import Model.Utilisateur.Administrateur;
 import Model.Utilisateur.Utilisateur;
@@ -17,8 +18,9 @@ public class AfficherInfosUtilisateur {
 	private AfficherInfosUtilisateurController aiuc;
 
 	public AfficherInfosUtilisateur(ViewManager vm, String mail) {
-		Utilisateur util = BaseDeDonee.getInstance().getUtilisateur(mail);
-		
+		//Utilisateur util = BaseDeDonee.getInstance().getUtilisateur(mail);
+		//TODO Modifier manière récup infos, chercher dans BDD
+		Utilisateur util = MainClass.connecte;
 		this.vm = vm;
 		this.aiuc = new AfficherInfosUtilisateurController(vm, util);
 		page = new Formulaire();

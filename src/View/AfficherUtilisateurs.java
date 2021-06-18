@@ -5,6 +5,7 @@ import javax.swing.SwingUtilities;
 
 import Controller.AfficherUtilisateursController;
 import Model.DataBase.BaseDeDonee;
+import Model.DataBase.ConnexionSQL;
 import Model.Utilisateur.Administrateur;
 import Model.Utilisateur.Utilisateur;
 
@@ -25,7 +26,7 @@ public class AfficherUtilisateurs {
 
 		// Contenu de la page
 		JPanel instance;
-		for (Utilisateur util : BaseDeDonee.getInstance().getUtilisateurs()) {
+		for (Utilisateur util : ConnexionSQL.getUtilisateurs()) {
 			
 			instance = page.addLabel("infoUtil", "Nom : " + util.getNom()+"          Prenom : " + util.getPrenom() + "          Adresse mail : " + util.getMail());
 			
