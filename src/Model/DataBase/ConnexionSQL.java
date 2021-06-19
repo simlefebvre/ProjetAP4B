@@ -81,6 +81,11 @@ public class ConnexionSQL {
 	 }
  
 	 public static void delMateriel(int ID){
+		 
+		 for(Reservation r : getReservationMat(ID)) {
+			 delReservation(r.getID());
+		 }
+		 
 		 String sql = "delete from materiel where materiel.ID = ?";
 		 try (PreparedStatement pstmt = conn.prepareStatement(sql)){
 			 pstmt.setInt(1, ID);
@@ -116,6 +121,8 @@ public class ConnexionSQL {
 		 }catch(SQLException e) {
 			 System.out.println(e.getMessage());
 		 }
+		 
+		 
 	 }
 
 	 public static void modifMat(int ID, String etat, String marque, String salle,int Capacite, boolean  fixe, boolean souris) {
@@ -209,6 +216,10 @@ public class ConnexionSQL {
 		 try (PreparedStatement pstmt = conn.prepareStatement(sql)){
 			 pstmt.setString(1, mail);
 			 pstmt.executeUpdate();
+			 
+			 for(Reservation r : getReservationUsr(mail)) {
+				 delReservation(r.getID());
+			 }
 		 }catch(SQLException e) {
 			 System.out.println(e.getMessage());
 		 }
