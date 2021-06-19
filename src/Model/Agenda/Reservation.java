@@ -146,7 +146,6 @@ public class Reservation {
 	 * @return		l'identifiant généré
 	 */
 	public String genererID(Date debut, Date fin) {
-		//FIXME Modifier l'id car 2 id identiques des fois et du coup les 2 sont suppr
 		String debutStr = formatDate.format(debut);
 		String finStr = formatDate.format(fin);
 		return debutStr+finStr;

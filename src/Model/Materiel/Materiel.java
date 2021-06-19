@@ -127,10 +127,11 @@ public class Materiel {
 	
 	
 	public void supprimerAgenda(Utilisateur usr) {
-		for(Reservation r : ConnexionSQL.getReservationUsr(usr.getMail())) {
-					ConnexionSQL.delReservation(r.getID());
-				}
-			}
+		String mail = usr.getMail();
+		for(Reservation r : ConnexionSQL.getReservationUsr(mail)) {
+			ConnexionSQL.delReservation(r.getID(), mail);
+		}
+	}
 	
 	
 	

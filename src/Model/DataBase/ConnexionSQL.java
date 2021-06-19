@@ -102,7 +102,7 @@ public class ConnexionSQL {
 	  */
 	 public static void delMateriel(int ID){
 		 for(Reservation r : getReservationMat(ID)) {
-			 delReservation(r.getID());
+			 delReservation(r.getID(), ID);
 		 }
 		 
 		 String sql = "delete from materiel where materiel.ID = ?";
@@ -364,7 +364,7 @@ public class ConnexionSQL {
 			 pstmt.executeUpdate();
 			 
 			 for(Reservation r : getReservationUsr(mail)) {
-				 delReservation(r.getID());
+				 delReservation(r.getID(), mail);
 			 }
 		 }catch(SQLException e) {
 			 System.out.println(e.getMessage());
@@ -505,11 +505,32 @@ public class ConnexionSQL {
 	 }
 	 
 	 
-	 
-	 public static void delReservation(String id) {
-		 String sql = "delete from reservation where id = ? ;";
+	 /**
+	  * Méthode permettant de supprimer une réservation d'un matériel
+	  * @param id l'identifiant de la réservation à supprimer
+	  */
+	 public static void delReservation(String id, int idMat) {
+		 String sql = "delete from reservation where id = ? and mat = ?;";
 		 try (PreparedStatement pstmt = conn.prepareStatement(sql)){
 			 pstmt.setString(1, id);
+			 pstmt.setInt(2, idMat);
+			 pstmt.executeUpdate();
+		 }catch(SQLException e) {
+			 System.out.println(e.getMessage());
+		 }
+	 }
+	 
+	 
+	 
+	 /**
+	  * Méthode permettant de supprimer une réservation d'un utilisateur
+	  * @param id l'identifiant de la réservation à supprimer
+	  */
+	 public static void delReservation(String id, String mail) {
+		 String sql = "delete from reservation where id = ? and util = ?;";
+		 try (PreparedStatement pstmt = conn.prepareStatement(sql)){
+			 pstmt.setString(1, id);
+			 pstmt.setString(2, mail);
 			 pstmt.executeUpdate();
 		 }catch(SQLException e) {
 			 System.out.println(e.getMessage());

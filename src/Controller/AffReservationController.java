@@ -32,7 +32,6 @@ public class AffReservationController implements MouseListener {
 			vm.pAffReserv.close();
 			vm.showMaterielDispo();
 		}else if(but.getName().contains("suppr")) {
-			//FIXME identifiant reservation
 			String num = name.substring(39);
 			String identifiantDate = name.substring(6, 38);
 			
@@ -40,7 +39,7 @@ public class AffReservationController implements MouseListener {
 			int choix = JOptionPane.showOptionDialog(null, "Etes vous sur de vouloir supprimer la reservation n°"+ identifiant + " ?" , "Supression" , JOptionPane.YES_NO_OPTION,JOptionPane.WARNING_MESSAGE , null , null, null);
 			
 			if(choix == JOptionPane.YES_OPTION) {
-				ConnexionSQL.delReservation(identifiantDate);
+				ConnexionSQL.delReservation(identifiantDate, identifiant);
 				this.vm.pAffReserv.close();
 				this.vm.showAfficherReservation();
 			}

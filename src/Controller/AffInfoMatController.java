@@ -57,7 +57,7 @@ public class AffInfoMatController implements MouseListener {
 			
 			if(choix == JOptionPane.YES_OPTION) {
 				//BaseDeDonee.getInstance().getMateriel(identifiant).getAgenda().supprimerReservation(new Reservation(identifiantDate));
-				ConnexionSQL.delReservation(identifiantDate);
+				ConnexionSQL.delReservation(identifiantDate, identifiant);
 				//MAJ page info mat
 				vm.pAffInfosMat.close();
 				vm.showInfoMat(identifiant);
