@@ -17,7 +17,6 @@ import Model.Utilisateur.Utilisateur;
 public class AfficherReservationsMateriel {	
 	//Attributs
 	private Formulaire page;
-	private ViewManager vm;
 	private AffReservationController arc;
 	private AffInfoMatController aimc;
 	
@@ -32,7 +31,6 @@ public class AfficherReservationsMateriel {
 	public AfficherReservationsMateriel(Formulaire page, int idMat,ViewManager vm) {
 		aimc = new AffInfoMatController(vm);
 		this.page=null;
-		this.vm = vm;
 		page.addLabel("reservations","Réservations du matériel : ");		
 		
 		for (Reservation res : ConnexionSQL.getReservationMat(idMat)) {
@@ -59,7 +57,6 @@ public class AfficherReservationsMateriel {
 	 */
 	public AfficherReservationsMateriel(ViewManager vm, Utilisateur user) {
 		arc = new AffReservationController(vm);
-		this.vm = vm;
 		page = new Formulaire(true);
 		
 		page.addTitle("Mes réservations : ");

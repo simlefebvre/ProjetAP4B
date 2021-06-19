@@ -14,12 +14,10 @@ import Controller.AjoutUtilisateurController;
 public class AjoutUtilisateur {
 	//Attributs
 	private PopUp page;
-	private ViewManager vm;
 	private AjoutUtilisateurController ajoutUC;
 
 	// Constructeur
 	public AjoutUtilisateur(ViewManager newvm) {
-		this.vm = newvm;
 		this.ajoutUC = new AjoutUtilisateurController(newvm);
 		page = new PopUp();
 		

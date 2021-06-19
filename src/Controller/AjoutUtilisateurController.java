@@ -36,9 +36,9 @@ public class AjoutUtilisateurController implements MouseListener{
 			JButton b = (JButton) e.getSource();
 			String nomBouton = b.getName();
 
-			if (b.getName().equals("annuler")) {
+			if (nomBouton.equals("annuler")) {
 				this.vm.pAjoutUtil.close();
-			}else if (b.getName().equals("valider")) {
+			}else if (nomBouton.equals("valider")) {
 				
 				String prenom = new String();
 				String nom = new String();

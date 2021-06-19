@@ -16,15 +16,13 @@ import Model.Materiel.Tablette;
 public class AjoutMateriel {
 	//Attributs
 	private PopUp page;
-	private ViewManager vm;
 	private Materiel mat;
 	private AjoutMatController amc;
 	
 	// Constructeur
 	public AjoutMateriel(ViewManager viewManager, Materiel mat) {
 		page = new PopUp();
-		this.vm = viewManager;
-		this.amc = new AjoutMatController(vm);
+		this.amc = new AjoutMatController(viewManager);
 		this.mat = mat;
 		
 		//------Partie commune------	

@@ -14,7 +14,6 @@ import Model.Utilisateur.Utilisateur;
 public class ModifierInfosUtilisateur {
 	// Attributs
 	private PopUp page;
-	private ViewManager vm;
 	private ModifierInfosUtilisateurController miuc;
 
 	
@@ -27,7 +26,6 @@ public class ModifierInfosUtilisateur {
 	 * @param ouvertPar	indique la page ayant appelé ce constructeur
 	 */
 	public ModifierInfosUtilisateur(ViewManager vm, Utilisateur util, String ouvertPar) {
-		this.vm = vm;
 		this.miuc = new ModifierInfosUtilisateurController(vm, util, ouvertPar);
 		page = new PopUp();
 
@@ -47,6 +45,9 @@ public class ModifierInfosUtilisateur {
 			page.addCheckBox("Administrateur : ", "CheckAdmin", util instanceof Administrateur, true, null);
 		}
 		
+		if(!util.equals(MainClass.connecte) && MainClass.connecte instanceof Administrateur) {
+			page.addLabel("infoAdmin", "En tant qu'administrateur, vous pouvez ne pas saisir le mot de passe");
+		}
 		page.addPasswordField("Saisir ancien mot de passe : ", "mdpAncien");
 		page.addMarge(5);
 		page.addLabel("infoMDP", "Facultatif :");

@@ -15,7 +15,6 @@ import Model.Utilisateur.Administrateur;
 public class AfficherInfosMateriel {
 	// Attributs
 	private PopUp page;
-	private ViewManager vm;
 	private AffInfoMatController lmc;
 	private Materiel mat;
 	
@@ -27,7 +26,6 @@ public class AfficherInfosMateriel {
 	 * @param idMat l'identifiant du matériel dont les informations sont affichées
 	 */
 	public AfficherInfosMateriel(ViewManager vm, int idMat) {
-		this.vm = vm;
 		this.lmc = new AffInfoMatController(vm);
 		page = new PopUp(700,700);
 

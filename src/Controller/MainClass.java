@@ -9,11 +9,9 @@ import View.ViewManager;
  */
 public class MainClass {
 	public static Utilisateur connecte;
-	public ViewManager vm;
 
 	public static void main(String[] args) {
 		ConnexionSQL.connect(); //connection à la base de donées
-		ViewManager vm = new ViewManager(); //affichage de la première page
-		
+		new ViewManager(); //affichage de la première page
 	}
 }

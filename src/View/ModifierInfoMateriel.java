@@ -13,8 +13,6 @@ import Model.Materiel.VideoProjecteur;
 
 public class ModifierInfoMateriel {
 	//Attributs
-	//TODO Supprimer les attributs ViewManager inutilisés
-	private ViewManager vm;
 	private PopUp page;
 	private ModifierInfoMaterielController mimc;
 	private Materiel mat;
@@ -29,7 +27,6 @@ public class ModifierInfoMateriel {
 	 */
 	public ModifierInfoMateriel(ViewManager vm,Materiel mat) {
 		this.mat = mat;
-		this.vm = vm;
 		mimc = new ModifierInfoMaterielController(vm);
 		this.page = new PopUp();
 		affiche();

@@ -185,47 +185,39 @@ public class ConnexionSQL {
 	  * Méthode permettant de modifier un matériel (tablette ou videoprojecteur)
 	  * @param mat le matériel à modifier
 	  */
-	 public static void modifMat(int ID, String etat, String marque, String salle, boolean telecommande) {
-		 String rq = "select ID from tablette where tablette.ID = ?;";
-		 try(PreparedStatement pstmt1 = conn.prepareStatement(rq)){
-			 pstmt1.setInt(1, ID);
-			 ResultSet rs = pstmt1.executeQuery();
-			 
-		 	String sql = "update materiel set "
-			 		+ "etat = ?,"
-			 		+ "marque = ?,"
-			 		+ "salle = ? "
-			 		+ "where materiel.ID = ?;";
-			 String sql1 = "update videoprojecteur set "
-			 		+ "telecommande = ? "
-			 		+ "where videoprojecteur.ID = ?;";
-			 String sql2 = "update tablette set "
-				 		+ "clavier = ? "
-				 		+ "where tablette.ID = ?;";
-			 try (PreparedStatement pstmt = conn.prepareStatement(sql);
-					 PreparedStatement pstmt2 = conn.prepareStatement(sql1);
-					 PreparedStatement pstmt3 = conn.prepareStatement(sql2)){
+	 public static void modifMat(int ID, String etat, String marque, String salle, boolean telecommande) {			 
+		 String sql = "update materiel set "
+				 + "etat = ?,"
+				 + "marque = ?,"
+				 + "salle = ? "
+				 + "where materiel.ID = ?;";
+		 String sql1 = "update videoprojecteur set "
+				 + "telecommande = ? "
+				 + "where videoprojecteur.ID = ?;";
+		 String sql2 = "update tablette set "
+				 + "clavier = ? "
+				 + "where tablette.ID = ?;";
+		 try (PreparedStatement pstmt = conn.prepareStatement(sql);
+				 PreparedStatement pstmt2 = conn.prepareStatement(sql1);
+				 PreparedStatement pstmt3 = conn.prepareStatement(sql2)){
 				 
-				pstmt.setString(1, etat);
-				pstmt.setString(2, marque);
-				pstmt.setString(3, salle);
-				pstmt.setInt(4, ID);
-				pstmt.executeUpdate();
+			 pstmt.setString(1, etat);
+			 pstmt.setString(2, marque);
+			 pstmt.setString(3, salle);
+			 pstmt.setInt(4, ID);
+			 pstmt.executeUpdate();
 				 
-				pstmt2.setBoolean(1, telecommande);
-				pstmt2.setInt(2, ID);
-				pstmt2.executeUpdate();
+			 pstmt2.setBoolean(1, telecommande);
+			 pstmt2.setInt(2, ID);
+			 pstmt2.executeUpdate();
 				 
-				pstmt3.setBoolean(1, telecommande);
-				pstmt3.setInt(2, ID);
-				pstmt3.executeUpdate();
+			 pstmt3.setBoolean(1, telecommande);
+			 pstmt3.setInt(2, ID);
+			 pstmt3.executeUpdate();
 					 
-			 }catch (SQLException e) {
-				 System.out.println(e.getMessage());
-			 }
-		 }catch(SQLException e) {
-			 System.out.println(e.getMessage());
-		 }
+		}catch (SQLException e) {
+			System.out.println(e.getMessage());
+		} 
 	 } 
 
 	 

@@ -2,7 +2,6 @@ package View;
 
 import java.util.LinkedList;
 
-import javax.swing.ButtonGroup;
 import javax.swing.JRadioButton;
 
 import Controller.ChoixAjoutMatController;
@@ -14,11 +13,9 @@ public class ChoixAjoutMateriel {
 	//Attribut
 	private ChoixAjoutMatController camc;
 	private PopUp page;
-	private ViewManager vm;
 
 	// Constructeur
 	public ChoixAjoutMateriel(ViewManager vm) {
-		this.vm = vm;
 		camc = new ChoixAjoutMatController(vm);
 		page = new PopUp();
 		// Entete

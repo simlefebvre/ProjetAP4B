@@ -16,7 +16,6 @@ import Model.Utilisateur.Utilisateur;
 public class AfficherInfosUtilisateur {
 	// Attributs
 	private Formulaire page;
-	private ViewManager vm;
 	private AfficherInfosUtilisateurController aiuc;
 
 	
@@ -24,7 +23,6 @@ public class AfficherInfosUtilisateur {
 	//Constructeur
 	public AfficherInfosUtilisateur(ViewManager vm) {
 		Utilisateur util = MainClass.connecte;
-		this.vm = vm;
 		this.aiuc = new AfficherInfosUtilisateurController(vm, util);
 		page = new Formulaire();
 

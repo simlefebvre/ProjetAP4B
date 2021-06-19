@@ -19,12 +19,10 @@ import Model.Utilisateur.Administrateur;
 public class AfficherMateriels {
 	// Attribut
 	private Formulaire page;
-	private ViewManager vm;
 	private listeMaterielController lmc;
 
 	// Constructeur
 	public AfficherMateriels(ViewManager vm) {
-		this.vm = vm;
 		this.lmc = new listeMaterielController(vm);
 		page = new Formulaire(true);
 
