@@ -6,7 +6,9 @@ import javax.swing.JCheckBox;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
+import Controller.MainClass;
 import Controller.ModifierInfosUtilisateurController;
+import Model.Utilisateur.Administrateur;
 import Model.Utilisateur.Utilisateur;
 
 public class ModifierInfosUtilisateur {
@@ -29,13 +31,21 @@ public class ModifierInfosUtilisateur {
 		page.addLabel("infoObligatoire", "Vous devez remplir ces cases pour appliquer la modification");
 		page.addTextField("Nom : ","nom", util.getNom(), null, false);
 		page.addTextField("Prenom : ","prenom", util.getPrenom(), null, false);
-		/*
-		if(util instanceof Administrateur) {
-			page.addCheckBox("Administrateur : ", "CheckAdmin", true, false, null);
+		
+		if(MainClass.connecte instanceof Administrateur) {
+			if(util instanceof Administrateur) {
+				page.addCheckBox("Administrateur : ", "CheckAdmin", true, false, null);
+			}else {
+				page.addCheckBox("Administrateur : ", "CheckAdmin", false, true, null);
+			}
 		}else {
-			page.addCheckBox("Administrateur : ", "CheckAdmin", false, true, null);
+			if(util instanceof Administrateur) {
+				page.addCheckBox("Administrateur : ", "CheckAdmin", true, false, null);
+			}else {
+				page.addCheckBox("Administrateur : ", "CheckAdmin", false, true, null);
+			}
 		}
-		*/
+		
 		page.addPasswordField("Saisir ancien mot de passe : ", "mdpAncien");
 		page.addMarge(5);
 		page.addLabel("infoMDP", "Facultatif :");
