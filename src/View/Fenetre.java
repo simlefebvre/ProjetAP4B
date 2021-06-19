@@ -5,12 +5,14 @@ import javax.swing.JFrame;
 
 /**
  * Fenetre utilisée par toutes nos pages
- *
  */
-
 public class Fenetre extends JFrame {
+	//Attribut
 	protected JFrame fenetre;
 
+	/**
+	 * Constructeur par défaut
+	 */
 	public Fenetre() {
 		fenetre = new JFrame();
 
@@ -27,6 +29,11 @@ public class Fenetre extends JFrame {
 		fenetre.setVisible(true);
 	}
 	
+	/**
+	 * Constructeur permettant de créer une fenetre de taille voulue
+	 * @param x Largeur de la fenetre en pixel
+	 * @param y Hauteur de la fenetre en pixel
+	 */
 	public Fenetre(int x,int y) {
 		fenetre = new JFrame();
 
@@ -43,7 +50,10 @@ public class Fenetre extends JFrame {
 		fenetre.setVisible(true);
 	}
 	
-	
+	/**
+	 * Constructeur permettant de créer une fenetre en plein écran
+	 * @param grandEcran booléen permettant de choisir si la fenetre est créée ou non en plein écran
+	 */
 	public Fenetre(boolean grandEcran) {
 		fenetre = new JFrame();
 
@@ -67,6 +77,10 @@ public class Fenetre extends JFrame {
 	}
 
 	
+	
+	/**
+	 * Méthode permettant de fermer la fenetre
+	 */
 	public void close() {
 		fenetre.dispose();
 	}

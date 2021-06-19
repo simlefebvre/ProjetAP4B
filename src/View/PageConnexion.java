@@ -15,9 +15,7 @@ import Controller.connexionController;
 
 /**
  * Fenetre de connexion, sert de page d'accueil
- *
  */
-
 public class PageConnexion {
 	// Attributs
 	private Formulaire page;
@@ -37,6 +35,8 @@ public class PageConnexion {
 		page.addButtonFoot("Quitter", "quitter", cc);
 	}
 
+	
+	
 	// Méthodes set et get
 	public String getIdentifiant() {
 		for (JTextField tf : page.getTextes()) {
@@ -56,11 +56,20 @@ public class PageConnexion {
 		return null;
 	}
 
+	
+	
 	// Autres méthodes
+	/**
+	 * Méthode permettant de fermer la page
+	 */
 	public void close() {
 		page.close();
 	}
 
+	
+	/**
+	 * Méthode permettant de vider le contenu des champs de la page
+	 */
 	public void clearField() {
 		page.clearField();
 	}

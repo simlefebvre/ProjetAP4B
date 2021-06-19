@@ -9,14 +9,14 @@ public class VideoProjecteur extends Materiel {
 	// Attribut
 	private boolean telecommande;
 
-	// Constructeur
+	// Constructeurs
 	public VideoProjecteur(String marque, String etat, String salle, boolean telecommande) {
 		super(marque, etat, salle);
 		this.telecommande = telecommande;
 	}
 
-	public VideoProjecteur(String marque, String etat, String salle, boolean telecommande,int index) {
-		super(marque, etat, salle,index);
+	public VideoProjecteur(String marque, String etat, String salle, boolean telecommande,int identifiant) {
+		super(marque, etat, salle, identifiant);
 		this.telecommande = telecommande;
 	}
 	public VideoProjecteur() {
@@ -25,6 +25,7 @@ public class VideoProjecteur extends Materiel {
 	}
 
 
+	
 	// Méthodes de récupération et de modification des attributs
 	public boolean getTelecommande() {
 		return this.telecommande;

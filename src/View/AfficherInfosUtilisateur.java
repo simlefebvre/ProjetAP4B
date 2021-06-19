@@ -10,20 +10,24 @@ import Controller.MainClass;
 import Model.Utilisateur.Administrateur;
 import Model.Utilisateur.Utilisateur;
 
+/**
+ * Classe permettant d'afficher les informations d'un utilisateur
+ */
 public class AfficherInfosUtilisateur {
 	// Attributs
 	private Formulaire page;
 	private ViewManager vm;
 	private AfficherInfosUtilisateurController aiuc;
 
+	
+	
+	//Constructeur
 	public AfficherInfosUtilisateur(ViewManager vm) {
 		Utilisateur util = MainClass.connecte;
 		this.vm = vm;
 		this.aiuc = new AfficherInfosUtilisateurController(vm, util);
 		page = new Formulaire();
 
-		
-		
 		//Entete
 		page.addTitle("Profil");
 		
@@ -42,15 +46,30 @@ public class AfficherInfosUtilisateur {
 		page.addButtonFoot("Modifier", "modifier", aiuc);
 	}
 	
-	public void close() {
-		page.close();
-	}
 	
+	
+	/**
+	 * Méthode permettant de récupérer la liste des JTextField présents sur la page
+	 * @return la liste des JTextField
+	 */
 	public LinkedList<JTextField> getTF(){
 		return page.getTextes();
 	}
 	
+	/**
+	 * Méthode permettant de récupérer la liste des JCheckBox présents sur la page
+	 * @return la liste des JCheckBox
+	 */
 	public LinkedList<JCheckBox> getCB(){
 		return page.getChoches();
+	}
+	
+	
+	
+	/**
+	 * Méthode permettant de fermer la page
+	 */
+	public void close() {
+		page.close();
 	}
 }

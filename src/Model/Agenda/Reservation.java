@@ -97,6 +97,11 @@ public class Reservation {
 		this.par = par;
 	}
 	
+	
+	/**
+	 * Méthode permettant de comparer deux réservations
+	 * @param o la deuxième réservation à comparer
+	 */
 	@Override
 	public boolean equals(Object o) {
 		if (o instanceof Reservation) {
@@ -142,6 +147,7 @@ public class Reservation {
 	 * @return		l'identifiant généré
 	 */
 	public String genererID(Date debut, Date fin) {
+		//FIXME Modifier l'id car 2 id identiques des fois et du coup les 2 sont suppr
 		String debutStr = formatDate.format(debut);
 		String finStr = formatDate.format(fin);
 		return debutStr+finStr;

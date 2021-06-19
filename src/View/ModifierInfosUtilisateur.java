@@ -17,13 +17,20 @@ public class ModifierInfosUtilisateur {
 	private ViewManager vm;
 	private ModifierInfosUtilisateurController miuc;
 
+	
+	
+	//Constructeur
+	/**
+	 * Constructeur de la classe ModifierInfosUtilisateur
+	 * @param vm		le ViewManager
+	 * @param util		l'utilisateur dont les informations sont affichées
+	 * @param ouvertPar	indique la page ayant appelé ce constructeur
+	 */
 	public ModifierInfosUtilisateur(ViewManager vm, Utilisateur util, String ouvertPar) {
 		this.vm = vm;
 		this.miuc = new ModifierInfosUtilisateurController(vm, util, ouvertPar);
 		page = new PopUp();
 
-		//Utilisateur util = BaseDeDonee.getInstance().getUtilisateur(mail);
-		
 		//Entete
 		page.addTitle("Modifier profil");
 		
@@ -51,20 +58,38 @@ public class ModifierInfosUtilisateur {
 		page.addButtonFoot("Valider", "valider", miuc);
 	}
 	
-	public void close() {
-		page.close();
-	}
 	
+	
+	/**
+	 * Méthode permettant de récupérer la liste des JTextField présents sur la page
+	 * @return la liste des JTextField présents sur la page
+	 */
 	public LinkedList<JTextField> getText(){
 		return page.getTextes();
 	}
 	
+	/**
+	 * Méthode permettant de récupérer la liste des JCheckBox présents sur la page
+	 * @return la liste des JCheckBox présents sur la page
+	 */
 	public LinkedList<JCheckBox> getCB(){
 		return page.getChoches();
 	}
 	
+	/**
+	 * Méthode permettant de récupérer la liste des JPasswordField présents sur la page
+	 * @return la liste des JPasswordField présents sur la page
+	 */
 	public LinkedList<JPasswordField> getmdp(){
 		return page.getmdp();
 	}
 	
+	
+	
+	/**
+	 * Méthode permettant de fermer la page
+	 */
+	public void close() {
+		page.close();
+	}
 }

@@ -7,12 +7,11 @@ import Model.Materiel.Materiel;
 import Model.Utilisateur.Utilisateur;
 
 
-//TODO Ajouter doc
 /**
- *
+ * Classe permettant de gérer les différentes vues de l'application
  */
 public class ViewManager {
-
+	//Attributs
 	public PageConnexion page;
 	public PageMenuPersonnel pMenu;
 	public AfficherMateriels pAffMat;
@@ -29,10 +28,15 @@ public class ViewManager {
 	public AjoutUtilisateur pAjoutUtil;
 	
 	
+	
+	//Constructeur
 	public ViewManager() {
 		showConnexion();
 	}
 
+	
+	
+	//Méthodes gérant les vues de l'application
 	public void showConnexion() {
 		page = new PageConnexion(this);
 	}

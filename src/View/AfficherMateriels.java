@@ -14,7 +14,7 @@ import Model.Materiel.Tablette;
 import Model.Utilisateur.Administrateur;
 
 /**
- * Page qui affiche le contenu de la liste de matériels de la base de données
+ * Page qui affiche la liste de matériels contenus dans la base de données
  */
 public class AfficherMateriels {
 	// Attribut
@@ -61,11 +61,22 @@ public class AfficherMateriels {
 		}
 	}
 
-	public void close() {
-		page.close();
-	}
 	
+	
+	/**
+	 * Méthode retournant la liste des JCheckBox présentes sur la page
+	 * @return la liste des JCheckBox présentes sur la page
+	 */
 	public LinkedList<JCheckBox> getBox(){
 		return page.getChoches();
+	}
+	
+	
+	
+	/**
+	 * Méthode permettant de fermer la page
+	 */
+	public void close() {
+		page.close();
 	}
 }

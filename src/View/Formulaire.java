@@ -35,18 +35,28 @@ public class Formulaire extends Fenetre {
 	
 	
 	
-	//Constructeur
+	//Constructeurs
+	/**
+	 * Constructeur par défaut permettant de créer un formulaire
+	 */
 	public Formulaire() {
 		initialisation(true);
 	}
 	
-	//Constructeur
-	public Formulaire(boolean taillePage) {
-		super(taillePage);
-		initialisation(!taillePage);
+	/**
+	 * Constructeur permettant de créer un formulaire en plein écran
+	 * @param grandEcran booléen permettant de choisir si le formulaire est créé ou non en plein écran
+	 */
+	public Formulaire(boolean grandEcran) {
+		super(grandEcran);
+		initialisation(!grandEcran);
 	}
 	
-	//Constructeur
+	/**
+	 * Constructeur permettant de créer un formulaire de taille voulue
+	 * @param x Largeur du formulaire en pixel
+	 * @param y Hauteur du formulaire en pixel
+	 */
 	public Formulaire(int x, int y) {
 		super(x,y);
 		initialisation(true);
@@ -55,15 +65,17 @@ public class Formulaire extends Fenetre {
 	
 	
 	
-	
-	
+	//Autres méthodes
+	/**
+	 * Méthode permettant d'initialiser le formulaire
+	 * @param PleinEcran booléen permettant de choisir de créer ou non le formulaire en plein écran
+	 */
 	private void initialisation(boolean PleinEcran) {
 		page = new JPanel();
 		contenu = new JPanel();
 		piedPage = new JPanel();
 		enTete = new JPanel();
 		conteneur = new JPanel();
-
 		textes = new LinkedList<>();
 		coches = new LinkedList<>();
 		groupes = new LinkedList<>();
@@ -76,18 +88,22 @@ public class Formulaire extends Fenetre {
 		piedPage.setLayout(new BoxLayout(piedPage, BoxLayout.LINE_AXIS));
 		enTete.setLayout(new BoxLayout(enTete, BoxLayout.LINE_AXIS));
 
+		//Mise en forme de la page
 		page.add(enTete);
 		page.add(new Marge(10));
 		page.add(contenu);
 		page.add(new Marge(10));
 		page.add(piedPage);
 		
+		//Ajout de la page au conteneur principal
 		conteneur.add(page);
 
 		if(PleinEcran) {
+			//Centrer la fenetre sur l'écran
 			fenetre.setLocationRelativeTo(null);
 		}
 
+		//Mettre à jour la fenetre
 		fenetre.validate();
 	}
 	
@@ -97,7 +113,7 @@ public class Formulaire extends Fenetre {
 	//---------------Ajout de nouveaux éléments---------------
 	
 	/**
-	 * ajout d'un titre
+	 * Méthode permettant l'ajout d'un titre
 	 * @param titre titre de la page
 	 */
 	public void addTitle(String titre) {
@@ -110,7 +126,7 @@ public class Formulaire extends Fenetre {
 	}
 	
 	/**
-	 * Ajout d'une nouvelle zone de texte dans le corps du formulaire.
+	 * Méthode permettant l'ajout d'une nouvelle zone de texte dans le corps du formulaire.
 	 * <br>Possibilité d'ajouter la zone de texte à la suite d'une autre entrée 
 	 * @param nomZone 		texte du label
 	 * @param identifiant	identifiant de la zone de texte
@@ -146,9 +162,8 @@ public class Formulaire extends Fenetre {
 	}
 	
 	/**
-	 * ajout d'une nouvelle zone de texte dans le corps du formulaire
+	 * Méthode permettant l'ajout d'une nouvelle zone de texte dans le corps du formulaire
 	 * @param nomZone nom de la zone à ajouter
-	 * @param identifiant identifiant permettant de reconnaitre le composant dans la liste
 	 * @return le panel contenant le label et l'entré
 	 */
 	public JPanel addTextField(String nomZone, String identifiant) {	
@@ -156,7 +171,7 @@ public class Formulaire extends Fenetre {
 	}
 
 	/**
-	 * ajout d'une nouvelle zone de texte dans le corps du formulaire à la suite d'une autre entrée permettant de faire des lignes de zones de texte
+	 * Méthode permettant l'ajout d'une nouvelle zone de texte dans le corps du formulaire à la suite d'une autre entrée permettant de faire des lignes de zones de texte
 	 * @param nomZone nom de la zone à ajouter
 	 * @param identifiant identifiant permettant de reconnaitre le composant dans la liste
 	 * @param pan le panel auxquel on veux ajouter
@@ -170,8 +185,7 @@ public class Formulaire extends Fenetre {
 	
 	
 	/**
-	 * Ajout d'un simple label
-	 * 
+	 * Méthode permettant l'ajout d'un simple label
 	 * @param s   texte du label
 	 * @param pan panel auxquel l'ajouter
 	 */
@@ -181,7 +195,7 @@ public class Formulaire extends Fenetre {
 	}
 	
 	/**
-	 * Ajout d'un label
+	 * Méthode permettant l'ajout d'un label
 	 * @param nom		Nom du bouton
 	 * @param affiche	Texte à affiher sur le bouton
 	 * @return	le panel dans lequel se trouve le bouton
@@ -207,7 +221,7 @@ public class Formulaire extends Fenetre {
 	
 	
 	/**
-	 * ajout d'un boutton dans le pied de page du formulaire
+	 * Méthode permettant l'ajout d'un boutton dans le pied de page du formulaire
 	 * @param nom nom du boutton
 	 * @param id  identifiant permettant de reconnaitre le composant dans la liste
 	 * @param ml  listener du boutton
@@ -221,7 +235,7 @@ public class Formulaire extends Fenetre {
 	}
 	
 	/**
-	 * Ajout d'un bouton à un pannel sur le formulaire
+	 * Méthode permettant l'ajout d'un bouton à un pannel sur le formulaire
 	 * @param nom      nom du bouton
 	 * @param affiche  texte à afficher sur le boutton
 	 * @param listener Mouse listener du boutton
@@ -241,7 +255,7 @@ public class Formulaire extends Fenetre {
 	}
 	
 	/**
-	 * Ajout d'un bouton sur le formulaire
+	 * Méthode permettant l'ajout d'un bouton sur le formulaire
 	 * @param nom      nom du bouton
 	 * @param affiche  texte à afficher sur le boutton
 	 * @param listener Mouse listener du boutton
@@ -268,7 +282,7 @@ public class Formulaire extends Fenetre {
 
 	
 	/**
-	 * Ajout d'un bouton à cocher dans le corps du formulaire
+	 * Méthode permettant l'ajout d'un bouton à cocher dans le corps du formulaire
 	 * @param nom			nom de la case à cocher
 	 * @param id			identifiant de la case à cocher
 	 * @param coche			case cochée par défaut ou non
@@ -299,9 +313,8 @@ public class Formulaire extends Fenetre {
 	}
 	
 	/**
-	 * ajout d'un bouton à cocher dans le corps du formulaire
+	 * Méthode permettant l'ajout d'un bouton à cocher dans le corps du formulaire
 	 * @param nom nom de la case à cocher
-	 * @param id  identifiant permettant de reconnaitre le composant dans la liste
 	 * @return le panel contenant le label dans lequel la case a été ajoutée
 	 */
 	public JPanel addCheckBox(String nom, String id) {
@@ -309,7 +322,7 @@ public class Formulaire extends Fenetre {
 	}
 
 	/**
-	 * ajout d'un bouton à cocher dans le corps du formulaire
+	 * Méthode permettant l'ajout d'un bouton à cocher dans le corps du formulaire
 	 * @param nom nom de la case à cocher
 	 * @param id  identifiant permettant de reconnaitre le composant dans la liste
 	 * @param pan le panel auquel on veut ajouter la case
@@ -323,7 +336,7 @@ public class Formulaire extends Fenetre {
 	
 	
 	/**
-	 * ajout d'un groupe de radioButton dans le corps de la page
+	 * Méthode permettant l'ajout d'un groupe de radioButton dans le corps de la page
 	 * 
 	 * @param nombre  nombre de boutton qu'il faut dans le groupe
 	 * @param nom     nom de la question global
@@ -364,8 +377,7 @@ public class Formulaire extends Fenetre {
 	
 	
 	/**
-	 * ajout d'une section à mot de passe
-	 * 
+	 * Méthode permettant l'ajout d'une section à mot de passe
 	 * @param nom nom de la section
 	 * @param id  identifiant permettant de reconnaitre le composant dans la liste
 	 */
@@ -391,7 +403,7 @@ public class Formulaire extends Fenetre {
 	
 	
 	/**
-	 * Ajouter une marge
+	 * Méthode permettant l'ajout d'une marge
 	 * @param taille	Taille de la marge
 	 */
 	public void addMarge(int taille) {

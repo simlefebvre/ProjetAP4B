@@ -9,7 +9,9 @@ import Model.Materiel.Tablette;
 import Model.Materiel.VideoProjecteur;
 import Model.Utilisateur.Administrateur;
 
-
+/**
+ * Classe permettant d'afficher les informations d'un matériel
+ */
 public class AfficherInfosMateriel {
 	// Attributs
 	private PopUp page;
@@ -19,6 +21,11 @@ public class AfficherInfosMateriel {
 	
 
 	// Constructeur
+	/**
+	 * Constructeur permettant d'afficher les informations d'un matériel
+	 * @param vm	le ViewManager
+	 * @param idMat l'identifiant du matériel dont les informations sont affichées
+	 */
 	public AfficherInfosMateriel(ViewManager vm, int idMat) {
 		this.vm = vm;
 		this.lmc = new AffInfoMatController(vm);
@@ -26,7 +33,7 @@ public class AfficherInfosMateriel {
 
 		mat = ConnexionSQL.getMateriel(idMat);
 
-		// Contenu commun
+		//------Contenu commun------
 		page.addTextField("Identifiant : ", "id", ""+mat.getID(), null, true);
 		page.addTextField("Marque : ", "marque", mat.getMarque(), null, true);
 		page.addTextField("Etat : ", "etat", mat.getEtat(), null, true);
@@ -39,8 +46,7 @@ public class AfficherInfosMateriel {
 			page.addButtonFoot("Supprimer","Supprimer",  lmc);
 		}
 
-		
-		// Contenu propre au matériel
+		//------Contenu propre au matériel------
 		// Entete
 		if (mat instanceof Ordinateur) {
 			page.addTitle("Ordinateur");
@@ -58,16 +64,29 @@ public class AfficherInfosMateriel {
 
 		
 		page.addMarge(30);
+		
 		//Affichage des réservations du matériel
 		new AfficherReservationsMateriel(page, idMat,vm);
+		
 		page.addMarge(30);
 	}
 
-	public void close() {
-		page.close();
-	}
 	
+	
+	/**
+	 * Fonction retournant le matériel dont les informations sont affichées
+	 * @return le matériel dont les informations sont affichées
+	 */
 	public Materiel getMat() {
 		return mat;
+	}
+	
+	
+	
+	/**
+	 * Méthode permettant de fermer la page
+	 */
+	public void close() {
+		page.close();
 	}
 }

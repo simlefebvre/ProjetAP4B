@@ -7,7 +7,7 @@ import Controller.menuPersonnelControler;
 import Model.Utilisateur.Administrateur;
 
 /**
- * Menu principal pour le personnel
+ * Menu principal, propre au type d'utilisateur (Administrateur ou Personnel)
  */
 public class PageMenuPersonnel {
 	// Attributs
@@ -20,8 +20,10 @@ public class PageMenuPersonnel {
 		this.vm = vm;
 		mpc = new menuPersonnelControler(vm);
 		page = new Formulaire(false);
-		// Entete
+		
+		// Entete de la page
 		page.addTitle("Menu principal");
+		
 		// Contenu de la page
 		page.addLabel("infoConnecte", "Connecté en tant que " + MainClass.connecte.getPrenom() + " " + MainClass.connecte.getNom());
 		page.addButton("mat", "Afficher le matériel", mpc);
@@ -37,6 +39,11 @@ public class PageMenuPersonnel {
 		page.addButtonFoot("Quitter", "quitter", mpc);
 	}
 
+	
+	
+	/**
+	 * Méthode permettant de fermer la page
+	 */
 	public void close() {
 		page.close();
 	}

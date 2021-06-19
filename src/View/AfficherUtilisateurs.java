@@ -7,6 +7,9 @@ import Model.DataBase.ConnexionSQL;
 import Model.Utilisateur.Administrateur;
 import Model.Utilisateur.Utilisateur;
 
+/**
+ * Classe permettant d'afficher la liste des Utilisateurs
+ */
 public class AfficherUtilisateurs {
 	//Attributs
 	private Formulaire page;
@@ -43,10 +46,20 @@ public class AfficherUtilisateurs {
 		page.addButtonFoot("Ajouter", "ajouter", auc);
 	}
 	
+	
+	
+	/**
+	 * Méthode permettant de fermer la page
+	 */
 	public void close() {
 		page.close();
 	}
 	
+	
+	
+	/**
+	 * Méthode permettant de recharger la page
+	 */
 	public void refresh() {
 		page.close();
 		vm.showAfficherUtilisateurs();

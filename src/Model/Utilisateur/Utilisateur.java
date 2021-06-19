@@ -4,7 +4,6 @@ import Model.DataBase.ConnexionSQL;
 
 /**
  * Un utilisateur est une personne qui utilise l'application
- * 
  */
 public class Utilisateur {
 	// Attributs
@@ -55,6 +54,12 @@ public class Utilisateur {
 	}
 
 	// Autres méthodes
+	/**
+	 * Méthode controlant si l'identifiant et le mot de passe saisis correspondent à ceux d'un utilisateur dans la base de données
+	 * @param Identifiant	l'identifiant saisi
+	 * @param MDP			le mot de passe saisi
+	 * @return				true si la combinaison Identifiant et MDP est valide, false sinon
+	 */
 	public boolean connexion(String Identifiant, String MDP) {
 		if (mail.equalsIgnoreCase(Identifiant) && motDePasse.equals(MDP)) {
 			return true;
@@ -62,6 +67,11 @@ public class Utilisateur {
 		return false;
 	}
 
+	
+	/**
+	 * Méthode permettant de comparer deux utilisateurs
+	 * @return true s'ils sont égaux, false sinon
+	 */
 	@Override
 	public boolean equals(Object o) {
 		if (o instanceof Utilisateur) {

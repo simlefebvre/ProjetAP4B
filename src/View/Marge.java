@@ -17,7 +17,6 @@ public class Marge extends JPanel {
 
 	/**
 	 * Créer une marge de taille choisie
-	 * 
 	 * @param TaillePolice taille de la marge
 	 */
 	public Marge(int TaillePolice) {

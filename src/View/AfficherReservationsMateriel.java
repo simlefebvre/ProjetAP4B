@@ -11,21 +11,29 @@ import Model.Materiel.Ordinateur;
 import Model.Materiel.Tablette;
 import Model.Utilisateur.Utilisateur;
 
+/**
+ * Classe permettant d'affiche les réservations effectuées
+ */
 public class AfficherReservationsMateriel {	
 	//Attributs
 	private Formulaire page;
 	private ViewManager vm;
 	private AffReservationController arc;
 	private AffInfoMatController aimc;
-	// Constructeurs
+	
+	
+	//Constructeurs
+	/**
+	 * Constructeur permettant d'afficher les réservations effectuées pour un matériel
+	 * @param page	Page sur laquelle afficher les réservations
+	 * @param idMat	identifiant du matériel dont les réservations sont affichées
+	 * @param vm	le ViewManager
+	 */
 	public AfficherReservationsMateriel(Formulaire page, int idMat,ViewManager vm) {
-		
 		aimc = new AffInfoMatController(vm);
-		
 		this.page=null;
 		this.vm = vm;
 		page.addLabel("reservations","Réservations du matériel : ");		
-		
 		
 		for (Reservation res : ConnexionSQL.getReservationMat(idMat)) {
 			JPanel instance = new JPanel();
@@ -44,7 +52,11 @@ public class AfficherReservationsMateriel {
 	
 	
 	
-	
+	/**
+	 * Constructeur permettant d'afficher les réservations effectuées par un utilisateur
+	 * @param vm	le ViewManager
+	 * @param user	l'utilisateur dont les réservations sont affichées
+	 */
 	public AfficherReservationsMateriel(ViewManager vm, Utilisateur user) {
 		arc = new AffReservationController(vm);
 		this.vm = vm;
@@ -52,8 +64,7 @@ public class AfficherReservationsMateriel {
 		
 		page.addTitle("Mes réservations : ");
 		
-		//Pour chaque matériel
-		
+		//Pour chaque matériel, afficher les réservations faites par l'utilisateur
 			for (Reservation res : ConnexionSQL.getReservationUsr(user.getMail())) {
 					JPanel instance;
 					Materiel mat = res.getMat();
@@ -70,18 +81,19 @@ public class AfficherReservationsMateriel {
 					page.addLabel("          ", instance);
 					page.addLabel("Fin : "+ Reservation.formatDate.format(res.getFin()), instance);
 					page.addLabel("          ", instance);
+					
 					page.addButton("suppr_"+ res.getID()+"_" + mat.getID(), "Supprimer", arc, instance);
 		}
+			
 		page.addButton("ajouter", "Ajouter", arc);		
-		
 		page.addButtonFoot("Retour ", "retour", arc);
 	}
 
 
 
-
-
-
+	/**
+	 * Méthode permettant de fermer la page
+	 */
 	public void close() {
 		page.close();		
 	}

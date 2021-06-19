@@ -34,11 +34,23 @@ public class ChoixAjoutMateriel {
 		page.addButtonFoot("Valider", "valider", camc);
 	}
 
-	public void close() {
-		page.close();
-	}
 	
+	
+	
+	/**
+	 * Méthode permettant de récupérer la liste des JRadioButton présents sur la page
+	 * @return la liste des JRadioButton
+	 */
 	public LinkedList<JRadioButton> getButton() {
 		return page.getGroupes();
+	}
+	
+	
+	
+	/**
+	 * Méthode permettant de fermer la page
+	 */
+	public void close() {
+		page.close();
 	}
 }

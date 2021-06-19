@@ -17,6 +17,8 @@ public class Materiel {
 	protected String etat;
 	protected String salle;
 
+	
+	
 	// Constructeur
 	public Materiel(String marque, String etat, String salle) {
 		this.identifiant = genererID();
@@ -25,8 +27,8 @@ public class Materiel {
 		this.salle = salle;
 	}
 	
-	public Materiel(String marque, String etat, String salle,int index) {
-		this.identifiant = index;
+	public Materiel(String marque, String etat, String salle,int identifiant) {
+		this.identifiant = identifiant;
 		this.marque = marque;
 		this.etat = etat;
 		this.salle = salle;
@@ -39,6 +41,8 @@ public class Materiel {
 		this.salle = null;
 	}
 
+	
+	
 	// Méthodes de récupération et de modification des attributs
 	public int getID() {
 		return this.identifiant;
@@ -71,16 +75,28 @@ public class Materiel {
 	public void setSalle(String salle) {
 		this.salle = salle;
 	}
-	
+		
+	/**
+	 * Méthode retournant la liste des Reservations dans la base de données
+	 * @return a liste des Reservations
+	 */
 	public LinkedList<Reservation> getReservations() {
 		return ConnexionSQL.getReservationMat(getID());
 	}
 	
-	
+	/**
+	 * Méthode permettant l'ajout d'une réservation
+	 */
 	public void addReservation(Reservation r) {
 		ConnexionSQL.newReservation(r);
 	}
 	
+	
+	
+	/**
+	 * Méthode permettant de comparer deux matériels
+	 * @return o le deuxième matériel à comparer
+	 */
 	@Override
 	public boolean equals(Object o) {
 		if (o instanceof Materiel) {
@@ -116,6 +132,8 @@ public class Materiel {
 				}
 			}
 	
+	
+	
 	/**
 	 * Teste si le matériel à réserver est disponible sur le créneau saisi ou non
 	 * @param debutTest	Date et heure début du créneau souhaité
@@ -131,10 +149,10 @@ public class Materiel {
 		for(Reservation r :  occupation) {
 			//Si une nouvelle date (debut ou fin) inclue dans les dates d'une réservation
 			if ((debutTest.compareTo(r.getDebut())<0 && finTest.compareTo(r.getDebut())<=0)) {
-				//debutTest et finTest, les 2 pas avant r.getDebut()
+				//debutTest et finTest pas avant r.getDebut()
 				return true;
 			}else if ((debutTest.compareTo(r.getFin())>=0 && finTest.compareTo(r.getFin())>0)) {
-				//debutTest et finTest, les 2 pas apres r.getFin()
+				//debutTest et finTest pas apres r.getFin()
 				return true;
 			}
 		}

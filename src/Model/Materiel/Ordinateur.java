@@ -2,16 +2,16 @@ package Model.Materiel;
 
 /**
  * Un ordinateur est un matériel. <br>
- * Il peut être fixe, peut posséder une souris et est caractérisé par sa
- * capacité.
+ * Il peut être fixe, peut posséder une souris et est caractérisé par sa capacité.
  */
-
 public class Ordinateur extends Materiel {
 	// Attributs
 	private boolean fixe;
 	private boolean souris;
 	private int capacite;
 
+	
+	
 	// Constructeur
 	public Ordinateur(String marque, String etat, String salle, boolean fixe, boolean souris, int capacite) {
 		super(marque, etat, salle);
@@ -20,8 +20,8 @@ public class Ordinateur extends Materiel {
 		this.capacite = capacite;
 	}
 	
-	public Ordinateur(String marque, String etat, String salle, boolean fixe, boolean souris, int capacite,int index) {
-		super(marque, etat, salle,index);
+	public Ordinateur(String marque, String etat, String salle, boolean fixe, boolean souris, int capacite,int identifiant) {
+		super(marque, etat, salle, identifiant);
 		this.fixe = fixe;
 		this.souris = souris;
 		this.capacite = capacite;
@@ -35,6 +35,7 @@ public class Ordinateur extends Materiel {
 	}
 
 
+	
 	// Méthodes de récupération et de modification des attributs
 	public boolean getFixe() {
 		return this.fixe;

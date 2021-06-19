@@ -12,13 +12,21 @@ import Model.Materiel.Tablette;
 import Model.Materiel.VideoProjecteur;
 
 public class ModifierInfoMateriel {
-
-	
+	//Attributs
+	//TODO Supprimer les attributs ViewManager inutilisés
 	private ViewManager vm;
 	private PopUp page;
 	private ModifierInfoMaterielController mimc;
 	private Materiel mat;
 	
+	
+	
+	//Constructeur
+	/**
+	 * Constructeur de la classe ModifierInfosUtilisateur
+	 * @param vm		le ViewManager
+	 * @param util		le matériel dont les informations sont affichées
+	 */
 	public ModifierInfoMateriel(ViewManager vm,Materiel mat) {
 		this.mat = mat;
 		this.vm = vm;
@@ -27,6 +35,11 @@ public class ModifierInfoMateriel {
 		affiche();
 	}
 	
+	
+	
+	/**
+	 * Méthode permettant de générer la page qui affiche les informations d'un matériel
+	 */
 	private void affiche() {
 		page.addLabel("modif", "Veuillez entrer les modification que vous souhaitez apporter");
 		page.addTextField("Saisir la marque", "marque", mat.getMarque(), null, false);
@@ -52,18 +65,39 @@ public class ModifierInfoMateriel {
 		}
 	}
 	
+	
+	
+	/**
+	 * Méthode permettant de récupérer la liste des JCheckBox présentes sur la page 
+	 * @return la liste des JCheckBox
+	 */
 	public LinkedList<JCheckBox> getCoche(){
 		return this.page.getChoches();
 	}
 	
-	public Materiel getMat() {
-		return mat;
-	}
-	
+	/**
+	 * Méthode permettant de récupérer la liste des JTextField présents sur la page 
+	 * @return la liste des JTextField
+	 */
 	public LinkedList<JTextField> getText(){
 		return page.getTextes();
 	}
 	
+	
+	
+	/**
+	 * Méthode permettant de récupérer le matériel 
+	 * @return le matériel
+	 */
+	public Materiel getMat() {
+		return mat;
+	}
+	
+	
+	
+	/**
+	 * Méthode permettant de fermer la page
+	 */
 	public void close() {
 		page.close();
 	}
