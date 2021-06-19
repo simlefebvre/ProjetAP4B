@@ -1,8 +1,8 @@
 package Model.Materiel;
 
+import java.util.Date;
 import java.util.LinkedList;
 
-import Model.Agenda.Agenda;
 import Model.Agenda.Reservation;
 import Model.DataBase.ConnexionSQL;
 import Model.Utilisateur.Utilisateur;
@@ -16,7 +16,6 @@ public class Materiel {
 	protected String marque;
 	protected String etat;
 	protected String salle;
-	protected Agenda reservations;
 
 	// Constructeur
 	public Materiel(String marque, String etat, String salle) {
@@ -24,7 +23,6 @@ public class Materiel {
 		this.marque = marque;
 		this.etat = etat;
 		this.salle = salle;
-		this.reservations = new Agenda();
 	}
 	
 	public Materiel(String marque, String etat, String salle,int index) {
@@ -32,7 +30,6 @@ public class Materiel {
 		this.marque = marque;
 		this.etat = etat;
 		this.salle = salle;
-		this.reservations = new Agenda();
 	}
 
 	public Materiel() {
@@ -40,7 +37,6 @@ public class Materiel {
 		this.marque = null;
 		this.etat = null;
 		this.salle = null;
-		this.reservations = new Agenda();
 	}
 
 	// Méthodes de récupération et de modification des attributs
@@ -77,18 +73,13 @@ public class Materiel {
 	}
 	
 	public LinkedList<Reservation> getReservations() {
-		return reservations.getListe();
+		return ConnexionSQL.getReservationMat(getID());
 	}
 	
-	public Agenda getAgenda() {
-		return reservations;
-	}
 	
 	public void addReservation(Reservation r) {
-		reservations.ajouterReservation(r);
+		ConnexionSQL.newReservation(r);
 	}
-	
-	
 	
 	@Override
 	public boolean equals(Object o) {
@@ -120,6 +111,34 @@ public class Materiel {
 	
 	
 	public void supprimerAgenda(Utilisateur usr) {
-		this.reservations.supprimerAgenda(usr);
+		for(Reservation r : ConnexionSQL.getReservationUsr(usr.getMail())) {
+					ConnexionSQL.delReservation(r.getID());
+				}
+			}
+	
+	/**
+	 * Teste si le matériel à réserver est disponible sur le créneau saisi ou non
+	 * @param debutTest	Date et heure début du créneau souhaité
+	 * @param finTest	Date et heure fin du créneau souhaité
+	 * @return	true si metériel disponible, false sinon
+	 */
+	public boolean disponible (Date debutTest, Date finTest) {
+		int ID = this.getID();
+		LinkedList<Reservation> occupation = ConnexionSQL.getReservationMat(ID);
+		if(occupation.size() == 0) {
+			return true;
+		}
+		for(Reservation r :  occupation) {
+			//Si une nouvelle date (debut ou fin) inclue dans les dates d'une réservation
+			if ((debutTest.compareTo(r.getDebut())<0 && finTest.compareTo(r.getDebut())<=0)) {
+				//debutTest et finTest, les 2 pas avant r.getDebut()
+				return true;
+			}else if ((debutTest.compareTo(r.getFin())>=0 && finTest.compareTo(r.getFin())>0)) {
+				//debutTest et finTest, les 2 pas apres r.getFin()
+				return true;
+			}
+		}
+		return false;
 	}
+
 }

@@ -57,7 +57,7 @@ public class reservationController implements MouseListener {
 				}
 				for(Materiel mat : vm.pAjoutReserv.getmat()) {
 					//TODO a revoir quand tout fonctionne
-					if(!mat.getAgenda().disponible(deb, fin,mat.getID())) {
+					if(!mat.disponible(deb, fin)) {
 						JOptionPane.showMessageDialog(null, "Le materiel n°"+mat.getID()+" n'est pas disponnible pour les dates demandées","Erreur Disponibilité",JOptionPane.ERROR_MESSAGE);
 					}else {
 						Reservation r = new Reservation(deb, fin, MainClass.connecte, mat);
