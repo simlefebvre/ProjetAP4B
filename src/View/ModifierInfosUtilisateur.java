@@ -7,8 +7,6 @@ import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
 import Controller.ModifierInfosUtilisateurController;
-import Model.DataBase.BaseDeDonee;
-import Model.Utilisateur.Administrateur;
 import Model.Utilisateur.Utilisateur;
 
 public class ModifierInfosUtilisateur {
@@ -31,7 +29,6 @@ public class ModifierInfosUtilisateur {
 		page.addLabel("infoObligatoire", "Vous devez remplir ces cases pour appliquer la modification");
 		page.addTextField("Nom : ","nom", util.getNom(), null, false);
 		page.addTextField("Prenom : ","prenom", util.getPrenom(), null, false);
-		page.addTextField("Adresse Mail : ","mail", util.getMail(), null, false);
 		/*
 		if(util instanceof Administrateur) {
 			page.addCheckBox("Administrateur : ", "CheckAdmin", true, false, null);

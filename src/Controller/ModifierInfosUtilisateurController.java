@@ -86,7 +86,6 @@ public class ModifierInfosUtilisateurController implements MouseListener{
 				
 				String nom = new String();
 				String prenom = new String();
-				String NouveauMail = new String();
 				
 				//Ajouter les valeurs des champs à l'utilisateur
 				for(JTextField tf : vm.pModifInfoUtil.getText()) {
@@ -95,8 +94,6 @@ public class ModifierInfosUtilisateurController implements MouseListener{
 						nom = tf.getText();
 					}else if(tfname.equals("prenom")) {
 						prenom = tf.getText();
-					}else if(tfname.equals("mail")) {
-						NouveauMail = tf.getText();
 					}
 				}
 			
@@ -105,28 +102,24 @@ public class ModifierInfosUtilisateurController implements MouseListener{
 				//Sauvegarder les nouvelles informations dans la base de données
 				//TODO prendre en compte changement admin
 				
-				//TODO ne pas changer le mail ==> enlever champ mail dans modif profil
-				//TODO -------------------------A prendre aussi en compte de là------------------------
-				String ancienMail = util.getMail();
+				String mail = util.getMail();
 				if(nouveauMDP) {
 					if(util instanceof Administrateur) {
-						ConnexionSQL.modifUtil(ancienMail, NouveauMail, nom, prenom, NewMDP, true);
+						ConnexionSQL.modifUtil(mail, nom, prenom, NewMDP, true);
 					}else {
-						ConnexionSQL.modifUtil(ancienMail, NouveauMail, nom, prenom, NewMDP, false);
+						ConnexionSQL.modifUtil(mail, nom, prenom, NewMDP, false);
 					}
 				}else {
 					if(util instanceof Administrateur) {
-						ConnexionSQL.modifUtil(ancienMail, NouveauMail, nom, prenom, true);
+						ConnexionSQL.modifUtil(mail, nom, prenom, true);
 					}else {
-						ConnexionSQL.modifUtil(ancienMail, NouveauMail, nom, prenom, false);
+						ConnexionSQL.modifUtil(mail, nom, prenom, false);
 					}
 				}
 				
-				if(MainClass.connecte.getMail().equals(ancienMail)){
-					MainClass.connecte = ConnexionSQL.getUtilisateur(NouveauMail);
+				if(MainClass.connecte.getMail().equals(mail)){
+					MainClass.connecte = ConnexionSQL.getUtilisateur(mail);
 				}
-				
-				//TODO ------------------------------------------A de là-----------------------------------
 					
 				JOptionPane.showMessageDialog(null, "Modifications Sauvegardées");
 				vm.pModifInfoUtil.close();
