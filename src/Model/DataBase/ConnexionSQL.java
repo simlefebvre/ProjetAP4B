@@ -148,7 +148,13 @@ public class ConnexionSQL {
 	 
 	 /**
 	  * Méthode permettant de modifier un matériel (ordinateur)
-	  * @param mat le matériel à modifier
+	  * @param ID
+	  * @param etat
+	  * @param marque
+	  * @param salle
+	  * @param Capacite
+	  * @param fixe
+	  * @param souris
 	  */
 	 public static void modifMat(int ID, String etat, String marque, String salle,int Capacite, boolean  fixe, boolean souris) {
 		 String sql = "update materiel set "
@@ -183,7 +189,11 @@ public class ConnexionSQL {
 	 
 	 /**
 	  * Méthode permettant de modifier un matériel (tablette ou videoprojecteur)
-	  * @param mat le matériel à modifier
+	  * @param ID
+	  * @param etat
+	  * @param marque
+	  * @param salle
+	  * @param telecommande
 	  */
 	 public static void modifMat(int ID, String etat, String marque, String salle, boolean telecommande) {			 
 		 String sql = "update materiel set "

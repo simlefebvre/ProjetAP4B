@@ -23,7 +23,7 @@ public class ModifierInfoMateriel {
 	/**
 	 * Constructeur de la classe ModifierInfosUtilisateur
 	 * @param vm		le ViewManager
-	 * @param util		le matériel dont les informations sont affichées
+	 * @param mat		le matériel dont les informations sont affichées
 	 */
 	public ModifierInfoMateriel(ViewManager vm,Materiel mat) {
 		this.mat = mat;

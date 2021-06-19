@@ -197,8 +197,7 @@ public class Formulaire extends Fenetre {
 	/**
 	 * Méthode permettant l'ajout d'un label
 	 * @param nom		Nom du bouton
-	 * @param affiche	Texte à affiher sur le bouton
-	 * @return	le panel dans lequel se trouve le bouton
+	 * @param texte	Texte à afficher sur le bouton
 	 */
 	public JPanel addLabel(String nom, String texte) {
 		JLabel lab = new JLabel();
