@@ -34,7 +34,6 @@ public class AfficherReservationsMateriel {
 			page.addLabel("Fin : " + Reservation.formatDate.format(res.getFin()), instance);
 			page.addLabel("          ", instance);
 			page.addLabel("par : " + res.getPar().getNom() + " " + res.getPar().getPrenom(), instance);
-			//TODO Si temps, vérifier que personne qui supprime a fait la résa ou est admin
 			page.addButton("suppr_"+ res.getID()+"_" + idMat, "Supprimer", aimc, instance);
 		}	
 		
