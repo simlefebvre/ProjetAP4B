@@ -1,13 +1,6 @@
 	package Controller;
 
-import Model.Agenda.Reservation;
-import Model.DataBase.BaseDeDonee;
 import Model.DataBase.ConnexionSQL;
-import Model.Materiel.Ordinateur;
-import Model.Materiel.Tablette;
-import Model.Materiel.VideoProjecteur;
-import Model.Utilisateur.Administrateur;
-import Model.Utilisateur.Personnel;
 import Model.Utilisateur.Utilisateur;
 //import Model.DataBase.BaseDeDonee;
 //import Model.Utilisateur.Administrateur;

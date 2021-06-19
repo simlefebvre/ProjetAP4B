@@ -7,7 +7,6 @@ import javax.swing.JTextField;
 
 import Controller.AfficherInfosUtilisateurController;
 import Controller.MainClass;
-import Model.DataBase.BaseDeDonee;
 import Model.Utilisateur.Administrateur;
 import Model.Utilisateur.Utilisateur;
 

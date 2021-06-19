@@ -1,10 +1,8 @@
 package View;
 
 import javax.swing.JPanel;
-import javax.swing.SwingUtilities;
 
 import Controller.AfficherUtilisateursController;
-import Model.DataBase.BaseDeDonee;
 import Model.DataBase.ConnexionSQL;
 import Model.Utilisateur.Administrateur;
 import Model.Utilisateur.Utilisateur;

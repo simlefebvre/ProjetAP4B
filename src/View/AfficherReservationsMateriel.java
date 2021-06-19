@@ -5,7 +5,6 @@ import javax.swing.JPanel;
 import Controller.AffInfoMatController;
 import Controller.AffReservationController;
 import Model.Agenda.Reservation;
-import Model.DataBase.BaseDeDonee;
 import Model.DataBase.ConnexionSQL;
 import Model.Materiel.Materiel;
 import Model.Materiel.Ordinateur;

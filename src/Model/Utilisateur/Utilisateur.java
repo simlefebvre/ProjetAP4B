@@ -1,6 +1,6 @@
 package Model.Utilisateur;
 
-import Model.DataBase.BaseDeDonee;
+import Model.DataBase.ConnexionSQL;
 
 /**
  * Un utilisateur est une personne qui utilise l'application
@@ -82,7 +82,7 @@ public class Utilisateur {
 	 * @return	true si l'adresse mail
 	 */
 	public static boolean uniciteMail(String addresse) {
-		for(Utilisateur user : BaseDeDonee.getInstance().getUtilisateurs()) {
+		for(Utilisateur user : ConnexionSQL.getUtilisateurs()) {
 			if(addresse.equalsIgnoreCase(user.getMail())) {
 				return false;
 			}

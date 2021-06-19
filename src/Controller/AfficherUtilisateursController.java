@@ -6,10 +6,8 @@ import java.awt.event.MouseListener;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
 
-import Model.DataBase.BaseDeDonee;
 import Model.DataBase.ConnexionSQL;
 import Model.Utilisateur.Utilisateur;
-import View.AfficherUtilisateurs;
 import View.ViewManager;
 
 public class AfficherUtilisateursController implements MouseListener{

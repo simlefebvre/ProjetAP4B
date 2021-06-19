@@ -7,8 +7,6 @@ import java.awt.event.MouseListener;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
 
-import Model.Agenda.Reservation;
-import Model.DataBase.BaseDeDonee;
 import Model.DataBase.ConnexionSQL;
 import View.ViewManager;
 
