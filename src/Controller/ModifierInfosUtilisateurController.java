@@ -4,6 +4,7 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
 import javax.swing.JButton;
+import javax.swing.JCheckBox;
 import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
@@ -97,24 +98,21 @@ public class ModifierInfosUtilisateurController implements MouseListener{
 					}
 				}
 			
-				
+				boolean admin = false;
+				//Controle si case administrateur cochée ou non
+				for(JCheckBox cb : vm.pModifInfoUtil.getCB()) {
+					String cbname =cb.getName();
+					if(cbname.equals("CheckAdmin")) {
+						admin = cb.isSelected();
+					}
+				}
 				
 				//Sauvegarder les nouvelles informations dans la base de données
-				//TODO prendre en compte changement admin
-				
 				String mail = util.getMail();
 				if(nouveauMDP) {
-					if(util instanceof Administrateur) {
-						ConnexionSQL.modifUtil(mail, nom, prenom, NewMDP, true);
-					}else {
-						ConnexionSQL.modifUtil(mail, nom, prenom, NewMDP, false);
-					}
+					ConnexionSQL.modifUtil(mail, nom, prenom, NewMDP, admin);
 				}else {
-					if(util instanceof Administrateur) {
-						ConnexionSQL.modifUtil(mail, nom, prenom, true);
-					}else {
-						ConnexionSQL.modifUtil(mail, nom, prenom, false);
-					}
+					ConnexionSQL.modifUtil(mail, nom, prenom, admin);
 				}
 				
 				if(MainClass.connecte.getMail().equals(mail)){

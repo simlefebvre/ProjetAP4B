@@ -32,18 +32,12 @@ public class ModifierInfosUtilisateur {
 		page.addTextField("Nom : ","nom", util.getNom(), null, false);
 		page.addTextField("Prenom : ","prenom", util.getPrenom(), null, false);
 		
+		//Modifier les droits d'administrateur de l'utilisateur
+		//Uniquement si l'utilisateur connecté est administrateur
 		if(MainClass.connecte instanceof Administrateur) {
-			if(util instanceof Administrateur) {
-				page.addCheckBox("Administrateur : ", "CheckAdmin", true, false, null);
-			}else {
-				page.addCheckBox("Administrateur : ", "CheckAdmin", false, true, null);
-			}
+			page.addCheckBox("Administrateur : ", "CheckAdmin", util instanceof Administrateur, false, null);
 		}else {
-			if(util instanceof Administrateur) {
-				page.addCheckBox("Administrateur : ", "CheckAdmin", true, false, null);
-			}else {
-				page.addCheckBox("Administrateur : ", "CheckAdmin", false, true, null);
-			}
+			page.addCheckBox("Administrateur : ", "CheckAdmin", util instanceof Administrateur, true, null);
 		}
 		
 		page.addPasswordField("Saisir ancien mot de passe : ", "mdpAncien");

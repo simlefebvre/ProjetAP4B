@@ -249,7 +249,6 @@ public class ConnexionSQL {
 			 		+ "mot_de_passe = ?,"
 			 		+ "administrateur = ? "
 			 		+ "where utilisateur.mail = \"" + mail + "\";";
-		//TODO On change admin ?? Si on change, modif ModifierInfosUtilisateur
 		 
 		 try (PreparedStatement pstmt = conn.prepareStatement(sql)){
 			 pstmt.setString(1, nom);
@@ -271,7 +270,6 @@ public class ConnexionSQL {
 			 		+ "prenom = ?,"
 			 		+ "administrateur = ? "
 			 		+ "where utilisateur.mail = \"" + mail + "\";";
-		 //TODO On change admin ?? Si on change, modif ModifierInfosUtilisateur
 		 
 		 try (PreparedStatement pstmt = conn.prepareStatement(sql)){
 			 pstmt.setString(1, nom);
