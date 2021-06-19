@@ -12,7 +12,9 @@ import Model.Materiel.Ordinateur;
 import Model.Materiel.Tablette;
 import Model.Materiel.VideoProjecteur;
 import View.ViewManager;
-
+/**
+ * Controller permettant la gestion de la page du choix du type d'appareil
+ */
 public class ChoixAjoutMatController implements MouseListener{
 	
 	private ViewManager vm;
@@ -20,6 +22,10 @@ public class ChoixAjoutMatController implements MouseListener{
 		this.vm = vm;
 	}
 
+	/**
+	 * Evénement appelé lors d'un appuie sur le bouton valider ou annuler.<br> 
+	 * Créer un nouveau materiel vide du bon type si l'appuie et sur validé et qu'un type de materiel et choisi.
+	 */
 	@Override
 	public void mouseClicked(MouseEvent e) {
 		JButton but = (JButton) e.getSource();

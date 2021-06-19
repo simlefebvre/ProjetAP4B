@@ -13,7 +13,9 @@ import Model.Utilisateur.Administrateur;
 import Model.Utilisateur.Personnel;
 import Model.Utilisateur.Utilisateur;
 import View.ViewManager;
-
+/**
+ * Controller qui s'occupe de la page d'ajout d'un utilisateur
+ */
 public class AjoutUtilisateurController implements MouseListener{
 
 	private ViewManager vm;
@@ -22,6 +24,12 @@ public class AjoutUtilisateurController implements MouseListener{
 		this.vm = newvm;
 	}
 	
+	
+	/**
+	 * Fonction permettant de gérer le boutton annuler et lors d'un appuis sur le boutton valider la création d'un nouvel utilisateur avec les paramètres mis <br>
+	 * dans les text field
+	 * 
+	 */
 	@Override
 	public void mouseClicked(MouseEvent e) {
 		if (e.getSource() instanceof JButton) {

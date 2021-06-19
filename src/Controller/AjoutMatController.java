@@ -14,7 +14,9 @@ import Model.Materiel.Ordinateur;
 import Model.Materiel.Tablette;
 import Model.Materiel.VideoProjecteur;
 import View.ViewManager;
-
+/**
+ * Controller qui gère la page d'ajout d'un materiel
+ */
 public class AjoutMatController implements MouseListener {
 
 	
@@ -22,6 +24,11 @@ public class AjoutMatController implements MouseListener {
 	public AjoutMatController(ViewManager vm) {
 		this.vm = vm;
 	}
+	
+	
+	/**
+	 * Evénement qui gère les boutons d'annulation et de validation ainsi que la création d'un nouveau materiel
+	 */
 	@Override
 	public void mouseClicked(MouseEvent e) {
 		JButton but = (JButton) e.getSource();

@@ -9,14 +9,18 @@ import javax.swing.JOptionPane;
 
 import Model.DataBase.ConnexionSQL;
 import View.ViewManager;
-
+/**
+ * Controller qui gère les listes de réservation 
+ */
 public class AffReservationController implements MouseListener {
 
 	private ViewManager vm;
 	public AffReservationController(ViewManager vm){
 		this.vm = vm;
 	}
-	
+	/**
+	 * Evénement gérant les différentes fonctionnalité de la liste des réservation : ajout, suppression et le bouton retour
+	 */
 	@Override
 	public void mouseClicked(MouseEvent e) {
 		JButton but = (JButton) e.getSource();
@@ -28,6 +32,7 @@ public class AffReservationController implements MouseListener {
 			vm.pAffReserv.close();
 			vm.showMaterielDispo();
 		}else if(but.getName().contains("suppr")) {
+			//FIXME identifiant reservation
 			String num = name.substring(39);
 			String identifiantDate = name.substring(6, 38);
 			

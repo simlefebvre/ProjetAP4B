@@ -9,7 +9,9 @@ import javax.swing.JOptionPane;
 import Model.DataBase.ConnexionSQL;
 import Model.Utilisateur.Utilisateur;
 import View.ViewManager;
-
+/**
+ * Controller qui gère la page d'affichage du profil utilisateur
+ */
 public class AfficherUtilisateursController implements MouseListener{
 	
 	private ViewManager vm;
@@ -18,6 +20,10 @@ public class AfficherUtilisateursController implements MouseListener{
 		this.vm=vm;
 	}
 	
+	
+	/**
+	 * événement qui s'occupe des boutons de modification, de suppression et d'ajout d'un utilisateur
+	 */
 	@Override
 	public void mouseClicked(MouseEvent e) {
 		if (e.getSource() instanceof JButton) {

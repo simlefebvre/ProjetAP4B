@@ -10,22 +10,31 @@ import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
 import Model.DataBase.ConnexionSQL;
-import Model.Utilisateur.Administrateur;
 import Model.Utilisateur.Utilisateur;
 import View.ViewManager;
-
+/**
+ * Controller permettant la gestion de la modification d'un utilisateur
+ */
 public class ModifierInfosUtilisateurController implements MouseListener{
 	private ViewManager vm;
 	private Utilisateur util;
 	private String ouvertPar;
-
+	
+	/**
+	 * 
+	 * @param vm le view manager du projet
+	 * @param util l'utilisateur à modifier
+	 * @param ouvertPar l'utilisateur qui à ouvert la page
+	 */
 	public ModifierInfosUtilisateurController(ViewManager vm, Utilisateur util, String ouvertPar) {
 		this.vm = vm;
 		this.util = util;
 		this.ouvertPar = ouvertPar;
 	}
 	
-	
+	/**
+	 * Evenement permettant la gestion des boutons valider et retour qui modifie l'utilisateur si l'utilisateur qui ouvre la page possède les permissions nécéssaire. Cette fonction modifie ainsi l'utilisateur
+	 */
 	@Override
 	public void mouseClicked(MouseEvent e) {
 		if (e.getSource() instanceof JButton) {

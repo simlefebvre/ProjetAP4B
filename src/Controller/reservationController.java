@@ -15,7 +15,9 @@ import Model.Agenda.Reservation;
 import Model.DataBase.ConnexionSQL;
 import Model.Materiel.Materiel;
 import View.ViewManager;
-
+/**
+ * Controller qui gère l'ajout de reservations
+ */
 public class reservationController implements MouseListener {
 	
 	private ViewManager vm;
@@ -23,11 +25,11 @@ public class reservationController implements MouseListener {
 		this.vm = vm;
 	}
 
+	/**
+	 * Evenement appelé lors de l'appuie sur le bouton de validation ou d'anulation. Si le choix est de valider, la fonction vérifiera que tout les materiels sont libre durant la période demandé et génerera les réservations
+	 */
 	@Override
 	public void mouseClicked(MouseEvent e) {
-		
-		//Reservation.formatDate.format();
-		
 		Date erreur=null;
 		try {
 			erreur = Reservation.formatDate.parse("01/01/1900 00:00");

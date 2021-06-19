@@ -15,12 +15,19 @@ import Model.Materiel.Tablette;
 import Model.Materiel.VideoProjecteur;
 import View.ViewManager;
 
+/**
+ * Controller permettant la gestion des modifications d'un materiel
+ */
 public class ModifierInfoMaterielController implements MouseListener {
 
 	private ViewManager vm;
 	public ModifierInfoMaterielController(ViewManager vm) {
 		this.vm = vm;
 	}
+	
+	/**
+	 * Evénement appelé lors d'un appuie sur le bouton valider ou annuler. Lors d'un appuis sur valider, vérification du materiel et modification dans la base de données de ses caractéristiques.
+	 */
 	@Override
 	public void mouseClicked(MouseEvent e) {
 		JButton but = (JButton) e.getSource();

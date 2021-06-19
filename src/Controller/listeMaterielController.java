@@ -10,7 +10,9 @@ import javax.swing.JCheckBox;
 import Model.DataBase.ConnexionSQL;
 import Model.Materiel.Materiel;
 import View.ViewManager;
-
+/**
+ *  Controller gérant les appuies sur les bouttons dans la liste du materiel
+ */
 public class listeMaterielController implements MouseListener {
 
 	private ViewManager vm;
@@ -18,7 +20,9 @@ public class listeMaterielController implements MouseListener {
 	public listeMaterielController(ViewManager vm) {
 		this.vm = vm;
 	}
-
+	/**
+	 * Evénement appelé lors d'un appuie sur le boutton retour, reserver ou ajout et renvoie vers la bonne page tout en récuperant le materiel si le bouton sélectionné est Reservé.
+	 */
 	@Override
 	public void mouseClicked(MouseEvent e) {
 		if(e.getSource() instanceof JButton) {

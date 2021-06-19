@@ -10,7 +10,9 @@ import javax.swing.JOptionPane;
 import Model.DataBase.ConnexionSQL;
 import Model.Materiel.Materiel;
 import View.ViewManager;
-
+/**
+ * Controller qui gère la page de détail d'information d'un matériel
+ */
 public class AffInfoMatController implements MouseListener {
 
 	
@@ -19,6 +21,9 @@ public class AffInfoMatController implements MouseListener {
 		this.vm=vm;
 	}
 	
+	/**
+	 * Evénement qui s'occupe des bouttons de suppression, d'ajout et de modification d'un materiel
+	 */
 	@Override
 	public void mouseClicked(MouseEvent e) {
 		JButton but = (JButton) e.getSource();

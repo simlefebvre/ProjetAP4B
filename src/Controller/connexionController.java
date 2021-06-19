@@ -10,6 +10,9 @@ import Model.DataBase.ConnexionSQL;
 import Model.Utilisateur.Utilisateur;
 import View.ViewManager;
 
+/**
+ * Controller permettant la gestion de la page de connexion
+ */
 public class connexionController implements MouseListener {
 
 	private ViewManager vm;
@@ -18,7 +21,9 @@ public class connexionController implements MouseListener {
 		this.vm = vm;
 	}
 
-
+	/**
+	 * Evénement appelé lors de l'appuie sur connexion (qui teste le mot de passe et fait la connexion s'il est correct) ou sur mot de passe oublié
+	 */
 	@Override
 	public void mouseClicked(MouseEvent e) {
 		JButton bouton = (JButton) e.getSource();

@@ -7,7 +7,9 @@ import javax.swing.JButton;
 import javax.swing.JOptionPane;
 
 import View.ViewManager;
-
+/**
+ * Controller permettant la gestion du menu principal
+ */
 public class menuPersonnelControler implements MouseListener {
 
 	private ViewManager vm;
@@ -15,7 +17,10 @@ public class menuPersonnelControler implements MouseListener {
 	public menuPersonnelControler(ViewManager vm) {
 		this.vm = vm;
 	}
-
+	
+	/**
+	 * Evénement appelé lors d'un appuis sur l'un des boutons et redirrection vers la bonne page choisi
+	 */
 	@Override
 	public void mouseClicked(MouseEvent e) {
 		if (e.getSource() instanceof JButton) {
