@@ -19,7 +19,6 @@ public class ViewManager {
 	public AfficherInfosUtilisateur pProfil;
 	public AfficherUtilisateurs pAffUtilisateurs;
 	public AjoutReservation pAjoutReserv;
-	public AfficherUtilisateurs pUtilisateurs;
 	public AfficherInfosMateriel pAffInfosMat;
 	public ModifierInfosUtilisateur pModifInfoUtil;
 	public ChoixAjoutMateriel pChoixAjoutMat;

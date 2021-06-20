@@ -7,10 +7,10 @@ import Model.DataBase.ConnexionSQL;
  */
 public class Utilisateur {
 	// Attributs
-	private String prenom;
-	private String nom;
-	private String mail;
-	private String motDePasse;
+	protected String prenom;
+	protected String nom;
+	protected String mail;
+	protected String motDePasse;
 
 	// Constructeur
 	public Utilisateur(String prenomSaisi, String nomSaisi, String mailSaisi, String motpasse) {

@@ -76,26 +76,12 @@ public class Materiel {
 		this.salle = salle;
 	}
 		
-	/**
-	 * Méthode retournant la liste des Reservations dans la base de données
-	 * @return a liste des Reservations
-	 */
-	public LinkedList<Reservation> getReservations() {
-		return ConnexionSQL.getReservationMat(getID());
-	}
 	
-	/**
-	 * Méthode permettant l'ajout d'une réservation
-	 */
-	public void addReservation(Reservation r) {
-		ConnexionSQL.newReservation(r);
-	}
-	
-	
-	
+
 	/**
 	 * Méthode permettant de comparer deux matériels
-	 * @return o le deuxième matériel à comparer
+	 * @param o le deuxième matériel à comparer
+	 * @return true si les matériels sont égaux, false sinon
 	 */
 	@Override
 	public boolean equals(Object o) {
@@ -123,14 +109,6 @@ public class Materiel {
 			return 0;
 		}
 		return ConnexionSQL.getMateriels().getLast().getID() + 1;
-	}
-	
-	
-	public void supprimerAgenda(Utilisateur usr) {
-		String mail = usr.getMail();
-		for(Reservation r : ConnexionSQL.getReservationUsr(mail)) {
-			ConnexionSQL.delReservation(r.getID(), mail);
-		}
 	}
 	
 	
