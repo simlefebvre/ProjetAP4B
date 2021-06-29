@@ -447,7 +447,8 @@ public class ConnexionSQL {
 				if(rs.getBoolean(5)) {
 					return new Administrateur(rs.getString(3), rs.getString(2),rs.getString(1), rs.getString(4));
 				}else {
-					return new Personnel(rs.getString(3), rs.getString(2),rs.getString(1), rs.getString(4));
+					Personnel p = new Personnel(rs.getString(3), rs.getString(2),rs.getString(1), rs.getString(4));
+					return p;
 				}
 				
 			}
@@ -472,9 +473,9 @@ public class ConnexionSQL {
 				 ResultSet rs = stmt.executeQuery(sql)){
 					 while(rs.next()) {
 						 if(rs.getBoolean(5)) { 
-							 util.add(new Administrateur(rs.getString(1), rs.getString(2), rs.getString(1), rs.getString(4)));
+							 util.add(new Administrateur(rs.getString(3), rs.getString(2), rs.getString(1), rs.getString(4)));
 						 }else {
-							 util.add(new Personnel(rs.getString(1), rs.getString(2), rs.getString(1), rs.getString(4)));
+							 util.add(new Personnel(rs.getString(3), rs.getString(2), rs.getString(1), rs.getString(4)));
 						 }
 					 }
 		 }catch(SQLException e){

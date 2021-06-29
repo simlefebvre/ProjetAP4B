@@ -6,7 +6,7 @@
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/Aymeric/OneDrive - Universite De Technologie De Belfort-Montbeliard/INFO/Info02/AP4B/Projet/Projet/sqlite-jdbc-3.34.0.jar">
+	<classpathentry kind="lib" path="C:/Users/simon/OneDrive - Universite De Technologie De Belfort-Montbeliard/troiséme année/Info2/AP4/projet/Projet AP4B/ProjetAP4B/sqlite-jdbc-3.34.0.jar">
 		<attributes>
 			<attribute name="module" value="true"/>
 		</attributes>
